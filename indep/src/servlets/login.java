@@ -12,6 +12,7 @@ import java.io.PrintWriter;
  */
 //@WebServlet("/login")
 public class login extends HttpServlet {
+	// commit de prueba de herramienta integrada
 	private static final long serialVersionUID = 1L;
        
     /**
