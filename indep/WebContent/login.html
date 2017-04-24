@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Entrar</title>
+	<meta charset="UTF-8">
+	<title>Entrar</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/login.css" />
+  <script rel ="javascript" src="assets/js/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-	<form action="login" method="post">
-		<table>
-			<tr>
-				<td>User</td>
-				<td><input name="user" /></td>
-			</tr>
-			<tr>
-				<td>password</td>
-				<td><input name="password" /></td>
-			</tr>
-		</table>
-		<input type="submit" />
-	</form>
+<body>
+	<div class="login">
+    <h1>Login</h1>
+    <form method="post">
+      <input type="text" name="u" placeholder="Username" required="required" />
+        <input type="password" name="p" placeholder="Password" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+    </form>
+    <br>
+
+</div>
+</body>
 </html>
