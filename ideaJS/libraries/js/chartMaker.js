@@ -1,11 +1,9 @@
 var helperClass = (function() {
-    var divName = "chartdiv";
 
     return {
-        show : function () {
+        show : function (divName) {
             AmCharts.makeChart(divName, jsonMaker.pieData());
         }
     };
-
 
 })()
