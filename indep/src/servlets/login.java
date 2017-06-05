@@ -32,10 +32,11 @@ public class login extends HttpServlet {
 		String user = request.getParameter("user");
 		String pass = request.getParameter("password");
 		if ("admin".equals(user) && "admin".equals(pass)) {
-			response(response, "login ok");
+			response.sendRedirect("./app-tablero.html");
 		} else {
-			response(response, "invalid login");
+			response.sendRedirect("./login.html");
 		}
+		
 	}
 
 	/**

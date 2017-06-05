@@ -1,5 +1,6 @@
 <web-app> 
    <servlet> 
+	  <display-name>login</display-name>
       <servlet-name>login</servlet-name> 
       <servlet-class>servlets.login</servlet-class> 
    </servlet> 
