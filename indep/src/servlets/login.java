@@ -32,7 +32,7 @@ public class login extends HttpServlet {
 		String user = request.getParameter("user");
 		String pass = request.getParameter("password");
 		if ("admin".equals(user) && "admin".equals(pass)) {
-			response.sendRedirect("./app-tablero.html");
+			response.sendRedirect(request.getContextPath() + "/tablero");
 		} else {
 			response.sendRedirect("./login.html");
 		}
