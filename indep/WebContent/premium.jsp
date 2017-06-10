@@ -1,16 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
 <head>
-<meta charset="ISO-8859-1">
   <title>Control Financiero</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!--<link rel="stylesheet" href="estilos3.css">-->
+  <link rel="stylesheet" href="estilos4.css">
 </head>
 <body>
 
@@ -29,11 +27,11 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="./tablero.jsp">Tablero</a></li>
+        <li><a href="./tablero.jsp">Tablero</a></li>
         <li><a href="#">Gastos</a></li>
         <li><a href="#">Ingresos</a></li>
         <li><a href="#">Inversiones</a></li>
-        <li><a href="./premium.jsp">Premium</a></li>
+        <li class="active"><a href="./premium.jsp">Premium</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mi Cuenta</a></li>
@@ -42,32 +40,24 @@
     </div>
   </div>
 </nav>
- 
 
-<div class="container-fluid text-center">
-<%
-    Object total = request.getAttribute("total");
-	Object ingresos = request.getAttribute("ingresos");
-	Object egresos = request.getAttribute("egresos");
-%>
-  <h1> Mi posicion Actual es: <%=total%> </h1>
-  <img src="images/tablero-xl.png" class="img-responsive center-block"> 
+<div class="container-fluid text-center volver">
+  <h2>Tu Perfil de Inversion es: valorDelBackend</h2>
+  <a href="./premium-pf.jsp" class="btn btn-primary" role="button">Realizar el test de Inversion</a>
   <br>
   <br>
-  <br>
-  <br>
-  <br>
+  <a href="#" class="btn btn-info" role="button">Alternativa al Plazo fijo</a>
+  <a href="#" class="btn btn-info" role="button">Comprar dolares al mejor precio</a>
+  <a href="#" class="btn btn-info" role="button">Bonos Dolarizados</a>
+  <a href="#" class="btn btn-info" role="button">Acciones Recomendadas</a>
 </div>
 
-<div class="container-fluid text-center">
-  <a href="#" class="btn btn-primary" role="button">Evolucion</a>
-</div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
   <div class="container">
     <img src="images/banner2.jpg" class="img-responsive">
   </div>
-</nav>
+</div>
 
 </body>
 </html>

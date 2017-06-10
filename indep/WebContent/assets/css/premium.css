@@ -1,0 +1,164 @@
+#testInversor ul li {
+	font-size: 15px;
+	color: #666666;
+	background-color: #e3e3e3;
+	padding: 14px 48px 14px 38px;
+	margin: 0px 0px 1px 0px;
+	background-image: url(./images/flechagris.png);
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+
+#contentTxt .parrafoResaltado {
+    color: #6800ff;
+    font-size: 19px;
+    padding-top:10px;
+}
+
+#testInversor .boxResultado {
+    font-size: 15px;
+	color: #666666;
+	background-color: #e3e3e3;
+	margin: 0px 0px 1px 0px;
+	padding: 14px 24px 14px 24px;
+}
+
+
+#testInversor .resultadoTest
+{
+    font-size:14px;
+}
+
+#testInversor ul .perfilPreg_on {
+	background-color: #6800ff;
+	color: #fff;
+	background-image: url(./images/flechanaranja.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#testInversor ul .perfilPreg_anterior {
+
+	background-image: url(./images/flechagrisynaranja.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#testInversor ul .perfilPreg_off {
+	background-color: #6800ff;
+	color: #fff;
+	background-image: url(./images/arrowTestOn.gif);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#testContentNew .holderPregunta
+{
+	/*
+    padding-left: 100px;
+    */
+    padding-top: 15px;
+    /*
+    padding-right: 100px;
+    margin-bottom: 10px;
+    padding-bottom:15px;
+    display:inline-block;
+    text-align: left;
+    */
+}
+
+#testContent {
+	float: none;
+	width: 550px;
+	margin-top: 15px;
+}
+
+#testContentNew {
+	float: none;
+	text-align: center;
+	/*width: 550px;*/
+	margin-top: 15px;
+}
+
+#testContent h3,#testContentNew h3 {
+	color: #6800ff;
+	margin-bottom:15px;
+}
+
+
+#testContent .optTest a, #testContentNew .optTest a {
+	display: block;
+	text-decoration: none;
+	color: #666666;
+	/*
+	background-image: url(./images/arrowPerfilOff.gif);
+	background-repeat: no-repeat;
+	background-position: left center;
+	*/	
+	padding: 7px 30px 7px 35px;
+	margin-bottom: 10px;
+}
+#testContent .optTest a:hover, #testContentNew .optTest a:hover {
+	/*
+	background-image: url(./images/arrowPerfilOn.gif);
+	*/
+}
+#aclaracion {
+	color: #666;
+	padding-bottom: 20px;
+}
+#testContent .titPerfil, #testContentNew .titPerfil {
+	font-size: 18px;
+	color: #666;
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 5px;
+	margin-left: 0px;
+}
+#testContent .titPerfilResultado, #testContentNew .titPerfilResultado {
+	font-size: 18px;
+	color: #E96B31;
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 5px;
+	margin-left: 0px;
+}
+#testContent .txtPerfil, #testContentNew .txtPerfil {
+	font-size: 14px;
+	color: #666;
+}
+#testContent .txtPerfilSeparado, #testContentNew .txtPerfilSeparado {
+	font-size: 14px;
+	color: #666;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #EB7C43;
+	border-bottom-color: #EB7C43;
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+.btTestResultado {
+	background-color: #f26000;
+	background-image: url(./images/arrowComparar.gif);
+	background-repeat: no-repeat;
+	background-position: right;
+	width: 180px;
+	float: left;
+	padding-top: 3px;
+	padding-right: 5px;
+	padding-bottom: 3px;
+	padding-left: 5px;
+}
+#testInversor #testContent #testContentNew .btTestResultado a:link {
+	color: #FFF;
+	font-size: 11px;
+}
+
+.volver {
+	padding-top: 50px;
+}
