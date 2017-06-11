@@ -1,5 +1,8 @@
 package servlets;
 
+import charts.ChartData;
+import charts.ChartTablero;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/tablero")
 public class tablero extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final String ATTR_DATA_CHART = "chartData";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -35,6 +39,7 @@ public class tablero extends HttpServlet {
 	    request.setAttribute("total", total);
 	    request.setAttribute("ingresos", ingresos);
 	    request.setAttribute("egresos", egresos);
+		setAttributeChartDataForTablero(request);
 	    request.getRequestDispatcher("tablero.jsp").forward(request, response);
 	}
 
@@ -44,6 +49,12 @@ public class tablero extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+	}
+
+	private void setAttributeChartDataForTablero(HttpServletRequest request) {
+		ChartData chartData = new ChartTablero();
+
+		request.setAttribute(ATTR_DATA_CHART, chartData.getData());
 	}
 
 }

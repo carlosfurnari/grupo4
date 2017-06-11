@@ -10,7 +10,17 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="assets/js/amcharts/amcharts.js" type="text/javascript"></script>
+  <script src="assets/js/amcharts/serial.js" type="text/javascript"></script>
   <!--<link rel="stylesheet" href="estilos3.css">-->
+
+  <%
+    String serverContent = (String)request.getAttribute("chartData");
+  %>
+
+  <script>
+      AmCharts.makeChart("chart", <%=serverContent%>);
+  </script>
 </head>
 <body>
 
@@ -50,8 +60,7 @@
 	Object ingresos = request.getAttribute("ingresos");
 	Object egresos = request.getAttribute("egresos");
 %>
-  <h1> Mi posicion Actual es: <%=total%> </h1>
-  <img src="images/tablero-xl.png" class="img-responsive center-block"> 
+  <div id="chart" style="width: 100%; height: 200px;"></div>
   <br>
   <br>
   <br>
@@ -60,7 +69,7 @@
 </div>
 
 <div class="container-fluid text-center">
-  <a href="#" class="btn btn-primary" role="button">Evolucion</a>
+  <a href="#" class="btn btn-primary" role="button">Evolución</a>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
