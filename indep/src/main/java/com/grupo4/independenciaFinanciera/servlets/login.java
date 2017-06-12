@@ -28,13 +28,14 @@ public class login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		System.out.println("blabla");
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		String user = request.getParameter("user");
 		String pass = request.getParameter("password");
 		if ("admin".equals(user) && "admin".equals(pass)) {
 			response.sendRedirect(request.getContextPath() + "/tablero");
 		} else {
-			response.sendRedirect("./login.html");
+			response.sendRedirect("/login");
 		}
 		
 	}

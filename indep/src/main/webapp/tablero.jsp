@@ -13,6 +13,9 @@
   <script src="assets/js/amcharts/amcharts.js" type="text/javascript"></script>
   <script src="assets/js/amcharts/serial.js" type="text/javascript"></script>
   <!--<link rel="stylesheet" href="estilos3.css">-->
+  <script src="assets/js/jquery-1.11.1.js" type="text/javascript"></script> 
+  <script src="assets/js/ajax.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="assets/css/tablero.css" />
 
   <%
     String serverContent = (String)request.getAttribute("chartData");
@@ -40,7 +43,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="./tablero.jsp">Tablero</a></li>
-        <li><a href="#">Gastos</a></li>
+        <li><a id="gastos" href="#gastos">Gastos</a></li>
         <li><a href="#">Ingresos</a></li>
         <li><a href="#">Inversiones</a></li>
         <li><a href="./premium.jsp">Premium</a></li>
@@ -71,6 +74,8 @@
 <div class="container-fluid text-center">
   <a href="#" class="btn btn-primary" role="button">Evolución</a>
 </div>
+
+<div class="container"></div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
   <div class="container">

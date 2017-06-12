@@ -9,4 +9,7 @@
     <servlet-name>login</servlet-name>
     <url-pattern>/login</url-pattern>
   </servlet-mapping>-->
+  <error-page>
+        <location>/general-error.html</location>
+   </error-page>
 </web-app>
