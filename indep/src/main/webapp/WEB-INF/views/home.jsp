@@ -33,7 +33,7 @@
             <li><a href="#two">Como Funciona</a></li>
             <li><a href="#work">Servicios</a></li>
             <li><a href="#contact">Contacto</a></li>
-            <li><a href="login.html" class="button">Entrar</a></li>
+            <li><a href="./loginPage" class="button">Entrar</a></li>
         </ul>
     </nav>
 </header>

@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="assets/js/amcharts/amcharts.js" type="text/javascript"></script>
-  <script src="assets/js/amcharts/serial.js" type="text/javascript"></script>
+  <script src="../../assets/js/amcharts/amcharts.js" type="text/javascript"></script>
+  <script src="../../assets/js/amcharts/serial.js" type="text/javascript"></script>
   <!--<link rel="stylesheet" href="estilos3.css">-->
 
   <%
@@ -33,17 +33,17 @@
         <span class="icon-bar"></span>                        
       </button>
       <a class="navbar-brand">
-        <img alt="Brand" src="images/logo-inv.png" width="35px"> 
+        <img alt="Brand" src="../../images/logo-inv.png" width="35px">
       </a>
       <p class="navbar-text">Control Financiero</p>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="./tablero.jsp">Tablero</a></li>
+        <li class="active"><a href="tablero.jsp">Tablero</a></li>
         <li><a href="#">Gastos</a></li>
         <li><a href="#">Ingresos</a></li>
         <li><a href="#">Inversiones</a></li>
-        <li><a href="./premium.jsp">Premium</a></li>
+        <li><a href="../../premium.jsp">Premium</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mi Cuenta</a></li>
@@ -74,7 +74,7 @@
 
 <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
   <div class="container">
-    <img src="images/banner2.jpg" class="img-responsive">
+    <img src="../../images/banner2.jpg" class="img-responsive">
   </div>
 </nav>
 

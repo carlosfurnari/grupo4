@@ -11,16 +11,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Created by rumm on 11/06/17.
  */
 @Controller
-@RequestMapping("/")
 public class HomeController {
 
-    @Autowired
-    private MessageSource messageSource;
-
-    @RequestMapping(value = {"/", "/asd"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/"}, method = RequestMethod.GET)
     public String showHomePage(ModelMap model){
 
         return "home";
 
     }
+
 }
