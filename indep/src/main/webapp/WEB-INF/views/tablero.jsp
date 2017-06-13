@@ -19,10 +19,17 @@
 
   <%
     String serverContent = (String)request.getAttribute("chartData");
+    String monthlyChart = (String)request.getAttribute("monthlyChart");
   %>
 
   <script>
       AmCharts.makeChart("chart", <%=serverContent%>);
+  </script>
+
+  <script>
+    function showEvolucion() {
+        AmCharts.makeChart("chart", <%=monthlyChart%>)
+    }
   </script>
 </head>
 <body>
@@ -58,12 +65,7 @@
  
 
 <div class="container-fluid text-center">
-<%
-    Object total = request.getAttribute("total");
-	Object ingresos = request.getAttribute("ingresos");
-	Object egresos = request.getAttribute("egresos");
-%>
-  <div id="chart" style="width: 100%; height: 200px;"></div>
+  <div id="chart" style="width: 100%; height: 350px ;"></div>
   <br>
   <br>
   <br>
@@ -72,7 +74,7 @@
 </div>
 
 <div class="container-fluid text-center">
-  <a href="#" class="btn btn-primary" role="button">Evolución</a>
+  <input id="clickMe" class="btn btn-primary" role="button" type="button" value="Evolución" onclick="showEvolucion();" />
 </div>
 
 <div class="container"></div>
