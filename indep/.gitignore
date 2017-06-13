@@ -2,3 +2,15 @@
 .classpath
 .project
 .settings
+
+
+# Package Files #
+*.war
+*.ear
+
+#Idea files
+.idea/
+*.iml
+
+#Out files
+out/
