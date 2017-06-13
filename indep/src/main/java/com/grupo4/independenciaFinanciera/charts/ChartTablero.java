@@ -1,5 +1,8 @@
 package com.grupo4.independenciaFinanciera.charts;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 public class ChartTablero implements ChartData {
 
     private float income;
@@ -15,71 +18,69 @@ public class ChartTablero implements ChartData {
 
     //@Override
     public String getData() {
-        return "\t\t\t\t{\n" +
-                "\t\t\t\t\t\"type\": \"serial\",\n" +
-                "\t\t\t\t\t\"categoryField\": \"category\",\n" +
-                "\t\t\t\t\t\"rotate\": true,\n" +
-                "\t\t\t\t\t\"startDuration\": 1,\n" +
-                "\t\t\t\t\t\"categoryAxis\": {\n" +
-                "\t\t\t\t\t\t\"gridPosition\": \"start\"\n" +
-                "\t\t\t\t\t},\n" +
-                "\t\t\t\t\t\"trendLines\": [\n" +
-                "\t\t\t\t\t\t{\n" +
-                "\t\t\t\t\t\t\t\"id\": \"TrendLine-1\"\n" +
-                "\t\t\t\t\t\t}\n" +
-                "\t\t\t\t\t],\n" +
-                "\t\t\t\t\t\"graphs\": [\n" +
-                "\t\t\t\t\t\t{\n" +
-                "\t\t\t\t\t\t\t\"balloonText\": \"[[title]] of [[category]]:[[value]]\",\n" +
-                "\t\t\t\t\t\t\t\"fillAlphas\": 1,\n" +
-                "\t\t\t\t\t\t\t\"fillColors\": \"#5FC00B\",\n" +
-                "\t\t\t\t\t\t\t\"id\": \"AmGraph-1\",\n" +
-                "\t\t\t\t\t\t\t\"lineColor\": \"#5FC00B\",\n" +
-                "\t\t\t\t\t\t\t\"title\": \"graph 1\",\n" +
-                "\t\t\t\t\t\t\t\"type\": \"column\",\n" +
-                "\t\t\t\t\t\t\t\"valueField\": \"column-1\",\n" +
-                "\t\t\t\t\t\t\t\"visibleInLegend\": false\n" +
-                "\t\t\t\t\t\t},\n" +
-                "\t\t\t\t\t\t{\n" +
-                "\t\t\t\t\t\t\t\"balloonText\": \"[[title]] of [[category]]:[[value]]\",\n" +
-                "\t\t\t\t\t\t\t\"fillAlphas\": 1,\n" +
-                "\t\t\t\t\t\t\t\"fillColors\": \"#ED1313\",\n" +
-                "\t\t\t\t\t\t\t\"id\": \"AmGraph-2\",\n" +
-                "\t\t\t\t\t\t\t\"lineColor\": \"#ED1313\",\n" +
-                "\t\t\t\t\t\t\t\"title\": \"graph 2\",\n" +
-                "\t\t\t\t\t\t\t\"type\": \"column\",\n" +
-                "\t\t\t\t\t\t\t\"valueField\": \"column-2\"\n" +
-                "\t\t\t\t\t\t}\n" +
-                "\t\t\t\t\t],\n" +
-                "\t\t\t\t\t\"guides\": [],\n" +
-                "\t\t\t\t\t\"valueAxes\": [\n" +
-                "\t\t\t\t\t\t{\n" +
-                "\t\t\t\t\t\t\t\"id\": \"ValueAxis-1\",\n" +
-                "\t\t\t\t\t\t\t\"stackType\": \"100%\",\n" +
-                "\t\t\t\t\t\t\t\"gridColor\": \"#CC2525\",\n" +
-                "\t\t\t\t\t\t\t\"title\": \"\"\n" +
-                "\t\t\t\t\t\t},\n" +
-                "\t\t\t\t\t\t{\n" +
-                "\t\t\t\t\t\t\t\"id\": \"ValueAxis-2\"\n" +
-                "\t\t\t\t\t\t}\n" +
-                "\t\t\t\t\t],\n" +
-                "\t\t\t\t\t\"allLabels\": [],\n" +
-                "\t\"titles\": [\n" +
-                "\t\t{\n" +
-                "\t\t\t\"id\": \"Title-1\",\n" +
-                "\t\t\t\"size\": 15,\n" +
-                "\t\t\t\"text\": \"Mi posición Actual es: $" + this.total + "\"\n" +
-                "\t\t}\n" +
-                "\t],"+
-                "\t\t\t\t\t\"balloon\": {},\n" +
-                "\t\t\t\t\t\"dataProvider\": [\n" +
-                "\t\t\t\t\t\t{\n" +
-                "\t\t\t\t\t\t\t\"category\": \"\",\n" +
-                "\t\t\t\t\t\t\t\"column-1\": " + this.income + " ,\n" +
-                "\t\t\t\t\t\t\t\"column-2\": " + this.expenses + "\n" +
-                "\t\t\t\t\t\t}\n" +
-                "\t\t\t\t\t]\n" +
-                "\t\t\t\t}";
+        String jsonString = new JSONObject()
+                                .put("type", "serial")
+                                .put("categoryField", "category")
+                                .put("rotate", true)
+                .put("startDuration", 1)
+                .put("categoryAxis", new JSONObject()
+                    .put("gridPosition", "start")
+                )
+                .put("trendLines", new JSONArray()
+                    .put(new JSONObject()
+                            .put("id", "TrendLine-1")
+                        )
+                    )
+                .put("graphs", new JSONArray()
+                    .put(new JSONObject()
+                            .put("ballonText", "[[title]] of [[category]]:[[value]]")
+                            .put("fillAlphas", 1)
+                            .put("fillColors", "#5FC00B")
+                            .put("id", "AmGraph-1")
+                            .put("lineColor", "#5FC00B")
+                            .put("title", "graph 1")
+                            .put("type", "column")
+                            .put("valueField", "column-1")
+                        )
+                    .put(new JSONObject()
+                            .put("ballonText", "[[title]] of [[category]]:[[value]]")
+                            .put("fillAlphas", 1)
+                            .put("fillColors", "#ED1313")
+                            .put("id", "AmGraph-2")
+                            .put("lineColor", "#ED1313")
+                            .put("title", "graph 2")
+                            .put("type", "column")
+                            .put("valueField", "column-2")
+                        )
+                    )
+                .put("valueAxes", new JSONArray()
+                        .put(new JSONObject()
+                                .put("id", "ValueAxis-1")
+                                .put("stackType", "100%")
+                                .put("gridColor", "#CC2525")
+                                .put("title", "")
+                            )
+                        .put(new JSONObject()
+                                .put("id", "ValueAxis-2")
+                            )
+                    )
+                .put("titles", new JSONArray()
+                        .put(new JSONObject()
+                                .put("id", "Title-1")
+                                .put("size", 15)
+                                .put("text", "Mi posición Actual es: $" + this.total)
+                            )
+                    )
+                .put("dataProvider", new JSONArray()
+                        .put(new JSONObject()
+                                .put("category", "")
+                                .put("column-1", this.income)
+                                .put("column-2", this.expenses)
+                            )
+                    )
+                .toString();
+
+        return jsonString;
     }
 
     private float incomeValue() {
