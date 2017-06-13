@@ -1,10 +1,12 @@
 $(document).ready(function() {
-    $("#gastos").click(function(){
+    $("#listGastos").click(function(){
       //$('#container').load("show-gastos.jsp");
-       $.get('GastosServlet',{ action: null }, function(data) {
+       $.get('./listGasto',{ action: null }, function(data) {
     	   console.log(data);
     	   $('.container').html(data);         
     	});
+
+
     });
 
 });

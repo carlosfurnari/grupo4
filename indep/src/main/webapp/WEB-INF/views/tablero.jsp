@@ -42,8 +42,8 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="./tablero.jsp">Tablero</a></li>
-        <li><a id="gastos" href="#gastos">Gastos</a></li>
+        <li class="active"><a href="./tablero">Tablero</a></li>
+        <li><a id="listGastos" href="#gastos">Gastos</a></li>
         <li><a href="#">Ingresos</a></li>
         <li><a href="#">Inversiones</a></li>
         <li><a href="./premium.jsp">Premium</a></li>
