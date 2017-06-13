@@ -12,6 +12,7 @@ public class Gasto {
 	private boolean recurrente;
 	private FrecuenciaDeOperacion tipoDeFrec;
 	private Integer frecuencia;
+
 	public Categoria getCategoria() {
 		return categoria;
 	}

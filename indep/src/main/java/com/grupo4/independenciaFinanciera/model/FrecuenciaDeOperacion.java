@@ -1,5 +1,5 @@
 package com.grupo4.independenciaFinanciera.model;
 
 public enum FrecuenciaDeOperacion {
-	DIARIO, SEMANAL, QUINCENAL, MENSUAL, ANUAL;
+	UNICO, DIARIO, SEMANAL, QUINCENAL, MENSUAL, ANUAL;
 }

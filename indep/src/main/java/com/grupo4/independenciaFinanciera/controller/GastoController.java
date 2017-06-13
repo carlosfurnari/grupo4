@@ -1,6 +1,7 @@
 package com.grupo4.independenciaFinanciera.controller;
 
 import com.grupo4.independenciaFinanciera.model.Categoria;
+import com.grupo4.independenciaFinanciera.model.CategoriaEnum;
 import com.grupo4.independenciaFinanciera.model.Gasto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -50,7 +51,7 @@ public class GastoController {
 //        Gasto gasto = new Gasto();
 //        gasto.setDescripcion(request.getParameter( "desc" ) );
 //        gasto.setMonto( request.getParameter( "monto" ) );
-//        gasto.setCategoria( Categoria.valueOf(request.getParameter( "Cat" )) );
+//        gasto.setCategoriaEnum( CategoriaEnum.valueOf(request.getParameter( "Cat" )) );
 //        String gastoId = request.getParameter("gastoId");
 //
 //        if( gastoId == null || gastoId.isEmpty() )
@@ -69,12 +70,22 @@ public class GastoController {
     private List<Gasto> getMockedGastos() {
         Gasto gasto1 = new Gasto();
         gasto1.setDescripcion("desc1");
-        gasto1.setCategoria(Categoria.ALIMENTOS);
+        Categoria alimentos = new Categoria();
+        alimentos.setId("alimentos");
+        alimentos.setDescription("alimentos para comer");
+        alimentos.setNombre("alimentos");
+
+        gasto1.setCategoria(alimentos);
         gasto1.setMonto("200");
 
         Gasto gasto2 = new Gasto();
         gasto2.setDescripcion("desc2");
-        gasto2.setCategoria(Categoria.INDUMENTARIA);
+
+        Categoria indumentaria = new Categoria();
+        alimentos.setId("indumentaria");
+        alimentos.setDescription("indumentaria para vestir");
+        alimentos.setNombre("indumentaria");
+        gasto2.setCategoria(indumentaria);
         gasto2.setMonto("500");
         List<Gasto> result = new ArrayList<Gasto>();
         result.add(gasto1);
