@@ -1,4 +1,4 @@
-package com.indepfin.talledp.model;
+package com.grupo4.independenciaFinanciera.model;
 
 import java.util.Date;
 

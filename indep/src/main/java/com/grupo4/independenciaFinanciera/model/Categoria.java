@@ -1,4 +1,4 @@
-package com.indepfin.talledp.model;
+package com.grupo4.independenciaFinanciera.model;
 
 public enum Categoria {
 	CASA, AUTO, SERVICIOS, REGALOS, EDUCACION, INDUMENTARIA,

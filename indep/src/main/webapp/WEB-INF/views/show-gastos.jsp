@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <div>
-	<a href="carga-gastos.jsp" class="btn btn-circle btn-success" data-toggle="modal" data-target="#addGastoModal">+</a>
+	<a href="./insertGasto" class="btn btn-circle btn-success" data-toggle="modal" data-target="#addGastoModal">+</a>
     <div id="addGastoModal" class="modal fade text-center">
     	<div class="modal-dialog"> <div class="modal-content"> </div></div>
   	</div>
@@ -36,9 +36,9 @@
                     			<td><c:out value="${gasto.descripcion }" /></td>
                     			<td><c:out value="${gasto.monto }" /></td>
                     			<td><a
-                        			href="GastosServlet?action=edit&gastoId=<c:out value="${gasto.descripcion }"/>">Update</a></td>
+                        			href="./editGasto?gastoId=<c:out value="${gasto.descripcion }"/>">Update</a></td>
                     			<td><a
-                        			href="GastosServlet?action=delete&gastoId=<c:out value="${gasto.descripcion }"/>">Delete</a></td>
+                        			href="./deleteGasto?gastoId=<c:out value="${gasto.descripcion }"/>">Delete</a></td>
                 			</tr>
             			    </c:forEach>
         				</tbody>
