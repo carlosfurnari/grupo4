@@ -15,6 +15,7 @@
   <!--<link rel="stylesheet" href="estilos3.css">-->
   <script src="assets/js/jquery-1.11.1.js" type="text/javascript"></script> 
   <script src="assets/js/ajax.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="assets/css/main2.css" />
   <link rel="stylesheet" href="assets/css/tablero.css" />
 
   <%
@@ -80,7 +81,7 @@
 <div class="container"></div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-  <div class="container">
+  <div class="container crop">
     <img src="images/banner2.jpg" class="img-responsive">
   </div>
 </nav>

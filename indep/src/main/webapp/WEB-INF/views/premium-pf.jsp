@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../../assets/css/main2.css">
   <link rel="stylesheet" href="../../assets/css/premium.css">
 </head>
 <body>
@@ -273,8 +274,8 @@
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-  <div class="container">
-    <img src="../../images/banner2.jpg" class="img-responsive">
+  <div class="container crop">
+    <center><img src="../../images/bannerInv.png" class="img-responsive"></center>
   </div>
 </div>
 

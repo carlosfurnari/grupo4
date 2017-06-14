@@ -162,3 +162,43 @@
 .volver {
 	padding-top: 50px;
 }
+
+.fullWidth {width:100%!important}
+.medWidth {width:50%!important}
+.info {font-size:18px;padding:10px 0}
+.rend {padding-bottom: 10px}
+.info h3, .info h4 {color:#00a1b5}
+table.rendi {margin-bottom:20px;width:100%}
+table.rendi th {background:#000068;color:#fff;text-align:right}
+table.rendi th, table td {padding:6px}
+table.rendi td {text-align:right}
+table.rendi tr:nth-child(odd) {background: #f6f6f6}
+table.rendi td:first-child {text-align:left}
+table.rendi .bold {font-weight:bold}
+.red {color:#FF0029}
+.green {color:#64BA3C}
+.red, .green {font-size:14px}
+.rendi h5 {margin-bottom:4px}
+.rendi small {font-size:11px}
+table.lebacs th {padding:10px 0;font-size:18px;text-align:center}
+table.lebacs td {padding:6px 0;text-align:center}
+table.lebacs td small {font-size:12px;display:block}
+table.lebacs td span {font-weight:700;font-size:36px;display:block}
+small.date {display:block;margin:-12px 0 10px}
+table.lebacs tr:nth-child(even) {background: #f4f4f4}
+h2.main-title {font-size:40px;font-weight:700;margin-bottom:30px}
+h2 {font-size:32px;font-weight:700;margin-bottom:20px}
+h3 {font-size:28px;font-weight:700;margin-top:20px}
+h4 {font-size:21px;font-weight:700;margin-top:20px}
+.grayBox ul, .grayBox ul li {list-style:none;margin:0;padding:0}
+.grayBox ul li {padding:3px 0}
+.grayBox small {font-weight:400;font-size:15px;margin-top:30px;display:inline-block}
+.blueBg {background:#e4f3f5;padding:40px 0}
+.grayBg {background:#ccc}
+.cyanBg, .cyanBg:hover {background:#00a1b5;color:#fff}
+.magBg, .magBg:hover {background:#a30075;color:#fff}
+.head2 {color:#000068}
+
+.cuadro{
+	border: #cdcdcd medium solid;
+}

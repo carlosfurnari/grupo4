@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="estilos4.css">
+  <link rel="stylesheet" href="../../assets/css/main2.css">
+  <link rel="stylesheet" href="../../assets/css/premium.css">
 </head>
 <body>
 
@@ -46,7 +47,7 @@
   <a href="./premium-pf" class="btn btn-primary" role="button">Realizar el test de Inversion</a>
   <br>
   <br>
-  <a href="#" class="btn btn-info" role="button">Alternativa al Plazo fijo</a>
+  <a href="./premium-op1.html" class="btn btn-info" role="button">Alternativa al Plazo fijo</a>
   <a href="#" class="btn btn-info" role="button">Comprar dolares al mejor precio</a>
   <a href="#" class="btn btn-info" role="button">Bonos Dolarizados</a>
   <a href="#" class="btn btn-info" role="button">Acciones Recomendadas</a>
@@ -54,8 +55,8 @@
 
 
 <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-  <div class="container">
-    <img src="../../images/banner2.jpg" class="img-responsive">
+  <div class="container crop">
+    <center><img src="../../images/bannerInv.png" class="img-responsive"></center>
   </div>
 </div>
 
