@@ -47,6 +47,8 @@
             </ul>
         </nav>
     </header>
+    <h1>Login</h1>
+    <div><h1 class="login-error-container"></h1></div>
     <form id="login-form">
         <table>
             <tr>
@@ -60,7 +62,8 @@
         </table>
         <input type="submit" />
     </form>
-    <h1>register</h1>
+    <h1>Register</h1>
+    <div><h1 class="register-error-container"></h1></div>
     <form id="register-form">
         <table>
             <tr>

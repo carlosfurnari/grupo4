@@ -22,16 +22,16 @@ public class UserDao {
     }
 
     public User getUserByUsername(String id){
-        return this.userMap.get(id);
+        return this.userMap.get(id.toLowerCase());
     }
 
     public void addUser(User user){
-        this.userMap.put(user.getUsername(), user);
+        this.userMap.put(user.getUsername().toLowerCase(), user);
 
     }
 
     public void deleteUser(String username){
-        this.userMap.remove(username);
+        this.userMap.remove(username.toLowerCase());
     }
 
     public Set<User> getAllUsers(){
