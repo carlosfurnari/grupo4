@@ -29,4 +29,9 @@ public class PremiumController {
     public String showPremiumOp1(ModelMap modelMap){
         return "premium-op1";
     }
+
+    @RequestMapping(value = {"/premium-op2"}, method = RequestMethod.GET)
+    public String showPremiumOp2(ModelMap modelMap){
+        return "premium-op2";
+    }
 }
