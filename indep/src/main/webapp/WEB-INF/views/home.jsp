@@ -24,15 +24,20 @@
 
 <!-- Header -->
 <header id="header">
-    <img src="./images/logo.png" height="60px" width="60px" align="middle"/>
-    <h1 id="desp">Control Financiero</h1>
-    <nav>
+    <img src="images/logo.png">
+    <h1>Control Financiero</h1>
+    <nav id="all">
         <ul>
             <li><a href="#intro">Inicio</a></li>
             <li><a href="#one">Quines Somos</a></li>
             <li><a href="#two">Como Funciona</a></li>
             <li><a href="#work">Servicios</a></li>
             <li><a href="#contact">Contacto</a></li>
+            <li><a href="./loginPage" class="button">Entrar</a></li>
+        </ul>
+    </nav>
+    <nav id="only">
+        <ul>
             <li><a href="./loginPage" class="button">Entrar</a></li>
         </ul>
     </nav>

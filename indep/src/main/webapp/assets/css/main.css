@@ -1678,7 +1678,7 @@
 
 		#header h1 {
 			position: absolute;
-			left: 1em;
+            left: 60px;
 			top: 0;
 			height: 3em;
 			line-height: 3em;
@@ -1687,11 +1687,6 @@
 
 			#header h1 a {
 				font-size: 1.25em;
-			}
-			
-			#desp {
-			position: relative;
-			margin-left: 4em;
 			}
 
 		#header nav {
@@ -1722,6 +1717,14 @@
 						outline: 0;
 					}
 
+					#only {
+						display: none;
+					}
+
+                    #header img {
+	                    height: 50px;
+                    }
+
 		@media screen and (max-width: 736px) {
 
 			#header {
@@ -1731,8 +1734,8 @@
 
 				#header h1 {
 					text-align: center;
-					position: relative;
-					left: 0;
+                    position: center;
+                    left: 50px;
 					top: 0;
 					height: 2.5em;
 					line-height: 2.5em;
@@ -1742,9 +1745,28 @@
 						font-size: 1em;
 					}
 
-				#header nav {
-					display: none;
-				}
+            #all {
+                display: none;
+            }
+
+            #only {
+                display: block;
+            }
+
+            #header nav ul li a {
+                text-align: center;
+                position: relative;
+                left: 0;
+                top: 0;
+                height: 2.3em;
+                line-height: 2.3em;
+                padding: 0 0.5em 0 0.5em;
+                outline: 0;
+            }
+
+            #header img {
+                height: 40px;
+            }
 
 		}
 
