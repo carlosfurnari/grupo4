@@ -1,5 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+<%--
+  Created by IntelliJ IDEA.
+  User: Samsung
+  Date: 14/06/2017
+  Time: 14:59
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
     <title>Control Financiero</title>
     <meta charset="utf-8">
@@ -8,6 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../assets/css/main2.css">
     <link rel="stylesheet" href="../../assets/css/premium.css">
 </head>
 <body>
@@ -107,12 +115,12 @@
 </div>
 
 <div class="container-fluid">
-    <a href="#" class="btn btn-primary" role="button">Volver</a>
+    <a href="./premium" class="btn btn-primary" role="button">Volver</a>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
     <div class="container crop">
-        <center><img src="../../images/bannerInv.png" class="img-responsive"></center>
+        <center><img src="images/bannerInv.png" class="img-responsive"></center>
     </div>
     </div>
 
