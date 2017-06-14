@@ -15,6 +15,15 @@ public class Inversion {
     private boolean recurrente;
     private FrecuenciaDeOperacion tipoDeFrec;
     private Integer frecuencia;
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Categoria getCategoria() {
         return categoria;

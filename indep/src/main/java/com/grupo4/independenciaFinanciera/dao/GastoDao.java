@@ -1,7 +1,9 @@
 package com.grupo4.independenciaFinanciera.dao;
 
+import com.grupo4.independenciaFinanciera.config.Config;
 import com.grupo4.independenciaFinanciera.model.Gasto;
 import com.grupo4.independenciaFinanciera.model.Inversion;
+import com.grupo4.independenciaFinanciera.utils.MockLoader;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -20,8 +22,12 @@ public class GastoDao {
 
     public GastoDao(){
         super();
+        if (Config.USE_MOCKS){
+            this.gastoMap = MockLoader.getInstance().getGastoMocks();
+        }else {
+            this.gastoMap = new HashMap<String, Map<String, Gasto>>();
+        }
 
-        this.gastoMap = new HashMap<String, Map<String, Gasto>>();
 
     }
 
@@ -42,7 +48,7 @@ public class GastoDao {
         if (innerMap == null){
             innerMap = new HashMap<String, Gasto>();
         }
-
+        gasto.setId(String.valueOf(innerMap.values().size()));
         innerMap.put(gasto.getId(), gasto);
 
 
@@ -64,12 +70,9 @@ public class GastoDao {
         }
     }
 
-    public Set<Gasto> getAllGastosForUser(String username){
+    public Map<String, Gasto> getAllGastosForUser(String username){
         Map<String, Gasto> innerMap = this.gastoMap.get(username);
 
-        if (innerMap != null){
-            return new HashSet<Gasto>(innerMap.values());
-        }
-        return null;
+        return innerMap;
     }
 }
