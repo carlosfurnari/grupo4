@@ -1,8 +1,10 @@
 package com.grupo4.independenciaFinanciera.controller;
 
+import com.grupo4.independenciaFinanciera.dao.GastoDao;
 import com.grupo4.independenciaFinanciera.model.Categoria;
 import com.grupo4.independenciaFinanciera.model.CategoriaEnum;
 import com.grupo4.independenciaFinanciera.model.Gasto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +19,10 @@ import java.util.List;
  */
 @Controller
 public class GastoController {
+
+    @Autowired
+    private GastoDao gastoDao;
+
 
 
     @RequestMapping(value = {"/deleteGasto"}, method = RequestMethod.GET)

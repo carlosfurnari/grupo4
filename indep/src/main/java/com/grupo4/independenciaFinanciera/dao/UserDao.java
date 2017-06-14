@@ -1,6 +1,7 @@
 package com.grupo4.independenciaFinanciera.dao;
 
 import com.grupo4.independenciaFinanciera.model.User;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -10,6 +11,7 @@ import java.util.*;
  */
 
 @Component
+@Scope("singleton")
 public class UserDao {
 
     private Map<String, User> userMap;
