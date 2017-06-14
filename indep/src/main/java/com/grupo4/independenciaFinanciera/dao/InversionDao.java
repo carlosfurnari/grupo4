@@ -1,8 +1,10 @@
 package com.grupo4.independenciaFinanciera.dao;
 
+import com.grupo4.independenciaFinanciera.config.Config;
 import com.grupo4.independenciaFinanciera.model.Gasto;
 import com.grupo4.independenciaFinanciera.model.Inversion;
 import com.grupo4.independenciaFinanciera.model.User;
+import com.grupo4.independenciaFinanciera.utils.MockLoader;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -21,8 +23,11 @@ public class InversionDao {
 
     public InversionDao(){
         super();
-
-        this.inversionMap = new HashMap<String, Map<String, Inversion>>();
+        if (Config.USE_MOCKS){
+            this.inversionMap = MockLoader.getInstance().getInversionMocks();
+        }else {
+            this.inversionMap = new HashMap<String, Map<String, Inversion>>();
+        }
 
     }
 

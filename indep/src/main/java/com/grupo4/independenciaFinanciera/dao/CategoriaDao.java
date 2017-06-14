@@ -1,7 +1,9 @@
 package com.grupo4.independenciaFinanciera.dao;
 
+import com.grupo4.independenciaFinanciera.config.Config;
 import com.grupo4.independenciaFinanciera.model.Categoria;
 import com.grupo4.independenciaFinanciera.model.Gasto;
+import com.grupo4.independenciaFinanciera.utils.MockLoader;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -21,8 +23,12 @@ public class CategoriaDao {
 
     public CategoriaDao(){
         super();
+        if (Config.USE_MOCKS){
+            this.categoriaMap = MockLoader.getInstance().getCategoriaMocks();
+        }else {
+            this.categoriaMap = new HashMap<String, Map<String, Categoria>>();
+        }
 
-        this.categoriaMap = new HashMap<String, Map<String, Categoria>>();
 
     }
 

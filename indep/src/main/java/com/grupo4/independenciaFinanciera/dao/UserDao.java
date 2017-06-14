@@ -1,6 +1,8 @@
 package com.grupo4.independenciaFinanciera.dao;
 
+import com.grupo4.independenciaFinanciera.config.Config;
 import com.grupo4.independenciaFinanciera.model.User;
+import com.grupo4.independenciaFinanciera.utils.MockLoader;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +20,12 @@ public class UserDao {
 
     public UserDao(){
         super();
-        this.userMap = new HashMap<String, User>();
+        if (Config.USE_MOCKS){
+            this.userMap = MockLoader.getInstance().getUserMocks();
+        }else{
+
+            this.userMap = new HashMap<String, User>();
+        }
     }
 
     public User getUserByUsername(String id){
