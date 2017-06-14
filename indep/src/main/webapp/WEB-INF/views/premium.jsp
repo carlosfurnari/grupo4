@@ -47,10 +47,10 @@
   <a href="./premium-pf" class="btn btn-primary" role="button">Realizar el test de Inversion</a>
   <br>
   <br>
-  <a href="./premium-op1" class="btn btn-info" role="button">Alternativa al Plazo fijo</a>
+  <a href="./premium-op1" class="btn btn-success" role="button">Alternativa al Plazo fijo</a>
   <a href="#" class="btn btn-info" role="button">Comprar dolares al mejor precio</a>
   <a href="#" class="btn btn-info" role="button">Bonos Dolarizados</a>
-  <a href="#" class="btn btn-info" role="button">Acciones Recomendadas</a>
+  <a href="./premium-op2" class="btn btn-success" role="button">Invertir en Acciones</a>
 </div>
 
 

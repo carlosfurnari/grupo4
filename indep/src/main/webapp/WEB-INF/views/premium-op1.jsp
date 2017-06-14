@@ -35,11 +35,11 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li><a href="#">Tablero</a></li>
-                <li class="active"><a href="#">Gastos</a></li>
+                <li><a href="./tablero">Tablero</a></li>
+                <li><a href="#">Gastos</a></li>
                 <li><a href="#">Ingresos</a></li>
                 <li><a href="#">Inversiones</a></li>
-                <li><a href="#">Premium</a></li>
+                <li class="active"><a href="./premium">Premium</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mi Cuenta</a></li>
