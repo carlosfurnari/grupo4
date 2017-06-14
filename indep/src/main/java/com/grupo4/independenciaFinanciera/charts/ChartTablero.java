@@ -12,7 +12,7 @@ public class ChartTablero implements ChartData {
     public ChartTablero() {
         this.income = incomeValue();
         this.expenses = expensesValue();
-        this.total = income + expenses;
+        this.total = income - expenses;
     }
 
 
