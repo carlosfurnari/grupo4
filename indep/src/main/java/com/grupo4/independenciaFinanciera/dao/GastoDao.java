@@ -42,7 +42,7 @@ public class GastoDao {
         if (innerMap == null){
             innerMap = new HashMap<String, Gasto>();
         }
-
+        gasto.setId(String.valueOf(innerMap.values().size()));
         innerMap.put(gasto.getId(), gasto);
 
 
@@ -64,12 +64,9 @@ public class GastoDao {
         }
     }
 
-    public Set<Gasto> getAllGastosForUser(String username){
+    public Map<String, Gasto> getAllGastosForUser(String username){
         Map<String, Gasto> innerMap = this.gastoMap.get(username);
 
-        if (innerMap != null){
-            return new HashSet<Gasto>(innerMap.values());
-        }
-        return null;
+        return innerMap;
     }
 }

@@ -1,18 +1,21 @@
 package com.grupo4.independenciaFinanciera.controller;
 
 import com.grupo4.independenciaFinanciera.dao.GastoDao;
-import com.grupo4.independenciaFinanciera.model.Categoria;
-import com.grupo4.independenciaFinanciera.model.CategoriaEnum;
-import com.grupo4.independenciaFinanciera.model.Gasto;
+import com.grupo4.independenciaFinanciera.dto.GastoResponseDTO;
+import com.grupo4.independenciaFinanciera.dto.InversionesResponseDTO;
+import com.grupo4.independenciaFinanciera.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by rumm on 13/06/17.
@@ -24,54 +27,75 @@ public class GastoController {
     private GastoDao gastoDao;
 
 
-
-    @RequestMapping(value = {"/deleteGasto"}, method = RequestMethod.GET)
-    public String deleteGasto(@RequestParam String gastoId, ModelMap modelMap){
-        System.out.println("DELETE GASTO" + gastoId);
-        modelMap.addAttribute("gastos", getMockedGastos() );
-        return "show-gastos";
+    //muestra el jsp y nada mas
+    @RequestMapping(value = {"/gastoPage"}, method = RequestMethod.GET)
+    public String getGastosPage(){
+        return "./show-gastos";
     }
 
-    @RequestMapping(value = {"/editGasto"}, method = RequestMethod.GET)
-    public String editGasto(){
-//        System.out.println("EDIT gasto");
-//        int gastoId = Integer.parseInt( request.getParameter("gastoId") );
-//        request.setAttribute("gasto", null);
-//        String gastoId = request.getParameter("gastoId") ;
-        return "carga-gastos";
+    //borra un gasto
+    @RequestMapping(value = {"/deleteGasto"}, method = RequestMethod.POST)
+    @ResponseBody
+    public GastoResponseDTO deleteGasto(User user, Gasto gasto, HttpServletResponse response){
+        Gasto g = this.gastoDao.getGastoByUserAndGastoId(user.getUsername(), gasto.getId());
+        GastoResponseDTO gastoResponseDTO = new GastoResponseDTO();
+
+        if (g != null){
+            this.gastoDao.deleteGasto(user.getUsername(), gasto.getId());
+            gastoResponseDTO.setGasto(g);
+            return gastoResponseDTO;
+        }
+
+
+        response.setStatus(400);
+        gastoResponseDTO.setErrorMessage("No hay Gastos");
+        return gastoResponseDTO;
     }
 
-    @RequestMapping(value = {"/insertGasto"}, method = RequestMethod.GET)
-    public String insertGasto(){
-        return "carga-gastos";
+    //edita un gasto
+    @RequestMapping(value = {"/editGasto"}, method = RequestMethod.POST)
+    @ResponseBody
+    public GastoResponseDTO editGasto(User user, Gasto gasto, HttpServletResponse response){
+        Gasto g = this.gastoDao.getGastoByUserAndGastoId(user.getUsername(), gasto.getId());
+        GastoResponseDTO gastoResponseDTO = new GastoResponseDTO();
+
+        if (g != null){
+            this.gastoDao.updateGasto(user.getUsername(), gasto);
+            gastoResponseDTO.setGasto(g);
+            return gastoResponseDTO;
+        }
+
+
+        response.setStatus(400);
+        gastoResponseDTO.setErrorMessage("No hay gastos");
+        return gastoResponseDTO;
     }
 
+    //lista todos los gastos
     @RequestMapping(value = {"/listGasto"}, method = RequestMethod.GET)
-    public String listGasto(ModelMap modelMap){
-        modelMap.addAttribute("gastos", getMockedGastos() );
-        return "show-gastos";
+    @ResponseBody
+    public GastoResponseDTO listGasto(User user, HttpServletResponse response){
+        Map<String, Gasto> gasto = this.gastoDao.getAllGastosForUser(user.getUsername());
+        GastoResponseDTO gastoResponseDTO = new GastoResponseDTO();
+        if (gasto != null && !gasto.isEmpty()){
+            gastoResponseDTO.setGastos(gasto);
+            return gastoResponseDTO;
+        }
+        response.setStatus(400);
+        gastoResponseDTO.setErrorMessage("No hay inversiones");
+        return gastoResponseDTO;
     }
 
     @RequestMapping(value = {"/addGasto"}, method = RequestMethod.POST)
-    public String addGasto(){
-//        Gasto gasto = new Gasto();
-//        gasto.setDescripcion(request.getParameter( "desc" ) );
-//        gasto.setMonto( request.getParameter( "monto" ) );
-//        gasto.setCategoriaEnum( CategoriaEnum.valueOf(request.getParameter( "Cat" )) );
-//        String gastoId = request.getParameter("gastoId");
-//
-//        if( gastoId == null || gastoId.isEmpty() )
-//            //dao.addStudent(student);
-//            System.out.println("Add to database");
-//        else {
-//            gasto.setId( gastoId );
-//            //dao.updateStudent(student);
-//            System.out.println("update in database");
-//        }
+    @ResponseBody
+    public GastoResponseDTO addGasto(User user, Gasto gasto){
+        this.gastoDao.addGastoByUser(user.getUsername(), gasto);
+        GastoResponseDTO gastoResponseDTO = new GastoResponseDTO();
 
-        return "redirect:show-gastos";
+        gastoResponseDTO.setGasto(gasto);
+
+        return  gastoResponseDTO;
     }
-
 
     private List<Gasto> getMockedGastos() {
         Gasto gasto1 = new Gasto();

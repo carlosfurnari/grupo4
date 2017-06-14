@@ -26,7 +26,7 @@ public class InversionDao {
 
     }
 
-    public Inversion getGastoByUserAndGastoId(String username, String inversionId){
+    public Inversion getInversionByUserAndInversionId(String username, String inversionId){
         Map<String, Inversion> innerMap = this.inversionMap.get(username);
 
         if (innerMap != null){
@@ -36,20 +36,20 @@ public class InversionDao {
         return null;
     }
 
-    public void addGastoByUser(String username, Inversion inversion){
+    public void addInversionByUser(String username, Inversion inversion){
 
         Map<String, Inversion> innerMap = this.inversionMap.get(username);
 
         if (innerMap == null){
             innerMap = new HashMap<String, Inversion>();
         }
-
+        inversion.setId(String.valueOf(innerMap.values().size()));
         innerMap.put(inversion.getId(), inversion);
 
 
     }
 
-    public void deleteGasto(String username, String inversionId){
+    public void deleteInversion(String username, String inversionId){
         Map<String, Inversion> innerMap = this.inversionMap.get(username);
 
         if (innerMap != null){
@@ -57,7 +57,7 @@ public class InversionDao {
         }
     }
 
-    public void updateGasto(String username, Inversion inversion){
+    public void updateInversion(String username, Inversion inversion){
         Map<String, Inversion> innerMap = this.inversionMap.get(username);
 
         if (innerMap != null){
@@ -65,12 +65,9 @@ public class InversionDao {
         }
     }
 
-    public Set<Inversion> getAllInversionesForUser(String username){
+    public Map<String,Inversion> getAllInversionesForUser(String username){
         Map<String, Inversion> innerMap = this.inversionMap.get(username);
 
-        if (innerMap != null){
-            return new HashSet<Inversion>(innerMap.values());
-        }
-        return null;
+        return innerMap;
     }
 }

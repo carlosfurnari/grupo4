@@ -65,12 +65,9 @@ public class CategoriaDao {
         }
     }
 
-    public Set<Categoria> getAllCategoriasForUser(String username){
+    public Map<String, Categoria> getAllCategoriasForUser(String username){
         Map<String, Categoria> innerMap = this.categoriaMap.get(username);
 
-        if (innerMap != null){
-            return new HashSet<Categoria>(innerMap.values());
-        }
-        return null;
+        return innerMap;
     }
 }
