@@ -1,0 +1,6 @@
+html { margin-bottom: 80px }
+
+.crop img {
+    max-height: 80px;
+    position: center;
+}

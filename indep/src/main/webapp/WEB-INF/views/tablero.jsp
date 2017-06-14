@@ -15,6 +15,7 @@
   <!--<link rel="stylesheet" href="estilos3.css">-->
   <script src="assets/js/jquery-1.11.1.js" type="text/javascript"></script> 
   <script src="assets/js/ajax.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="assets/css/main2.css" />
   <link rel="stylesheet" href="assets/css/tablero.css" />
 
   <%
@@ -53,7 +54,7 @@
         <li><a id="listGastos" href="#gastos">Gastos</a></li>
         <li><a href="#">Ingresos</a></li>
         <li><a href="#">Inversiones</a></li>
-        <li><a href="./premium.jsp">Premium</a></li>
+        <li><a href="./premium">Premium</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mi Cuenta</a></li>
@@ -80,7 +81,7 @@
 <div class="container"></div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-  <div class="container">
+  <div class="container crop">
     <img src="images/banner2.jpg" class="img-responsive">
   </div>
 </nav>
