@@ -11,6 +11,7 @@
         String monthlyChartTablero = (String)request.getAttribute("monthlyChartTablero");
         String ingresosTablero = (String)request.getAttribute("ingresosTablero");
         String gastoPorCategoria = (String)request.getAttribute("gastoPorCategoria");
+        String gastosPorCategoriaDonut = (String)request.getAttribute("gastosPorCategoriaDonut");
     %>
 
     <script>
@@ -25,6 +26,9 @@
         }
         function showGastoPorCategoria() {
             AmCharts.makeChart("chart", <%=gastoPorCategoria%>);
+        }
+        function gastosPorCategoriaDonut() {
+            AmCharts.makeChart("chart", <%=gastosPorCategoriaDonut%>);
         }
     </script>
 </head>
@@ -42,6 +46,8 @@
                onclick="showIngresosNormal();" />
         <input id="gastoPorCategoria" class="btn btn-primary" role="button" type="button" value="gastoPorCategoria"
                onclick="showGastoPorCategoria();" />
+        <input id="gastosPorCategoriaDonut" class="btn btn-primary" role="button" type="button" value="gastosPorCategoriaDonut"
+               onclick="gastosPorCategoriaDonut();" />
     </div>
 </body>
 </html>

@@ -1,7 +1,8 @@
 package com.grupo4.independenciaFinanciera.controller;
 
 import com.grupo4.independenciaFinanciera.charts.ChartData;
-import com.grupo4.independenciaFinanciera.charts.IngresoDonutChart;
+import com.grupo4.independenciaFinanciera.charts.DonutChart;
+import com.grupo4.independenciaFinanciera.charts.helper.IngresoDonutData;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +13,7 @@ public class IngresoController {
 
     @RequestMapping(value = {"/ingresos"}, method = RequestMethod.GET)
     public String showIngresos(ModelMap modelMap){
-        ChartData ingresoChart = new IngresoDonutChart();
+        ChartData ingresoChart = new DonutChart(new IngresoDonutData());
 
         modelMap.addAttribute("chartData", ingresoChart.getData());
 

@@ -1,6 +1,6 @@
 package com.grupo4.independenciaFinanciera.dto;
 
-public class IngresoDTO {
+public class DonutDataDTO {
     private String tipo;
     private String valor;
 

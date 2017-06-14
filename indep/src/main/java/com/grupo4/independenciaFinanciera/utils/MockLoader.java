@@ -126,7 +126,7 @@ public class MockLoader {
         luz.setRecurrente(Boolean.FALSE);
 
         Gasto nafta = new Gasto();
-        nafta.setId("3");
+        nafta.setId("4");
         nafta.setDescripcion("Llene el tanque el miercoles");
         nafta.setCategoria(this.getCategoriasDefaultMocks().get("3"));
         nafta.setMonto("1500");
@@ -186,31 +186,31 @@ public class MockLoader {
             auto.setNombre("auto");
             auto.setDescription("auto");
             auto.setId("1");
-            this.categoriasDefaultMocks.put(supermercado.getId(), supermercado);
+            this.categoriasDefaultMocks.put(auto.getId(), auto);
 
             Categoria servicios = new Categoria();
             servicios.setNombre("servicios");
             servicios.setDescription("servicios");
             servicios.setId("2");
-            this.categoriasDefaultMocks.put(supermercado.getId(), supermercado);
+            this.categoriasDefaultMocks.put(servicios.getId(), servicios);
 
             Categoria salidas = new Categoria();
             salidas.setNombre("salidas");
             salidas.setDescription("salidas");
             salidas.setId("3");
-            this.categoriasDefaultMocks.put(supermercado.getId(), supermercado);
+            this.categoriasDefaultMocks.put(salidas.getId(), salidas);
 
             Categoria tarjeta = new Categoria();
             tarjeta.setNombre("tarjeta");
             tarjeta.setDescription("tarjeta");
             tarjeta.setId("4");
-            this.categoriasDefaultMocks.put(supermercado.getId(), supermercado);
+            this.categoriasDefaultMocks.put(tarjeta.getId(), tarjeta);
 
             Categoria plazoFijo = new Categoria();
             plazoFijo.setNombre("plazoFijo");
             plazoFijo.setDescription("plazoFijo");
             plazoFijo.setId("5");
-            this.categoriasDefaultMocks.put(supermercado.getId(), supermercado);
+            this.categoriasDefaultMocks.put(plazoFijo.getId(), plazoFijo);
 
 
         }
