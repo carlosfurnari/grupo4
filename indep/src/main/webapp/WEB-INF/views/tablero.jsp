@@ -53,7 +53,7 @@
         <li><a id="listGastos" href="#gastos">Gastos</a></li>
         <li><a href="#">Ingresos</a></li>
         <li><a href="#">Inversiones</a></li>
-        <li><a href="./premium.jsp">Premium</a></li>
+        <li><a href="./premium">Premium</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mi Cuenta</a></li>
