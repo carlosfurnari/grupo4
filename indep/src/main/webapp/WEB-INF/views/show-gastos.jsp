@@ -4,6 +4,7 @@
     <div id="addGastoModal" class="modal fade text-center">
     	<div class="modal-dialog"> <div class="modal-content"> </div></div>
   	</div>
+	<h1>Gastos</h1>
     <h1>Filtrar por categoria <small>(<i class="glyphicon glyphicon-filter"></i>)</small></h1>
     	<div class="row">
 			<div class="col-md-6">

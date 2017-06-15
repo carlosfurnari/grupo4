@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class IngresoController {
 
-    @RequestMapping(value = {"/ingresos"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/ingresosPage"}, method = RequestMethod.GET)
     public String showIngresos(ModelMap modelMap){
         ChartData ingresoChart = new DonutChart(new IngresoDonutData());
 

@@ -51,10 +51,10 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="./tablero">Tablero</a></li>
-        <li><a id="listGastos" href="#gastos">Gastos</a></li>
-        <li><a href="#">Ingresos</a></li>
-        <li><a href="#">Inversiones</a></li>
-        <li><a href="./premium">Premium</a></li>
+        <li><a id="showGastos" href="#gastos">Gastos</a></li>
+        <li><a id="showIngresos" href="#ingresos">Ingresos</a></li>
+        <li><a id="showInversiones" href="#inversiones">Inversiones</a></li>
+        <li><a id="showPremium" href="./premium">Premium</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mi Cuenta</a></li>
@@ -63,22 +63,23 @@
     </div>
   </div>
 </nav>
- 
 
-<div class="container-fluid text-center">
-  <div id="chart" style="width: 100%; height: 350px ;"></div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+
+
+<div class="main-container">
+  <div class="container-fluid text-center">
+    <div id="chart" style="width: 100%; height: 350px ;"></div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+
+  <div class="container-fluid text-center">
+    <input id="clickMe" class="btn btn-primary" role="button" type="button" value="Evolución" onclick="showEvolucion();" />
+  </div>
 </div>
-
-<div class="container-fluid text-center">
-  <input id="clickMe" class="btn btn-primary" role="button" type="button" value="Evolución" onclick="showEvolucion();" />
-</div>
-
-<div class="container"></div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
   <div class="container crop">

@@ -11,12 +11,13 @@ function doLogin(e) {
         data: formData,
         complete: function(data){
             var status = data['status'];
+            var responseObject = JSON.parse(data['responseText'])
             if (status != 200){
                 console.log(data['responseText']);
-                var responseObject = JSON.parse(data['responseText'])
                 var errorMessage = responseObject.errorMessage;
                 $('.login-error-container').html(errorMessage);
             }else {
+                localStorage.setItem("user", responseObject.user.username);
                 window.location.href = "./tablero";
             }
         },
@@ -39,12 +40,13 @@ function doRegister(e) {
         data: formData,
         complete: function(data){
                 var status = data['status'];
+                var responseObject = JSON.parse(data['responseText'])
                 if (status != 200){
                     console.log(data['responseText']);
-                    var responseObject = JSON.parse(data['responseText'])
                     var errorMessage = responseObject.errorMessage;
                     $('.register-error-container').html(errorMessage);
                 }else {
+                    localStorage.setItem("user", responseObject.user.username);
                     window.location.href = "./tablero";
                 }
             },

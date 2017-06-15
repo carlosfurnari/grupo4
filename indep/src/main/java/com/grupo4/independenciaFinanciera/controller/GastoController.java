@@ -28,8 +28,8 @@ public class GastoController {
 
 
     //muestra el jsp y nada mas
-    @RequestMapping(value = {"/gastoPage"}, method = RequestMethod.GET)
-    public String getGastosPage(){
+    @RequestMapping(value = {"/gastosPage"}, method = RequestMethod.GET)
+    public String getGastosPage(@RequestParam String username){
         return "./show-gastos";
     }
 
