@@ -12,30 +12,18 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="assets/js/amcharts/amcharts.js" type="text/javascript"></script>
   <script src="assets/js/amcharts/serial.js" type="text/javascript"></script>
-  <!--<link rel="stylesheet" href="estilos3.css">-->
-  <script src="assets/js/jquery-1.11.1.js" type="text/javascript"></script> 
+  <script src="assets/js/jquery-1.11.1.js" type="text/javascript"></script>
   <script src="assets/js/ajax.js" type="text/javascript"></script>
   <link rel="stylesheet" href="assets/css/main2.css" />
-  <link rel="stylesheet" href="assets/css/tablero.css" />
-
-  <%
-    String serverContent = (String)request.getAttribute("chartData");
-    String monthlyChart = (String)request.getAttribute("monthlyChart");
-  %>
-
-  <script>
-      AmCharts.makeChart("chart", <%=serverContent%>);
-  </script>
-
-  <script>
-    function showEvolucion() {
-        AmCharts.makeChart("chart", <%=monthlyChart%>)
-    }
-  </script>
+  <link rel="stylesheet" href="assets/css/font-awesome-4.7.0/css/font-awesome.css" />
+  <link rel="stylesheet" href="assets/css/w3.css" />
+  <style>
+    html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+  </style>
 </head>
-<body>
+<body class="w3-light-grey">
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse row">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -67,18 +55,91 @@
 
 
 <div class="main-container">
-  <div class="container-fluid text-center">
-    <div id="chart" style="width: 100%; height: 350px ;"></div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+  <%
+    String serverContent = (String)request.getAttribute("chartData");
+    String monthlyChart = (String)request.getAttribute("monthlyChart");
+  %>
+
+  <script>
+      AmCharts.makeChart("chart", <%=serverContent%>);
+
+      function showEvolucion() {
+          document.getElementById("chart").style.height="400px";
+          AmCharts.makeChart("chart", <%=monthlyChart%>);
+          document.getElementById("clickMe").value = "Tablero";
+          document.getElementById("clickMe").setAttribute( "onClick", "javascript: showTablero();" );
+      }
+
+      function showTablero() {
+          document.getElementById("chart").style.height="200px";
+          AmCharts.makeChart("chart", <%=serverContent%>);
+          document.getElementById("clickMe").value = "Evolución";
+          document.getElementById("clickMe").setAttribute( "onClick", "javascript: showEvolucion()" );
+      }
+  </script>
+
+  <div class="w3-main">
+
+    <!-- Header -->
+    <header class="w3-container" >
+      <h5><b><i class="fa fa-dashboard"></i> Mi Tablero</b></h5>
+    </header>
+
+    <div class="w3-row-padding w3-margin-bottom">
+      <div class="w3-quarter">
+        <div class="w3-container w3-teal w3-padding-16">
+          <div class="w3-left">
+            <h2>$40000</h2>
+          </div>
+          <div class="w3-right"><i class="fa fa-dollar w3-xxxlarge"></i></div>
+          <div class="w3-clear"></div>
+          <h4>Presupuesto Mensual</h4>
+        </div>
+      </div>
+      <div class="w3-quarter">
+        <div class="w3-container w3-red w3-padding-16">
+          <div class="w3-right"><i class="fa fa-pie-chart w3-xxxlarge"></i></div>
+          <div class="w3-left">
+            <h2>$8000</h2>
+          </div>
+          <div class="w3-clear"></div>
+          <h4>Gastos Mensuales Fijos</h4>
+        </div>
+      </div>
+      <div class="w3-quarter">
+        <div class="w3-container w3-orange w3-text-white w3-padding-16">
+          <div class="w3-right"><i class="fa fa fa-money w3-xxxlarge"></i></div>
+          <div class="w3-left">
+            <h2>$0</h2>
+          </div>
+          <div class="w3-clear"></div>
+          <h4>Gastos del Mes</h4>
+        </div>
+      </div>
+      <div class="w3-quarter">
+        <div class="w3-container w3-blue w3-padding-16">
+          <div class="w3-right"><i class="fa fa-suitcase w3-xxxlarge"></i></div>
+          <div class="w3-left">
+            <h2>$0</h2>
+          </div>
+          <div class="w3-clear"></div>
+          <h4>Ingresos Extraordinarios</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div id="chart" style="width: 100%; height: 200px ;"></div>
   </div>
 
   <div class="container-fluid text-center">
     <input id="clickMe" class="btn btn-primary" role="button" type="button" value="Evolución" onclick="showEvolucion();" />
   </div>
+  <br />
+  <br />
+  <br />
+  <br />
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
