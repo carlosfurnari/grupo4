@@ -18,6 +18,8 @@ public class MensualTablero implements ChartData {
                 .put("categoryAxis", new JSONObject()
                         .put("minPeriod", "MM")
                         .put("parseDates", true)
+                        .put("labelsEnabled", false)
+                        .put("inside", true)
                 )
                 .put("chartCursor", new JSONObject()
                         .put("enabled", true)
