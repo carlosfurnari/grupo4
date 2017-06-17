@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class PremiumController {
 
-    @RequestMapping(value = {"/premium"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/premiumPage"}, method = RequestMethod.GET)
     public String showPremium(ModelMap modelMap){
-        return "premium";
+        return "./show-premium";
     }
 
     @RequestMapping(value = {"/premium-pf"}, method = RequestMethod.GET)

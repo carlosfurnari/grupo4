@@ -42,7 +42,7 @@
         <li><a id="showGastos" href="#gastos">Gastos</a></li>
         <li><a id="showIngresos" href="#ingresos">Ingresos</a></li>
         <li><a id="showInversiones" href="#inversiones">Inversiones</a></li>
-        <li><a id="showPremium" href="./premium">Premium</a></li>
+        <li><a id="showPremium" href="#premium">Premium</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mi Cuenta</a></li>

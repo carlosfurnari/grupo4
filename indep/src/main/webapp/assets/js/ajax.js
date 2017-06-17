@@ -6,6 +6,7 @@ window.onload=function() {
     $("#showGastos").click(function(){switchInnerPage("gastos")});
     $("#showIngresos").click(function(){switchInnerPage("ingresos")});
     $("#showInversiones").click(function(){switchInnerPage("inversiones")});
+    $("#showPremium").click(function(){switchInnerPage("premium")});
     //$("#showPremium").click(switchInnerPage);
 }
 
