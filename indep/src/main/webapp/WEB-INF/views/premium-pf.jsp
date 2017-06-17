@@ -11,6 +11,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../../assets/css/main2.css">
   <link rel="stylesheet" href="../../assets/css/premium.css">
+  <script src="assets/js/premium.js" type="text/javascript"></script>
 </head>
 <body>
 
@@ -44,77 +45,6 @@
 </nav>
   
 <div id="testInversor" class="container-fluid text-center">
-    <script type="text/javascript"> 
-    var cantPreguntas = 5;
-    var pregActual    = 1;
-    var pregAnterior  = 0;
-    var resVisible    = null;
-    var acumPonderaciones = 0;
-
-    function seleccionaOpcion(ponderacionOpcion) {
-      acumPonderaciones += ponderacionOpcion;
-
-      if(pregAnterior > 0){
-        $("#preg_"+pregAnterior).removeClass("perfilPreg_anterior");
-      }
-      //apago pregunta actual
-      $("#preg_"+pregActual).removeClass("perfilPreg_on");
-      $("#holder_preg_"+pregActual).hide();
-    
-      pregAnterior++;
-      $("#preg_"+pregAnterior).addClass("perfilPreg_anterior");
-
-      //hay pregunta siguiente?
-      if (pregActual < cantPreguntas) {
-        //prendo pregunta siguiente
-        pregActual++; 
-        $("#holder_preg_"+pregActual).show();
-        $("#preg_"+pregActual).addClass("perfilPreg_on");
-      } else {
-        //prendo resultado
-        $("#preg_res").addClass("perfilPreg_on");
-
-        
-        if (acumPonderaciones  >= 0 &&  
-            acumPonderaciones  <= 20) {
-          $("#holder_res_1").show();
-          resVisible = 1;
-        }
-        
-        if (acumPonderaciones  >= 25 &&  
-            acumPonderaciones  <= 40) {
-          $("#holder_res_2").show();
-          resVisible = 2;
-        }
-        
-        if (acumPonderaciones  >= 45 &&  
-            acumPonderaciones  <= 50) {
-          $("#holder_res_3").show();
-          resVisible = 3;
-        }
-        
-      }
-    }
-
-    function reiniciarTest() {
-      $("#preg_res").removeClass("perfilPreg_on");
-      $("#preg_"+pregAnterior).removeClass("perfilPreg_anterior");
-      $("#holder_res_"+resVisible).hide();
-      resVisible = null;
-
-      //apago pregunta actual
-      $("#preg_"+pregActual).removeClass("perfilPreg_on");
-      $("#holder_preg_"+pregActual).hide();
-
-      pregActual    = 1;
-      pregAnterior    = 0;
-      acumPonderaciones = 0;
-
-      $("#holder_preg_"+pregActual).show();
-      $("#preg_"+pregActual).addClass("perfilPreg_on");
-    }
-
-    </script>
     <ul style="display:inline;" class="hidden-xs">
       <li class="perfilPreg_on" id="preg_1" style="display:inline-block;">Pregunta 1</li>
       <li class="" id="preg_2" style="display:inline-block;">Pregunta 2</li>
