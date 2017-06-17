@@ -14,9 +14,11 @@
   <script src="assets/js/amcharts/serial.js" type="text/javascript"></script>
   <script src="assets/js/jquery-1.11.1.js" type="text/javascript"></script>
   <script src="assets/js/ajax.js" type="text/javascript"></script>
+  <script src="assets/js/premium.js" type="text/javascript"></script>
   <link rel="stylesheet" href="assets/css/main2.css" />
   <link rel="stylesheet" href="assets/css/font-awesome-4.7.0/css/font-awesome.css" />
   <link rel="stylesheet" href="assets/css/w3.css" />
+  <link rel="stylesheet" href="../../assets/css/premium.css">
   <style>
     html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </style>

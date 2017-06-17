@@ -7,6 +7,7 @@ var pregActual    = 1;
 var pregAnterior  = 0;
 var resVisible    = null;
 var acumPonderaciones = 0;
+var perfil = "Desconocido";
 
 function seleccionaOpcion(ponderacionOpcion) {
     acumPonderaciones += ponderacionOpcion;
@@ -34,18 +35,21 @@ function seleccionaOpcion(ponderacionOpcion) {
 
         if (acumPonderaciones  >= 0 &&
             acumPonderaciones  <= 20) {
+            perfil = "Conservador";
             $("#holder_res_1").show();
             resVisible = 1;
         }
 
         if (acumPonderaciones  >= 25 &&
             acumPonderaciones  <= 40) {
+            perfil = "Moderado";
             $("#holder_res_2").show();
             resVisible = 2;
         }
 
         if (acumPonderaciones  >= 45 &&
             acumPonderaciones  <= 50) {
+            perfil = "Arriesgado";
             $("#holder_res_3").show();
             resVisible = 3;
         }
@@ -69,4 +73,15 @@ function reiniciarTest() {
 
     $("#holder_preg_"+pregActual).show();
     $("#preg_"+pregActual).addClass("perfilPreg_on");
+}
+
+function mostrarTest() {
+    $("#main-premium").hide();
+    $("#testInversor").show();
+}
+
+function volver() {
+    $("#testInversor").hide();
+    document.getElementById("perfil-out").innerHTML = perfil;
+    $("#main-premium").show();
 }
