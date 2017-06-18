@@ -25,7 +25,7 @@
 </head>
 <body class="w3-light-grey">
 
-<nav class="navbar navbar-inverse row">
+<nav class="navbar-inverse row">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -56,7 +56,7 @@
 
 
 
-<div class="main-container">
+<div class="main-container" style="height: 90%">
   <%
     String serverContent = (String)request.getAttribute("chartData");
     String monthlyChart = (String)request.getAttribute("monthlyChart");

@@ -6,18 +6,35 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<div id="main-premium">
-    <div class="container-fluid text-center">
-        <script>
-            document.getElementById("perfil-out").innerHTML = perfil;
-        </script>
-        <h2>Tu Perfil de Inversion es: <p id="perfil-out"></p></h2>
-        <button onclick="mostrarTest()">Realizar el test de Inversion</button>
-        <br>
-        <h3> Recomendaciones para tu perfil </h3>
-        <br>
-        <button onclick="mostrarTest()">Realizar el test de Inversion</button>
+<div id="main-premium" style="height: 100%">
+    <style>
+        body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+        body, html {
+            height: 100%;
+            line-height: 1.8;
+        }
+        /* Full height image header */
+        .bgimg-1 {
+            background-position: center;
+            background-size: cover;
+            background-image: url("/images/cashbook-blog1.jpg");
+            min-height: 100%;
+        }
+
+    </style>
+
+    <div class="container-fluid  bgimg-1" >
     </div>
+
+
+        <div class="w3-display-left w3-text-white" style="padding:48px">
+            <span class="w3-jumbo w3-black w3-padding-large w3-text-white w3-large w3-margin-top w3-opacity-min">Descubre tu perfil de inversión</span><br>
+            <span class="w3-xxlarge w3-black w3-padding-large w3-text-white w3-large w3-margin-top w3-opacity-min">Con tan solo 5 preguntas</span><br>
+            <p><a href="#about"
+                  class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off"
+                  onclick="mostrarTest()">Comenzar test</a></p>
+        </div>
+
 </div>
 
 <div id="testInversor" class="container-fluid text-center" style="display:none">
