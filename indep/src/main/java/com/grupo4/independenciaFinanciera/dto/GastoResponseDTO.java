@@ -3,6 +3,7 @@ package com.grupo4.independenciaFinanciera.dto;
 import com.grupo4.independenciaFinanciera.model.Gasto;
 import com.grupo4.independenciaFinanciera.model.Inversion;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -10,17 +11,26 @@ import java.util.Map;
  */
 public class GastoResponseDTO {
 
-    private Map<String, Gasto> gastos;
+    private List<GastoDTO> gastos;
     private String errorMessage;
 
     //se usa cuando queremos devolver un solo gasto
     private Gasto gasto;
+    private List<GastoCategorizadoDTO> gastoByCategoria;
 
-    public Map<String, Gasto> getGastos() {
+    public List<GastoCategorizadoDTO> getGastoByCategoria() {
+        return gastoByCategoria;
+    }
+
+    public void setGastoByCategoria(List<GastoCategorizadoDTO> gastoByCategoria) {
+        this.gastoByCategoria = gastoByCategoria;
+    }
+
+    public List<GastoDTO> getGastos() {
         return gastos;
     }
 
-    public void setGastos(Map<String, Gasto> gastos) {
+    public void setGastos(List<GastoDTO> gastos) {
         this.gastos = gastos;
     }
 

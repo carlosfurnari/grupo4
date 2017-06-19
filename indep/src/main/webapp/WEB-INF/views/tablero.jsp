@@ -15,7 +15,11 @@
   <script src="assets/js/jquery-1.11.1.js" type="text/javascript"></script>
   <script src="assets/js/ajax.js" type="text/javascript"></script>
   <script src="assets/js/premium.js" type="text/javascript"></script>
+  <script src="assets/js/tablero.js" type="text/javascript"></script>
+  <script src="assets/js/gastos.js" type="text/javascript"></script>
+  <script src="assets/js/jspkg-archive/jquery.dynatable.js" type="text/javascript"></script>
   <link rel="stylesheet" href="assets/css/main2.css" />
+  <link rel="stylesheet" href="assets/js/jspkg-archive/jquery.dynatable.css" />
   <link rel="stylesheet" href="assets/css/font-awesome-4.7.0/css/font-awesome.css" />
   <link rel="stylesheet" href="assets/css/w3.css" />
   <link rel="stylesheet" href="../../assets/css/premium.css">
