@@ -2,13 +2,13 @@ package com.grupo4.independenciaFinanciera.dto;
 
 public class GastoCategorizadoDTO {
     private String Categoria;
-    private String monto;
+    private Integer monto;
 
-    public String getMonto() {
+    public Integer getMonto() {
         return monto;
     }
 
-    public void setMonto(String monto) {
+    public void setMonto(Integer monto) {
         this.monto = monto;
     }
 

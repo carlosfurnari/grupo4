@@ -69,19 +69,19 @@ public class GastoPorCategoria implements ChartData {
 
         GastoCategorizadoDTO dato1 = new GastoCategorizadoDTO();
         dato1.setCategoria("Casa");
-        dato1.setMonto("5000");
+        dato1.setMonto(5000);
         GastoCategorizadoDTO dato2 = new GastoCategorizadoDTO();
         dato2.setCategoria("Alimentos");
-        dato2.setMonto("9000");
+        dato2.setMonto(9000);
         GastoCategorizadoDTO dato3 = new GastoCategorizadoDTO();
         dato3.setCategoria("Salidas");
-        dato3.setMonto("3000");
+        dato3.setMonto(3000);
         GastoCategorizadoDTO dato4 = new GastoCategorizadoDTO();
         dato4.setCategoria("Servicios");
-        dato4.setMonto("6250");
+        dato4.setMonto(6250);
         GastoCategorizadoDTO dato5 = new GastoCategorizadoDTO();
         dato5.setCategoria("Auto");
-        dato5.setMonto("4100");
+        dato5.setMonto(4100);
 
         list.add(dato1);
         list.add(dato2);

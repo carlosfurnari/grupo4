@@ -1,19 +1,20 @@
 package com.grupo4.independenciaFinanciera.controller;
 
 import com.grupo4.independenciaFinanciera.dao.GastoDao;
+import com.grupo4.independenciaFinanciera.dto.GastoCategorizadoDTO;
+import com.grupo4.independenciaFinanciera.dto.GastoDTO;
 import com.grupo4.independenciaFinanciera.dto.GastoResponseDTO;
 import com.grupo4.independenciaFinanciera.dto.InversionesResponseDTO;
 import com.grupo4.independenciaFinanciera.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -74,16 +75,65 @@ public class GastoController {
     //lista todos los gastos
     @RequestMapping(value = {"/listGasto"}, method = RequestMethod.GET)
     @ResponseBody
-    public GastoResponseDTO listGasto(User user, HttpServletResponse response){
-        Map<String, Gasto> gasto = this.gastoDao.getAllGastosForUser(user.getUsername());
+    public GastoResponseDTO listGasto(@RequestParam String username, HttpServletResponse response){
+        Map<String, Gasto> gasto = this.gastoDao.getAllGastosForUser(username);
         GastoResponseDTO gastoResponseDTO = new GastoResponseDTO();
         if (gasto != null && !gasto.isEmpty()){
-            gastoResponseDTO.setGastos(gasto);
+            gastoResponseDTO.setGastos(this.mapGastoToGastoDTO(gasto));
             return gastoResponseDTO;
         }
         response.setStatus(400);
-        gastoResponseDTO.setErrorMessage("No hay inversiones");
+        gastoResponseDTO.setErrorMessage("No hay gastos");
         return gastoResponseDTO;
+    }
+
+    @RequestMapping(value = {"/listGastoByCategoria"}, method = RequestMethod.GET)
+    @ResponseBody
+    public GastoResponseDTO listGastoByCategoria(@RequestParam String username, HttpServletResponse response){
+        Map<String, Gasto> gasto = this.gastoDao.getAllGastosForUser(username);
+        GastoResponseDTO gastoResponseDTO = new GastoResponseDTO();
+        if (gasto != null && !gasto.isEmpty()){
+            gastoResponseDTO.setGastoByCategoria(this.getGastoByCategoria(gasto));
+            return gastoResponseDTO;
+        }
+        response.setStatus(400);
+        gastoResponseDTO.setErrorMessage("No hay gastos");
+        return gastoResponseDTO;
+    }
+
+    private List<GastoCategorizadoDTO> getGastoByCategoria(Map<String, Gasto> gasto) {
+        Map<String, GastoCategorizadoDTO> map = new HashMap<>();
+        for (Gasto g : gasto.values()){
+            GastoCategorizadoDTO dto = map.get(g.getCategoria().getNombre());
+            if (dto == null){
+                dto = new GastoCategorizadoDTO();
+                dto.setCategoria(g.getCategoria().getNombre());
+                dto.setMonto(0);
+                map.put(dto.getCategoria(), dto);
+            }
+            dto.setMonto(dto.getMonto() + Integer.parseInt(g.getMonto()));
+
+        }
+        List<GastoCategorizadoDTO> result = new ArrayList<GastoCategorizadoDTO>(map.values());
+        return result;
+
+    }
+
+
+    private List<GastoDTO> mapGastoToGastoDTO(Map<String, Gasto> gasto) {
+        SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
+        List<GastoDTO> result = new ArrayList<GastoDTO>();
+        for (Gasto g : gasto.values()){
+            GastoDTO dto = new GastoDTO();
+            dto.setCategoria(g.getCategoria().getNombre());
+            dto.setCategoriaId(g.getCategoria().getId());
+            dto.setDescripcion(g.getDescripcion());
+            dto.setId(g.getId());
+            dto.setMonto(g.getMonto());
+            dto.setFecha(DATE_FORMAT.format(g.getFecha()));
+            result.add(dto);
+        }
+        return result;
     }
 
     @RequestMapping(value = {"/addGasto"}, method = RequestMethod.POST)
@@ -95,32 +145,6 @@ public class GastoController {
         gastoResponseDTO.setGasto(gasto);
 
         return  gastoResponseDTO;
-    }
-
-    private List<Gasto> getMockedGastos() {
-        Gasto gasto1 = new Gasto();
-        gasto1.setDescripcion("desc1");
-        Categoria alimentos = new Categoria();
-        alimentos.setId("alimentos");
-        alimentos.setDescription("alimentos para comer");
-        alimentos.setNombre("alimentos");
-
-        gasto1.setCategoria(alimentos);
-        gasto1.setMonto("200");
-
-        Gasto gasto2 = new Gasto();
-        gasto2.setDescripcion("desc2");
-
-        Categoria indumentaria = new Categoria();
-        alimentos.setId("indumentaria");
-        alimentos.setDescription("indumentaria para vestir");
-        alimentos.setNombre("indumentaria");
-        gasto2.setCategoria(indumentaria);
-        gasto2.setMonto("500");
-        List<Gasto> result = new ArrayList<Gasto>();
-        result.add(gasto1);
-        result.add(gasto2);
-        return result;
     }
 
 
