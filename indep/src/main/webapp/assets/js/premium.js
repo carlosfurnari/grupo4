@@ -9,6 +9,7 @@ var resVisible    = null;
 var acumPonderaciones = 0;
 var perfil = "Desconocido";
 
+
 function seleccionaOpcion(ponderacionOpcion) {
     acumPonderaciones += ponderacionOpcion;
 
@@ -101,4 +102,28 @@ function mostrarRecomendacion() {
     } else {
         $("#reco-agresivo").show();
     }
+}
+
+function volverL() {
+    $("#lebacs").hide();
+    $("#main-premium").show();
+}
+
+function volverA() {
+    $("#acciones").hide();
+    $("#main-premium").show();
+}
+
+function mostrarDolar() {
+    mostrarLebacs();
+}
+
+function mostrarLebacs() {
+    $("#main-premium").hide();
+    $("#lebacs").show();
+}
+
+function mostrarAcciones() {
+    $("#main-premium").hide();
+    $("#acciones").show();
 }

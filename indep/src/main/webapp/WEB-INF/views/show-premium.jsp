@@ -43,17 +43,20 @@
 
     <div id="reco-conservador" style="display:none;" class="w3-padding-small">
         <div style="display:inline-block">
-            <button id="con-1"><img src="images/dolar.PNG"></button>
-            <button id="con-2"><img src="images/lebacs.PNG"></button>
+            <button id="con-1" onclick="mostrarDolar()"><img src="images/dolar.PNG"></button>
+            <button id="con-2" onclick="mostrarLebacs()"><img src="images/lebacs.PNG"></button>
         </div>
     </div>
 
     <div id="reco-moderado" style="display:none;" class="w3-padding-small">
-        <button id="mod-1"><img src="images/bonos.PNG"></button>
+        <div style="display:inline-block">
+            <button id="mod-1" onclick="mostrarBonos()"><img src="images/bonos.PNG"></button>
+            <button id="mod-2" onclick="mostrarFCI()"><img src="images/fci.PNG"></button>
+        </div>
     </div>
 
     <div id="reco-agresivo" style="display:none;" class="w3-padding-small">
-        <button id="agre-1"><img src="images/acciones.PNG"></button>
+        <button id="agre-1" onclick="mostrarAcciones()"><img src="images/acciones.PNG"></button>
     </div>
 </div>
 
@@ -214,4 +217,159 @@
 
     <button onclick="volver()">Volver</button>
 
+</div>
+
+<div id="lebacs" class="container-fluid text-center" style="display:none">
+    <div class="container-fluid">
+        <div class="grayBox">
+            <h2 class="main-title">Invierta en LEBACS</h2>
+            <ul>
+                <li><i class="fa fa-check-circle"></i> RENTA FIJA EN PESOS</li>
+                <li><i class="fa fa-check-circle"></i> MEJOR RENTA QUE UN PLAZO FIJO</li>
+                <li><i class="fa fa-check-circle"></i> SE PUEDE SALIR EN EL MOMENTO QUE QUIERA</li>
+                <li><i class="fa fa-check-circle"></i> SE HACE DE FORMA ONLINE SIN MOVERSE DE SU CASA</li>
+            </ul>
+        </div>
+        <h3>¿Qué es una LEBAC?</h2>
+            <p>Las Letras del Banco Central (LEBACs) son títulos de deuda que emite la entidad monetaria a corto plazo, y que dependiendo la licitación los mismo oscilan entre los 28 y los 273 días de vencimiento.<br>
+                Tienen como objetivo, entre otras cosas bajar la demanda del dólar y bajar la inflación. Se licitan una vez por mes y el total del capital más intereses se paga al vencimiento.<br>
+                Para quienes no hayan podido licitar dentro de las fechas correspondientes, es posible comprarlas en el mercado secundario como cualquier otro instrumento de renta fija.</p>
+
+            <h3>¿Cómo se operan?</h3>
+            <p>Mediante un banco o un agente de Bolsa. Recomendamos el agente de bolsa ya que suele tener comisiones menores. Agentes recomendados: A1, A2, A3.</p>
+            <h3>¿Hay un mínimo sugerido?</h3>
+            <p>Recomendamos invertir un mínimo de $ 50.000</p>
+    </div>
+
+    <div class="container-fluid info">
+        <div class="col-xs-12 col-sm-6">
+            <h3>Rendimientos</h3>
+            <p>Los rendimientos de las LEBAC varían en cada licitación. <br>El precio de suscripción de las LEBAC, que determina cual será el rendimiento del instrumento, se determina a través del sistema de subasta holandesa.</p>
+            <h4>Se opera en dos tramos: </h4>
+            <p>Competitivo, en donde ofertan grandes operadores y que define el precio de corte, y el no competitivo, en donde los adjudicatarios aceptan el precio de corte determinado en el tramo competitivo</p>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <h3>Cuadro Comparativo</h3>
+            <br>
+            <small class="date">Actualizado al 13.06.2017</small>
+            <table class="fullWidth lebacs">
+                <thead>
+                <tr>
+                    <th class="magBg">LEBACS</th>
+                    <th class="cyanBg">Plazo Fijo</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <small>28 días</small>
+                        <span>24.25%</span>
+                    </td>
+                    <td>
+                        <small>35 días</small>
+                        <span>17.50%</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <small>98 días</small>
+                        <span>22.50%</span>
+                    </td>
+                    <td>
+                        <small>98 días</small>
+                        <span>18.50%</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <button id="volv2" onclick="volverL()">Volver</button>
+    </div>
+</div>
+
+<div id="acciones" class="container-fluid text-center" style="display:none">
+    <div class="container-fluid">
+        <h1 class="slogan">Invertir en acciones, aprendé a comprar y operar acciones</h1>
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-center main-title">¿Por qué hay que invertir en Acciones?</h2>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <h4><i class="fa fa-check-square-o" aria-hidden="true"></i> Es muy fácil, ágil y sencillo</h4>
+                <h4><i class="fa fa-check-square-o" aria-hidden="true"></i> No se requieren conocimientos previos sobre finanzas</h4>
+                <h4><i class="fa fa-check-square-o" aria-hidden="true"></i> Podes comenzar a operar con una inversión mínima</h4>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <h4><i class="fa fa-check-square-o" aria-hidden="true"></i> Podés ser socio de grandes compañías</h4>
+                <h4><i class="fa fa-check-square-o" aria-hidden="true"></i> Realizá un seguimiento en tiempo real mediante Internet</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid rend">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="head2">Rendimiento Histórico Anual</h2>
+                <table class="medWidth rendi">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Dólar oficial</th>
+                        <th>Plazo Fijo</th>
+                        <th>Merval</th>
+                        <th>Inmuebles m2</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="bold">
+                        <td>Rendimiento acumulado</td>
+                        <td class="red">203%</td>
+                        <td class="red">100%</td>
+                        <td class="green">414%</td>
+                        <td class="red">182%</td>
+                    </tr>
+                    <tr>
+                        <td> Junio 2016 </td>
+                        <td> 15% </td>
+                        <td> 14% </td>
+                        <td> 26% </td>
+                        <td> 3% </td>
+                    </tr>
+                    <tr>
+                        <td> 2015 </td>
+                        <td> 52% </td>
+                        <td> 23% </td>
+                        <td> 36% </td>
+                        <td> 23% </td>
+                    </tr>
+                    <tr>
+                        <td> 2014 </td>
+                        <td> 31% </td>
+                        <td> 22% </td>
+                        <td> 59% </td>
+                        <td> 44% </td>
+                    </tr>
+                    <tr>
+                        <td> 2013 </td>
+                        <td> 33% </td>
+                        <td> 16% </td>
+                        <td> 89% </td>
+                        <td> 55% </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <h5>Fuente</h5>
+                <small>Acciones, MERVAL: Bolsar </small> -
+                <small>Plazo fijo y dólar: BCRA</small><br>
+                <small>Inmuebles: Incluye renta mensual del 5% nominal anual. Precio del m2 valuado en pesos a dólar blue hasta 12/2015, luego dólar oficial.</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <button id="volv3" onclick="volverA()">Volver</button>
+    </div>
 </div>
