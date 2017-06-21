@@ -29,9 +29,28 @@
     <div class="container-fluid ">
         <script>
             document.getElementById("perfil-out").innerHTML = perfil;
+            if (perfil !== "Desconocido"){
+                mostrarRecomendacion();
+            }
         </script>
         <span>Recomendaciones para tu perfil <span class="w3-margin-left w3-text-purple" id="perfil-out"></span></span>
         <br>
+    </div>
+
+    <div id="reco-default">
+        <h2>Conoce tu perfil para obtener tus recomendaciones</h2>
+    </div>
+
+    <div id="reco-conservador" style="display:none">
+        <h2>Recomendaciones para Consevador</h2>
+    </div>
+
+    <div id="reco-moderado" style="display:none">
+        <h2>Recomendaciones para moderado</h2>
+    </div>
+
+    <div id="reco-agresivo" style="display:none">
+        <h2>Recomendaciones para agresivo</h2>
     </div>
 </div>
 

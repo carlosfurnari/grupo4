@@ -84,4 +84,18 @@ function volver() {
     $("#testInversor").hide();
     document.getElementById("perfil-out").innerHTML = perfil;
     $("#main-premium").show();
+    if (perfil !== "Desconocido"){
+        mostrarRecomendacion();
+    }
+}
+
+function mostrarRecomendacion() {
+    $("#reco-default").hide();
+    if (perfil === "Conservador"){
+        $("#reco-conservador").show();
+    } else if (perfil === "Moderado"){
+        $("#reco-moderado").show();
+    } else {
+        $("#reco-agresivo").show();
+    }
 }
