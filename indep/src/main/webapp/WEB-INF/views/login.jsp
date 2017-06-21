@@ -38,12 +38,11 @@
         <h1 id="desp">Control Financiero</h1>
         <nav>
             <ul>
-                <li><a href="#intro">Inicio</a></li>
-                <li><a href="#one">Quiénes Somos</a></li>
-                <li><a href="#two">Cómo Funciona</a></li>
-                <li><a href="#work">Servicios</a></li>
-                <li><a href="#contact">Contacto</a></li>
-                <li><a href="./loginPage" class="button">Entrar</a></li>
+                <li><a href="/#intro">Inicio</a></li>
+                <li><a href="/#one">Quiénes Somos</a></li>
+                <li><a href="/#two">Cómo Funciona</a></li>
+                <li><a href="/#work">Servicios</a></li>
+                <li><a href="/#contact">Contacto</a></li>
             </ul>
         </nav>
     </header>
