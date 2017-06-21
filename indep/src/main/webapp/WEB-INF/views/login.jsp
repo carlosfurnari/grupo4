@@ -34,7 +34,7 @@
 
 <!-- Header -->
     <header id="header">
-        <img src="./images/logo.png" height="60px" width="60px" align="middle"/>
+        <img src="./images/logo.png"/>
         <h1 id="desp">Control Financiero</h1>
         <nav>
             <ul>
