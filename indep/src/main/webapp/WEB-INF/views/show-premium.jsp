@@ -42,15 +42,15 @@
     </div>
 
     <div id="reco-conservador" style="display:none">
-        <h2>Recomendaciones para Consevador</h2>
+        <button id="con-1"><img src="images/dolar.PNG"></button>
     </div>
 
     <div id="reco-moderado" style="display:none">
-        <h2>Recomendaciones para moderado</h2>
+        <button id="mod-1"><img src="images/bonos.PNG"></button>
     </div>
 
     <div id="reco-agresivo" style="display:none">
-        <h2>Recomendaciones para agresivo</h2>
+        <button id="agre-1"><img src="images/acciones.PNG"></button>
     </div>
 </div>
 

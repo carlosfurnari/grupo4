@@ -91,6 +91,9 @@ function volver() {
 
 function mostrarRecomendacion() {
     $("#reco-default").hide();
+    $("#reco-conservador").hide();
+    $("#reco-moderado").hide();
+    $("#reco-agresivo").hide();
     if (perfil === "Conservador"){
         $("#reco-conservador").show();
     } else if (perfil === "Moderado"){
