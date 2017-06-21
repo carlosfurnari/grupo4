@@ -9,6 +9,7 @@ var resVisible    = null;
 var acumPonderaciones = 0;
 var perfil = "Desconocido";
 
+
 function seleccionaOpcion(ponderacionOpcion) {
     acumPonderaciones += ponderacionOpcion;
 
@@ -82,5 +83,47 @@ function mostrarTest() {
 
 function volver() {
     $("#testInversor").hide();
+    document.getElementById("perfil-out").innerHTML = perfil;
     $("#main-premium").show();
+    if (perfil !== "Desconocido"){
+        mostrarRecomendacion();
+    }
+}
+
+function mostrarRecomendacion() {
+    $("#reco-default").hide();
+    $("#reco-conservador").hide();
+    $("#reco-moderado").hide();
+    $("#reco-agresivo").hide();
+    if (perfil === "Conservador"){
+        $("#reco-conservador").show();
+    } else if (perfil === "Moderado"){
+        $("#reco-moderado").show();
+    } else {
+        $("#reco-agresivo").show();
+    }
+}
+
+function volverL() {
+    $("#lebacs").hide();
+    $("#main-premium").show();
+}
+
+function volverA() {
+    $("#acciones").hide();
+    $("#main-premium").show();
+}
+
+function mostrarDolar() {
+    mostrarLebacs();
+}
+
+function mostrarLebacs() {
+    $("#main-premium").hide();
+    $("#lebacs").show();
+}
+
+function mostrarAcciones() {
+    $("#main-premium").hide();
+    $("#acciones").show();
 }
