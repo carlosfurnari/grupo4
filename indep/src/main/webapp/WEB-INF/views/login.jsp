@@ -39,8 +39,8 @@
         <nav>
             <ul>
                 <li><a href="#intro">Inicio</a></li>
-                <li><a href="#one">Quines Somos</a></li>
-                <li><a href="#two">Como Funciona</a></li>
+                <li><a href="#one">Quiénes Somos</a></li>
+                <li><a href="#two">Cómo Funciona</a></li>
                 <li><a href="#work">Servicios</a></li>
                 <li><a href="#contact">Contacto</a></li>
                 <li><a href="./loginPage" class="button">Entrar</a></li>
@@ -52,35 +52,35 @@
     <form id="login-form">
         <table>
             <tr>
-                <td>User</td>
-                <td><input name="username" /></td>
+                <td>Usuario</td>
+                <td><input type="text" name="username" /></td>
             </tr>
             <tr>
-                <td>password</td>
-                <td><input name="password" /></td>
+                <td>Contraseña</td>
+                <td><input type="password" name="password" /></td>
             </tr>
         </table>
-        <input type="submit" />
+        <input type="submit" value="Iniciar Sesión"/>
     </form>
-    <h1>Register</h1>
+    <h1>Registrarse</h1>
     <div><h1 class="register-error-container"></h1></div>
     <form id="register-form">
         <table>
             <tr>
-                <td>User</td>
-                <td><input name="username" /></td>
+                <td>Usuario</td>
+                <td><input type="text" name="username" /></td>
             </tr>
             <tr>
-                <td>password</td>
-                <td><input name="password" /></td>
+                <td>Contraseña</td>
+                <td><input type="password" name="password" /></td>
             </tr>
 
             <tr>
-                <td>email</td>
-                <td><input name="email" /></td>
+                <td>Correo</td>
+                <td><input type="text" name="email" /></td>
             </tr>
         </table>
-        <input type="submit" />
+        <input type="submit" value="Registrarse" />
     </form>
 
 
