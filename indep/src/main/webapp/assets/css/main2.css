@@ -4,3 +4,7 @@ html { margin-bottom: 80px }
     max-height: 80px;
     position: center;
 }
+
+.crop2 {
+    max-height: 160px;
+}

@@ -9,35 +9,34 @@
 <div id="main-premium" style="height: 100%">
     <style>
         body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
-        body, html {
-            height: 100%;
-            line-height: 1.8;
-        }
         /* Full height image header */
         .bgimg-1 {
-            background-position: center;
-            background-size: cover;
             background-image: url("/images/cashbook-blog1.jpg");
-            min-height: 100%;
+            height:150px;
+            width:100%;
         }
 
     </style>
 
-    <div class="container-fluid  bgimg-1" >
+    <div class="container-fluid  bgimg-1" style="">
+        <span class="w3-jumbo w3-black w3-padding w3-text-white w3-large w3-margin-top w3-opacity-min tit">Descubre tu perfil de inversión</span><br>
+        <span class="w3-xxlarge w3-black w3-padding-small w3-text-white w3-large w3-margin-top w3-opacity-min tit">
+            Con tan solo 5 preguntas
+            <button class="w3-button w3-white w3-large w3-margin-left w3-opacity-min w3-hover-opacity-off" onclick="mostrarTest()">Realizar el test de Inversion</button>
+        </span>
     </div>
 
-
-        <div class="w3-display-left w3-text-white" style="padding:48px">
-            <span class="w3-jumbo w3-black w3-padding-large w3-text-white w3-large w3-margin-top w3-opacity-min">Descubre tu perfil de inversión</span><br>
-            <span class="w3-xxlarge w3-black w3-padding-large w3-text-white w3-large w3-margin-top w3-opacity-min">Con tan solo 5 preguntas</span><br>
-            <p><a href="#about"
-                  class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off"
-                  onclick="mostrarTest()">Comenzar test</a></p>
-        </div>
-
+    <div class="container-fluid ">
+        <script>
+            document.getElementById("perfil-out").innerHTML = perfil;
+        </script>
+        <span>Recomendaciones para tu perfil <span class="w3-margin-left w3-text-purple" id="perfil-out"></span></span>
+        <br>
+    </div>
 </div>
 
 <div id="testInversor" class="container-fluid text-center" style="display:none">
+    <br>
     <ul style="display:inline;" class="hidden-xs">
         <li class="perfilPreg_on" id="preg_1" style="display:inline-block;">Pregunta 1</li>
         <li class="" id="preg_2" style="display:inline-block;">Pregunta 2</li>

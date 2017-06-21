@@ -82,5 +82,6 @@ function mostrarTest() {
 
 function volver() {
     $("#testInversor").hide();
+    document.getElementById("perfil-out").innerHTML = perfil;
     $("#main-premium").show();
 }
