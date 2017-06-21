@@ -11,8 +11,8 @@
         body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
         body, html {
             height: 100%;
-            line-height: 1.8;
         }
+
         /* Full height image header */
         .bgimg-1 {
             background-position: center;
@@ -29,6 +29,7 @@
 
         <div class="w3-display-left w3-text-white" style="padding:48px">
             <span class="w3-jumbo w3-black w3-padding-large w3-text-white w3-large w3-margin-top w3-opacity-min">Descubre tu perfil de inversión</span><br>
+            <br/>
             <span class="w3-xxlarge w3-black w3-padding-large w3-text-white w3-large w3-margin-top w3-opacity-min">Con tan solo 5 preguntas</span><br>
             <p><a href="#about"
                   class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off"
