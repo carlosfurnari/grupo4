@@ -33,7 +33,7 @@
                 mostrarRecomendacion();
             }
         </script>
-        <span>Recomendaciones para tu perfil <span class="w3-margin-left w3-text-purple" id="perfil-out"></span></span>
+        <span class="w3-xxlarge w3-gray w3-padding-small w3-text-black w3-large">Recomendaciones para tu perfil <span class="w3-margin-left w3-text-purple" id="perfil-out"></span></span>
         <br>
     </div>
 
@@ -41,15 +41,18 @@
         <h2>Conoce tu perfil para obtener tus recomendaciones</h2>
     </div>
 
-    <div id="reco-conservador" style="display:none">
-        <button id="con-1"><img src="images/dolar.PNG"></button>
+    <div id="reco-conservador" style="display:none;" class="w3-padding-small">
+        <div style="display:inline-block">
+            <button id="con-1"><img src="images/dolar.PNG"></button>
+            <button id="con-2"><img src="images/lebacs.PNG"></button>
+        </div>
     </div>
 
-    <div id="reco-moderado" style="display:none">
+    <div id="reco-moderado" style="display:none;" class="w3-padding-small">
         <button id="mod-1"><img src="images/bonos.PNG"></button>
     </div>
 
-    <div id="reco-agresivo" style="display:none">
+    <div id="reco-agresivo" style="display:none;" class="w3-padding-small">
         <button id="agre-1"><img src="images/acciones.PNG"></button>
     </div>
 </div>
