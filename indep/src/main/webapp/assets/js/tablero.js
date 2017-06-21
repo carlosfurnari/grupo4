@@ -9,7 +9,7 @@ window.onload=function() {
     $("#showGastos").click(function(){switchInnerPage("gastos", gastosCallback)});
     $("#showIngresos").click(function(){switchInnerPage("ingresos", ingresosCallback)});
     $("#showInversiones").click(function(){switchInnerPage("inversiones", inversionesCallback)});
-    $("#showPremium").click(function(){switchInnerPage("premium")});
+    $("#showPremium").click(function(){switchInnerPage("premium", premiumCallback)});
     //$("#showPremium").click(switchInnerPage);
 
 
@@ -71,5 +71,9 @@ function ingresosCallback(){
 }
 
 function inversionesCallback(){
+
+}
+
+function premiumCallback(){
 
 }
