@@ -29,8 +29,8 @@
     <nav id="all">
         <ul>
             <li><a href="#intro">Inicio</a></li>
-            <li><a href="#one">Quines Somos</a></li>
-            <li><a href="#two">Como Funciona</a></li>
+            <li><a href="#one">Quiénes Somos</a></li>
+            <li><a href="#two">Cómo Funciona</a></li>
             <li><a href="#work">Servicios</a></li>
             <li><a href="#contact">Contacto</a></li>
             <li><a href="./loginPage" class="button">Entrar</a></li>
@@ -60,7 +60,7 @@
 <section id="one" class="main style2 right dark fullscreen">
     <div class="content box style2">
         <header>
-            <h2>Quienes somos</h2>
+            <h2>Quiénes somos</h2>
         </header>
         <p>Somos un grupo de estudiantes de la Facultad de Ingeniería de la Universidad de
             Buenos Aires, con una gran vocación de ser emprendedores en el desarrollo de
@@ -75,7 +75,7 @@
 <section id="two" class="main style2 left dark fullscreen">
     <div class="content box style2">
         <header>
-            <h2>Como funciona</h2>
+            <h2>Cómo funciona</h2>
         </header>
         <p>Luego de un simple registro, vas a poder cargar tus gastos e ingresos de manera
             simple y rápida. Si tenes inversiones también vas a poder cargarlas al sistema.
@@ -134,7 +134,7 @@
                 <div class="field half"><input type="email" name="email" placeholder="Email" /></div>
                 <div class="field"><textarea name="message" placeholder="Message" rows="6"></textarea></div>
                 <ul class="actions">
-                    <li><input type="submit" value="Send Message" /></li>
+                    <li><input type="submit" value="Enviar Mensaje" /></li>
                 </ul>
             </form>
         </div>
@@ -156,7 +156,7 @@
 
     <!-- Menu -->
     <ul class="menu">
-        <li>&copy; Registered</li><li>Design: GRUPO 4</li>
+        <li>&copy; Registered</li><li>Diseño: GRUPO 4</li>
     </ul>
 
 </footer>
