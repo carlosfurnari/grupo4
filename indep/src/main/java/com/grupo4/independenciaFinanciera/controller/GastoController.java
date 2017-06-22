@@ -1,5 +1,8 @@
 package com.grupo4.independenciaFinanciera.controller;
 
+import com.grupo4.independenciaFinanciera.charts.ChartData;
+import com.grupo4.independenciaFinanciera.charts.DonutChart;
+import com.grupo4.independenciaFinanciera.charts.helper.GastoCategoriaDonutData;
 import com.grupo4.independenciaFinanciera.dao.GastoDao;
 import com.grupo4.independenciaFinanciera.dto.GastoCategorizadoDTO;
 import com.grupo4.independenciaFinanciera.dto.GastoDTO;
@@ -30,7 +33,10 @@ public class GastoController {
 
     //muestra el jsp y nada mas
     @RequestMapping(value = {"/gastosPage"}, method = RequestMethod.GET)
-    public String getGastosPage(@RequestParam String username){
+    public String getGastosPage(@RequestParam String username, ModelMap modelMap){
+        ChartData gastosPorCategoriaDonut = new DonutChart(new GastoCategoriaDonutData());
+        modelMap.addAttribute("gastosPorCategoriaDonut", gastosPorCategoriaDonut.getData());
+
         return "./show-gastos";
     }
 

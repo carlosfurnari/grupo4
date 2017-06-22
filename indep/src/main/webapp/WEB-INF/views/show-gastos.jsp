@@ -2,6 +2,19 @@
 
 
 <div id="main-gasto">
+    <%
+        String gastosPorCategoriaDonut = (String)request.getAttribute("gastosPorCategoriaDonut");
+    %>
+    <script src="assets/js/amcharts/amcharts.js" type="text/javascript"></script>
+    <script src="assets/js/amcharts/pie.js" type="text/javascript"></script>
+    <script>
+        AmCharts.makeChart("chart", <%=gastosPorCategoriaDonut%>);
+    </script>
+
+    <div class="container-fluid text-center">
+        <div id="chart" style="width: 100%; height: 350px ;"></div>
+    </div>
+
     <div id="ing-gasto" style="padding: 10px 10px 10px 10px">
         <form class="form-inline">
             <div class="form-group" style="padding-right: 5px">

@@ -15,7 +15,7 @@ public class GastoCategoriaDonutData implements DataAdder {
         JSONArray datos = new JSONArray();
         for (Gasto dato : getMappedData() ) {
             datos.put(new JSONObject()
-                    .put("category", dato.getCategoria().toString())
+                    .put("category", dato.getCategoria().getDescription())
                     .put("money", dato.getMonto())
             );
         }
@@ -33,6 +33,7 @@ public class GastoCategoriaDonutData implements DataAdder {
             for(String key2 : data.get(key).keySet()) {
                     gastos.add(data.get(key).get(key2));
             }
+            break;
         }
 
         return gastos;
