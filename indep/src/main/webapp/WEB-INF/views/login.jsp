@@ -46,43 +46,46 @@
             </ul>
         </nav>
     </header>
-    <h1>Login</h1>
-    <div><h1 class="login-error-container"></h1></div>
-    <form id="login-form">
-        <table>
-            <tr>
-                <td>Usuario</td>
-                <td><input type="text" name="username" /></td>
-            </tr>
-            <tr>
-                <td>Contraseña</td>
-                <td><input type="password" name="password" /></td>
-            </tr>
-        </table>
-        <input type="submit" value="Iniciar Sesión"/>
-    </form>
-    <h1>Registrarse</h1>
-    <div><h1 class="register-error-container"></h1></div>
-    <form id="register-form">
-        <table>
-            <tr>
-                <td>Usuario</td>
-                <td><input type="text" name="username" /></td>
-            </tr>
-            <tr>
-                <td>Contraseña</td>
-                <td><input type="password" name="password" /></td>
-            </tr>
+    <div class="container-fluid" style="padding-left: 450px; padding-top: 50px">
+        <h1>Login</h1>
+        <div><h1 class="login-error-container"></h1></div>
+        <form id="login-form">
+            <table>
+                <tr>
+                    <td>Usuario</td>
+                    <td><input type="text" name="username" /></td>
+                </tr>
+                <tr>
+                    <td>Contraseña</td>
+                    <td><input type="password" name="password" /></td>
+                </tr>
+            </table>
+            <input type="submit" value="Iniciar Sesión"/>
+        </form>
+    </div>
 
-            <tr>
-                <td>Correo</td>
-                <td><input type="text" name="email" /></td>
-            </tr>
-        </table>
-        <input type="submit" value="Registrarse" />
-    </form>
+    <div class="container-fluid" style="padding-left: 450px; padding-top: 50px">
+        <h1>Registrarse</h1>
+        <div><h1 class="register-error-container"></h1></div>
+        <form id="register-form">
+            <table>
+                <tr>
+                    <td>Usuario</td>
+                    <td><input type="text" name="username" /></td>
+                </tr>
+                <tr>
+                    <td>Contraseña</td>
+                    <td><input type="password" name="password" /></td>
+                </tr>
 
+                <tr>
+                    <td>Correo</td>
+                    <td><input type="text" name="email" /></td>
+                </tr>
+            </table>
+            <input type="submit" value="Registrarse" />
+        </form>
+    </div>
 
 </body>
-
 </html>
