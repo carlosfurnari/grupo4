@@ -4,3 +4,8 @@
 $( document ).ready(function() {
     //$('#gastos-table').dynatable();
 });
+
+function ingresarGasto() {
+    $("#main-gasto").hide();
+    $("#testInversor").show();
+}
