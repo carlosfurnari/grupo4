@@ -288,6 +288,12 @@
     <div class="container-fluid">
         <button id="volv2" onclick="volverL()">Volver</button>
     </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
 </div>
 
 <div id="acciones" class="container-fluid text-center" style="display:none">
@@ -372,4 +378,10 @@
     <div class="container-fluid">
         <button id="volv3" onclick="volverA()">Volver</button>
     </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
 </div>
