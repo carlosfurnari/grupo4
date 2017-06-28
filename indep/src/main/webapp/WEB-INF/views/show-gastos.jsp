@@ -8,6 +8,7 @@
     <script src="assets/js/amcharts/amcharts.js" type="text/javascript"></script>
     <script src="assets/js/amcharts/pie.js" type="text/javascript"></script>
     <script>
+        activarGastos();
         AmCharts.makeChart("chart", <%=gastosPorCategoriaDonut%>);
     </script>
 

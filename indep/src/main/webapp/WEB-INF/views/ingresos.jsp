@@ -5,6 +5,7 @@
     %>
 
     <script>
+        activarIngresos();
         AmCharts.makeChart("chart", <%=serverContent%>);
     </script>
 </head>

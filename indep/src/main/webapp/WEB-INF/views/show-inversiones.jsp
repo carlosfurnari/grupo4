@@ -1,4 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<script>
+    activarInversiones();
+</script>
 <div>
     <a href="./insertGasto" class="btn btn-circle btn-success" data-toggle="modal" data-target="#addGastoModal">+</a>
     <div id="addGastoModal" class="modal fade text-center">

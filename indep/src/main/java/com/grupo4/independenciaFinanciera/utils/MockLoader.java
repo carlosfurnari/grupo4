@@ -212,6 +212,29 @@ public class MockLoader {
             plazoFijo.setId("5");
             this.categoriasDefaultMocks.put(plazoFijo.getId(), plazoFijo);
 
+            Categoria rentaFijaPesos = new Categoria();
+            rentaFijaPesos.setNombre("Renta Fija Pesos");
+            rentaFijaPesos.setDescription("Renta Fija Pesos");
+            rentaFijaPesos.setId("6");
+            this.categoriasDefaultMocks.put(rentaFijaPesos.getId(), rentaFijaPesos);
+
+            Categoria rentaVariablePesos = new Categoria();
+            rentaVariablePesos.setNombre("Renta Variable Pesos");
+            rentaVariablePesos.setDescription("Renta Variable Pesos");
+            rentaVariablePesos.setId("7");
+            this.categoriasDefaultMocks.put(rentaVariablePesos.getId(), rentaVariablePesos);
+
+            Categoria rentaFijaDolares = new Categoria();
+            rentaFijaDolares.setNombre("Renta Fija Dolares");
+            rentaFijaDolares.setDescription("Renta Fija Dolares");
+            rentaFijaDolares.setId("8");
+            this.categoriasDefaultMocks.put(rentaFijaDolares.getId(), rentaFijaDolares);
+
+            Categoria rentaVariableDolares = new Categoria();
+            rentaVariableDolares.setNombre("Renta Variable Dolares");
+            rentaVariableDolares.setDescription("Renta Variable Dolares");
+            rentaVariableDolares.setId("9");
+            this.categoriasDefaultMocks.put(rentaVariableDolares.getId(), rentaVariableDolares);
 
         }
         return this.categoriasDefaultMocks;

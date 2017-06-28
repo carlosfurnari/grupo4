@@ -77,3 +77,28 @@ function inversionesCallback(){
 function premiumCallback(){
 
 }
+
+function activarTablero() {
+    $('.navbar-nav li.active ').removeClass('active');
+    $("#tb").addClass('active');
+}
+
+function activarGastos() {
+    $('.navbar-nav li.active ').removeClass('active');
+    $("#gs").addClass('active');
+}
+
+function activarIngresos() {
+    $('.navbar-nav li.active ').removeClass('active');
+    $("#ing").addClass('active');
+}
+
+function activarInversiones() {
+    $('.navbar-nav li.active ').removeClass('active');
+    $("#inv").addClass('active');
+}
+
+function activarPremium() {
+    $('.navbar-nav li.active ').removeClass('active');
+    $("#pr").addClass('active');
+}

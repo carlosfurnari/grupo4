@@ -9,7 +9,6 @@ var resVisible    = null;
 var acumPonderaciones = 0;
 var perfil = "Desconocido";
 
-
 function seleccionaOpcion(ponderacionOpcion) {
     acumPonderaciones += ponderacionOpcion;
 

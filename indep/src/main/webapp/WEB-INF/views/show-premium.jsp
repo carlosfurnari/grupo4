@@ -28,6 +28,7 @@
 
     <div class="container-fluid ">
         <script>
+            activarPremium();
             document.getElementById("perfil-out").innerHTML = perfil;
             if (perfil !== "Desconocido"){
                 mostrarRecomendacion();
@@ -59,8 +60,8 @@
         <button id="agre-1" onclick="mostrarAcciones()"><img src="images/acciones.PNG"></button>
     </div>
 
-    <div class="container">
-        <div>
+    <div class="container well">
+        <div style="border-style: groove">
             <button type="button" class="btn btn-link" onclick="mostrarResumen()">Resumen</button>
             <button type="button" class="btn btn-link" onclick="mostrarMonedas()">Monedas</button>
             <button type="button" class="btn btn-link" onclick="mostrarBolsas()">Bolsas</button>

@@ -45,11 +45,11 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="./tablero">Tablero</a></li>
-        <li><a id="showGastos" href="#gastos">Gastos</a></li>
-        <li><a id="showIngresos" href="#ingresos">Ingresos</a></li>
-        <li><a id="showInversiones" href="#inversiones">Inversiones</a></li>
-        <li><a id="showPremium" href="#premium">Premium</a></li>
+        <li id="tb"><a id="showTablero"href="./tablero">Tablero</a></li>
+        <li id="gs"><a id="showGastos" href="#gastos">Gastos</a></li>
+        <li id="ing"><a id="showIngresos" href="#ingresos">Ingresos</a></li>
+        <li id="inv"><a id="showInversiones" href="#inversiones">Inversiones</a></li>
+        <li id="pr"><a id="showPremium" href="#premium">Premium</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mi Cuenta</a></li>
@@ -68,6 +68,7 @@
   %>
 
   <script>
+      activarTablero();
       AmCharts.makeChart("chart", <%=serverContent%>);
 
       function showEvolucion() {
