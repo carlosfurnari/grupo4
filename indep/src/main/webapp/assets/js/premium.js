@@ -127,3 +127,30 @@ function mostrarAcciones() {
     $("#main-premium").hide();
     $("#acciones").show();
 }
+
+function ocultarMenus(){
+    $("#resumen").hide();
+    $("#monedas").hide();
+    $("#bolsas").hide();
+    $("#commodities").hide();
+}
+
+function mostrarResumen() {
+    ocultarMenus();
+    $("#resumen").show();
+}
+
+function mostrarMonedas() {
+    ocultarMenus();
+    $("#monedas").show();
+}
+
+function mostrarBolsas() {
+    ocultarMenus();
+    $("#bolsas").show();
+}
+
+function mostrarCommodities() {
+    ocultarMenus();
+    $("#commodities").show();
+}

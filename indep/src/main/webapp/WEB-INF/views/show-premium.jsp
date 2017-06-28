@@ -58,6 +58,276 @@
     <div id="reco-agresivo" style="display:none;" class="w3-padding-small">
         <button id="agre-1" onclick="mostrarAcciones()"><img src="images/acciones.PNG"></button>
     </div>
+
+    <div class="container">
+        <div>
+            <button type="button" class="btn btn-link" onclick="mostrarResumen()">Resumen</button>
+            <button type="button" class="btn btn-link" onclick="mostrarMonedas()">Monedas</button>
+            <button type="button" class="btn btn-link" onclick="mostrarBolsas()">Bolsas</button>
+            <button type="button" class="btn btn-link" onclick="mostrarCommodities()">Commodities</button>
+        </div>
+
+        <div class="container">
+            <div id="resumen">
+                <div class="col-md-4">
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="circle bg-azul">
+                                <img src="images/up.png" height="50" width="50">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <h5>Dolar Oficial</h5>
+                            <h6>16,15 - 16,55<span style="color: green;"> 0,40%</span></h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="circle bg-verde">
+                                <img src="images/down.png" height="50" width="50">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <h5>Dolar Informal</h5>
+                            <h6>16,27 - 16,67<span style="color: red;"> 0,66%</span></h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="circle bg-verde">
+                                <img src="images/equal.png" height="50" width="50">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <h5>Merval</h5>
+                            <h6>21304<span style="color: black;"> 0,00%</span></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="monedas" style="display: none">
+                <div class="col-md-2 text-center">
+                    <div class="row">
+                        <div>
+                            <img src="images/up.png" height="30" width="30">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h5>Dolar Oficial</h5>
+                        <h6>16,15 - 16,55</h6>
+                        <h6 style="color: green;"> 0,40%</h6>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="row">
+                        <div>
+                            <img src="images/down.png" height="30" width="30">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h5>Dolar Informal</h5>
+                        <h6>16,27 - 16,67</h6>
+                        <h6 style="color: red;"> 0,66%</h6>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="row">
+                        <div>
+                            <img src="images/up.png" height="30" width="30">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h5>Contado Liq</h5>
+                        <h6>16,27 - 16,67</h6>
+                        <h6 style="color: green;"> 0,50%</h6>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="row">
+                        <div>
+                            <img src="images/equal.png" height="30" width="30">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h5>Euro</h5>
+                        <h6>18,57 - 19,58</h6>
+                        <h6 style="color: black;"> 0,00%</h6>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="row">
+                        <div>
+                            <img src="images/equal.png" height="30" width="30">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h5>Real</h5>
+                        <h6>3,33 - 3,33</h6>
+                        <h6 style="color: black;"> 0,00%</h6>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="row">
+                        <div>
+                            <img src="images/equal.png" height="30" width="30">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h5>Yen</h5>
+                        <h6>14.51 - 14.62</h6>
+                        <h6 style="color: black;"> 0,00%</h6>
+                    </div>
+                </div>
+            </div>
+            <div id="bolsas"  style="display: none">
+                <div class="col-md-2 text-center">
+                    <div class="row">
+                        <div>
+                            <img src="images/up.png" height="30" width="30">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h5>Merval</h5>
+                        <h6>21300</h6>
+                        <h6 style="color: green;"> 0,40%</h6>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="row">
+                        <div>
+                            <img src="images/down.png" height="30" width="30">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h5>Bovespa</h5>
+                        <h6>61645</h6>
+                        <h6 style="color: red;"> 3,26%</h6>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="row">
+                        <div>
+                            <img src="images/up.png" height="30" width="30">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h5>Dow 30</h5>
+                        <h6>21366</h6>
+                        <h6 style="color: green;"> 0,10%</h6>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="row">
+                        <div>
+                            <img src="images/up.png" height="30" width="30">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h5>S&P 500</h5>
+                        <h6>12428</h6>
+                        <h6 style="color: green;"> 0,01%</h6>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="row">
+                        <div>
+                            <img src="images/equal.png" height="30" width="30">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h5>Nasdaq</h5>
+                        <h6>6180</h6>
+                        <h6 style="color: black;"> 0,00%</h6>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="row">
+                        <div>
+                            <img src="images/down.png" height="30" width="30">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h5>IBEX 35</h5>
+                        <h6>10647</h6>
+                        <h6 style="color: red;"> 0,20%</h6>
+                    </div>
+                </div>
+            </div>
+            <div id="commodities"  style="display: none">
+                <div class="col-md-3">
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div>
+                                <img src="images/equal.png" height="50" width="50">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <h5>Oro</h5>
+                            <h6>1246<span style="color: black;"> 0,00%</span></h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="circle bg-verde">
+                                <img src="images/up.png" height="50" width="50">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <h5>Petroleo WTI</h5>
+                            <h6>43,48<span style="color: green;"> 0,83%</span></h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div>
+                                <img src="images/down.png" height="50" width="50">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <h5>Soja Chicago</h5>
+                            <h6>32,07<span style="color: red;"> 0,10%</span></h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div>
+                                <img src="images/up.png" height="50" width="50">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <h5>Trigo</h5>
+                            <h6>166,54<span style="color: green;"> 0,72%</span></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 
 <div id="testInversor" class="container-fluid text-center" style="display:none">
