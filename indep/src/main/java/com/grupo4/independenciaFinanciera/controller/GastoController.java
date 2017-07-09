@@ -44,14 +44,14 @@ public class GastoController {
     }
 
     //borra un gasto
-    @RequestMapping(value = {"/deleteGasto"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"/deleteGasto"}, method = RequestMethod.GET)
     @ResponseBody
-    public GastoResponseDTO deleteGasto(User user, Gasto gasto, HttpServletResponse response){
-        Gasto g = this.gastoDao.getGastoByUserAndGastoId(user.getUsername(), gasto.getId());
+    public GastoResponseDTO deleteGasto(@RequestParam String username, @RequestParam String id, HttpServletResponse response){
+        Gasto g = this.gastoDao.getGastoByUserAndGastoId(username, id);
         GastoResponseDTO gastoResponseDTO = new GastoResponseDTO();
 
         if (g != null){
-            this.gastoDao.deleteGasto(user.getUsername(), gasto.getId());
+            this.gastoDao.deleteGasto(username, id);
             gastoResponseDTO.setGasto(g);
             return gastoResponseDTO;
         }
@@ -59,25 +59,6 @@ public class GastoController {
 
         response.setStatus(400);
         gastoResponseDTO.setErrorMessage("No hay Gastos");
-        return gastoResponseDTO;
-    }
-
-    //edita un gasto
-    @RequestMapping(value = {"/editGasto"}, method = RequestMethod.POST)
-    @ResponseBody
-    public GastoResponseDTO editGasto(User user, Gasto gasto, HttpServletResponse response){
-        Gasto g = this.gastoDao.getGastoByUserAndGastoId(user.getUsername(), gasto.getId());
-        GastoResponseDTO gastoResponseDTO = new GastoResponseDTO();
-
-        if (g != null){
-            this.gastoDao.updateGasto(user.getUsername(), gasto);
-            gastoResponseDTO.setGasto(g);
-            return gastoResponseDTO;
-        }
-
-
-        response.setStatus(400);
-        gastoResponseDTO.setErrorMessage("No hay gastos");
         return gastoResponseDTO;
     }
 
@@ -161,20 +142,39 @@ public class GastoController {
         Categoria categoria = this.categoriaDao.getCategoriaByUserAndCategoriaId(gastoDTO.getUsername(), gastoDTO.getCategoriaId());
         gasto.setCategoria(categoria);
         gasto.setMonto(gastoDTO.getMonto());
+        gasto.setId(gastoDTO.getId());
 
         return gasto;
     }
 
     @RequestMapping(value = {"/addGasto"}, method = RequestMethod.POST)
     @ResponseBody
-    public GastoResponseDTO addGasto(@RequestBody GastoDTO gastoDTO){
-        Gasto gasto = this.mapGastoDTOToGasto(gastoDTO);
-        this.gastoDao.addGastoByUser(gastoDTO.getUsername(), gasto);
-        GastoResponseDTO gastoResponseDTO = new GastoResponseDTO();
+    public GastoResponseDTO addGasto(@RequestBody GastoDTO gastoDTO, HttpServletResponse response){
+        if (gastoDTO.getId() != null){
+            Gasto g = this.gastoDao.getGastoByUserAndGastoId(gastoDTO.getUsername(), gastoDTO.getId());
+            GastoResponseDTO gastoResponseDTO = new GastoResponseDTO();
 
-        gastoResponseDTO.setGasto(gasto);
+            if (g != null){
+                Gasto gasto = this.mapGastoDTOToGasto(gastoDTO);
+                this.gastoDao.updateGasto(gastoDTO.getUsername(), gasto);
+                gastoResponseDTO.setGasto(g);
+                return gastoResponseDTO;
+            }
 
-        return  gastoResponseDTO;
+
+            response.setStatus(400);
+            gastoResponseDTO.setErrorMessage("No hay gastos");
+            return gastoResponseDTO;
+        }else{
+
+            Gasto gasto = this.mapGastoDTOToGasto(gastoDTO);
+            this.gastoDao.addGastoByUser(gastoDTO.getUsername(), gasto);
+            GastoResponseDTO gastoResponseDTO = new GastoResponseDTO();
+
+            gastoResponseDTO.setGasto(gasto);
+
+            return  gastoResponseDTO;
+        }
     }
 
 

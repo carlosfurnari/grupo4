@@ -27,6 +27,9 @@
                 <input type="hidden" class="form-control" id="userField" name="username">
             </div>
             <div class="form-group" style="padding-right: 5px">
+                <input type="hidden" class="form-control" id="idField" name="id">
+            </div>
+            <div class="form-group" style="padding-right: 5px">
                 <label for="descripcionField">Descripcion</label>
                 <input type="text" class="form-control" id="descripcionField" name="descripcion">
             </div>
@@ -41,7 +44,7 @@
 
         </form>
         <div>
-            <button type="submit" class="btn btn-success" id="addGasto">Agregar</button>
+            <button type="submit" class="btn btn-success" id="addGasto">Listo</button>
         </div>
     </div>
 
@@ -80,6 +83,8 @@
                         <table id="table-gastos" class="table table-bordered">
                             <thead>
                             <tr>
+                                <th data-dynatable-column="id" class="dynatable-head" style="display:none"><a class="dynatable-sort-header"
+                                                                                                  href="#">ID</a></th>
                                 <th data-dynatable-column="descripcion" class="dynatable-head"><a class="dynatable-sort-header"
                                                                                                   href="#">Descripcion</a></th>
                                 <th data-dynatable-column="categoria" class="dynatable-head"><a class="dynatable-sort-header"
@@ -88,6 +93,10 @@
                                                                                             href="#">Fecha</a></th>
                                 <th data-dynatable-column="monto" class="dynatable-head"><a class="dynatable-sort-header"
                                                                                             href="#">Monto ($)</a></th>
+                                <th data-dynatable-column="borrar" class="dynatable-head"><a class="dynatable-sort-header"
+                                                                                            href="#">Borrar</a></th>
+                                <th data-dynatable-column="editar" class="dynatable-head"><a class="dynatable-sort-header"
+                                                                                            href="#">Editar</a></th>
                             </tr>
                             </thead>
                             <tbody>
