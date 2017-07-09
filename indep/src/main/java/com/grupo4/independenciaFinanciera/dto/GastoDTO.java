@@ -11,6 +11,7 @@ import java.util.Date;
  */
 public class GastoDTO {
 
+    private String username;
     private String categoria;
     private String categoriaId;
     private String descripcion;
@@ -20,6 +21,15 @@ public class GastoDTO {
     private boolean recurrente;
     private FrecuenciaDeOperacion tipoDeFrec;
     private Integer frecuencia;
+
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public String getCategoria() {
         return categoria;

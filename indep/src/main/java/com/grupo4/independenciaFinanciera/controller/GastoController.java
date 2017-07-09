@@ -3,6 +3,7 @@ package com.grupo4.independenciaFinanciera.controller;
 import com.grupo4.independenciaFinanciera.charts.ChartData;
 import com.grupo4.independenciaFinanciera.charts.DonutChart;
 import com.grupo4.independenciaFinanciera.charts.helper.GastoCategoriaDonutData;
+import com.grupo4.independenciaFinanciera.dao.CategoriaDao;
 import com.grupo4.independenciaFinanciera.dao.GastoDao;
 import com.grupo4.independenciaFinanciera.dto.GastoCategorizadoDTO;
 import com.grupo4.independenciaFinanciera.dto.GastoDTO;
@@ -15,11 +16,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by rumm on 13/06/17.
@@ -29,6 +29,9 @@ public class GastoController {
 
     @Autowired
     private GastoDao gastoDao;
+
+    @Autowired
+    private CategoriaDao categoriaDao;
 
 
     //muestra el jsp y nada mas
@@ -142,10 +145,31 @@ public class GastoController {
         return result;
     }
 
+    private Gasto mapGastoDTOToGasto(GastoDTO gastoDTO) {
+        Gasto gasto = new Gasto();
+        gasto.setDescripcion(gastoDTO.getDescripcion());
+
+
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date date = format.parse(gastoDTO.getFecha());
+            gasto.setFecha(date);
+        }catch(ParseException e){
+            gasto.setFecha(new Date());
+        }
+
+        Categoria categoria = this.categoriaDao.getCategoriaByUserAndCategoriaId(gastoDTO.getUsername(), gastoDTO.getCategoriaId());
+        gasto.setCategoria(categoria);
+        gasto.setMonto(gastoDTO.getMonto());
+
+        return gasto;
+    }
+
     @RequestMapping(value = {"/addGasto"}, method = RequestMethod.POST)
     @ResponseBody
-    public GastoResponseDTO addGasto(User user, Gasto gasto){
-        this.gastoDao.addGastoByUser(user.getUsername(), gasto);
+    public GastoResponseDTO addGasto(@RequestBody GastoDTO gastoDTO){
+        Gasto gasto = this.mapGastoDTOToGasto(gastoDTO);
+        this.gastoDao.addGastoByUser(gastoDTO.getUsername(), gasto);
         GastoResponseDTO gastoResponseDTO = new GastoResponseDTO();
 
         gastoResponseDTO.setGasto(gasto);

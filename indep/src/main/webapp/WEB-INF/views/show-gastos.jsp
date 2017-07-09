@@ -15,35 +15,58 @@
     <div class="container-fluid text-center">
         <div id="chart" style="width: 100%; height: 350px ;"></div>
     </div>
-
     <div id="ing-gasto" style="padding: 10px 10px 10px 10px">
-        <form class="form-inline">
+        <form class="form-inline" id="cargaForm">
             <div class="form-group" style="padding-right: 5px">
-                <label for="categ">Categoria</label>
-                <select class="form-control" id="categ">
-                    <option>Caja Chica</option>
-                    <option>Comida</option>
-                    <option>Celular</option>
-                    <option>Alquiler</option>
-                    <option>Internet</option>
-                    <option>Seguro Auto</option>
-                    <option>Seguro Casa</option>
-                    <option>Seguro Vida</option>
+                <label for="categoria">Categoria</label>
+                <select class="form-control" id="categoria" name="categoriaId">
+
                 </select>
             </div>
             <div class="form-group" style="padding-right: 5px">
-                <label for="formGroupExampleInput2">Importe</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="100.00">
+                <input type="hidden" class="form-control" id="userField" name="username">
             </div>
-            <div class="form-group"style="padding-right: 5px">
-                <label for="example-date-input"">Fecha</label>
-                <input class="form-control" type="date" value="2017-06-21" id="example-date-input">
+            <div class="form-group" style="padding-right: 5px">
+                <label for="descripcionField">Descripcion</label>
+                <input type="text" class="form-control" id="descripcionField" name="descripcion">
             </div>
-            <button type="submit" class="btn btn-success">Listo</button>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Ingresa la categoria">
-            <button type="submit" class="btn btn-info">Nueva Categoria</button>
+            <div class="form-group" style="padding-right: 5px">
+                <label for="montoField">Importe</label>
+                <input type="text" class="form-control" id="montoField" placeholder="100.00" name="monto">
+            </div>
+            <div class="form-group" style="padding-right: 5px">
+                <label for="datePicker">Fecha</label>
+                <input class="form-control" type="date" id="datePicker" name="fecha">
+            </div>
+
         </form>
+        <div>
+            <button type="submit" class="btn btn-success" id="addGasto">Agregar</button>
+        </div>
     </div>
+
+    <div id="ing-categoria" style="padding: 10px 10px 10px 10px">
+        <form class="form-inline" id="categoriaForm">
+            <div class="form-group" style="padding-right: 5px">
+                <input type="hidden" class="form-control" id="userFieldCategoria" name="username">
+            </div>
+            <div class="form-group" style="padding-right: 5px">
+                <label for="descripcionField">Nombre</label>
+                <input type="text" class="form-control" id="nombreFieldCategoria" name="nombre">
+            </div>
+            <div class="form-group" style="padding-right: 5px">
+                <label for="descripcionField">Descripcion</label>
+                <input type="text" class="form-control" id="descripcionFieldCategoria" name="descripcion">
+            </div>
+
+        </form>
+        <div>
+            <button type="submit" class="btn btn-info" id="addCategoria">Nueva Categoria</button>
+        </div>
+    </div>
+    <%--<div>--%>
+        <%--<button type="submit" class="btn btn-success" id="cargagastos">Agregar Gasto</button>--%>
+    <%--</div>--%>
     <div style="padding: 10px 10px 10px 10px">
         <div class="row">
             <div class="col-md-6">
