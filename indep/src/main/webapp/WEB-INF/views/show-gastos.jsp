@@ -68,7 +68,14 @@
         </div>
     </div>
     <%--<div>--%>
-        <%--<button type="submit" class="btn btn-success" id="cargagastos">Agregar Gasto</button>--%>
+        <%--<form class="form-inline" id="filtroForm">--%>
+            <%--<input type="radio" name="hoy" value="hoy"> Hoy<br>--%>
+            <%--<input type="radio" name="semana" value="semana"> Semana Actual<br>--%>
+            <%--<input type="radio" name="mes" value="mes"> Mes Actual<br>--%>
+            <%--<input type="radio" name="anio" value="anio"> Ultimos doce Meses<br>--%>
+            <%--<input type="radio" name="anio" value="anio"> Ultimos doce Meses<br>--%>
+        <%--</form>--%>
+        <%--<button type="submit" class="btn btn-success" id="filtrarGastos">Filtrar</button>--%>
     <%--</div>--%>
     <div style="padding: 10px 10px 10px 10px">
         <div class="row">
@@ -80,6 +87,26 @@
                         </div>
                     </div>
                     <div class="gastos-table">
+                        <div id="fecha-filter" style="float: left;">
+                            Fecha:
+                            <select id="search_fecha" name="Filtros">
+                                <option value="empty" selected></option>
+                                <option value="today">Hoy</option>
+                                <option value="month">Mes Actual</option>
+                                <option value="year">Anio Actual</option>
+                                <option value="12months">Ultimos 12 Meses</option>
+                            </select>
+                        </div>
+                        <div id="categoria-filter" style="float: left;">
+                            Categoria:
+                            <select id="search_categoria" name="Categoria">
+
+                            </select>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-info" id="filter">Filtrar</button>
+                        </div>
+
                         <table id="table-gastos" class="table table-bordered">
                             <thead>
                             <tr>
@@ -101,6 +128,7 @@
                             </thead>
                             <tbody>
                             </tbody>
+                            <tfoot></tfoot>
                         </table>
                     </div>
                 </div>

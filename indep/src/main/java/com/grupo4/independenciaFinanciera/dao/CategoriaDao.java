@@ -49,7 +49,7 @@ public class CategoriaDao {
         if (innerMap == null){
             innerMap = new HashMap<String, Categoria>();
         }
-
+        categoria.setId(String.valueOf(innerMap.values().size()));
         innerMap.put(categoria.getId(), categoria);
 
 

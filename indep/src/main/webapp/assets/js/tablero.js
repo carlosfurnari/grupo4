@@ -35,7 +35,7 @@ function getFormData($form){
     return indexed_array;
 }
 
-function submitForm(formId, switchToPage, switchPageCallback, endpoint) {
+function submitForm(formId, refreshTable, endpoint) {
 
     var $form = $(formId);
     var data = getFormData($form);
@@ -52,7 +52,8 @@ function submitForm(formId, switchToPage, switchPageCallback, endpoint) {
                 var errorMessage = responseObject.errorMessage;
                 $('.page-error-container').html(errorMessage);
             }else {
-                switchInnerPage(switchToPage, switchPageCallback)
+                refreshTable();
+                //switchInnerPage(switchToPage, switchPageCallback)
             }
         },
         dataType: "json",
@@ -61,14 +62,15 @@ function submitForm(formId, switchToPage, switchPageCallback, endpoint) {
 
 }
 
-function deleteRecord(id, endpoint, switchToPage, switchToPageCallback){
+function deleteRecord(id, endpoint, refreshTable){
     $.ajax({
         type: "GET",
         url: endpoint,
         data: { username: username , id: id},
         complete: function(data){
             console.log(data);
-            switchInnerPage(switchToPage, switchToPageCallback)
+            refreshTable();
+            // switchInnerPage(switchToPage, switchToPageCallback)
 
         },
         dataType: "json",
@@ -76,7 +78,7 @@ function deleteRecord(id, endpoint, switchToPage, switchToPageCallback){
     });
 }
 
-function getCategoriasList(elementId){
+function getCategoriasList(elementId, withEmpty){
     $.ajax({
         type: "GET",
         url: "./listCategorias",
@@ -87,6 +89,9 @@ function getCategoriasList(elementId){
             var responseObject = JSON.parse(data['responseText']);
             var categoriasJSON = responseObject.categorias;
             var html = "";
+            if (withEmpty){
+                html += '<option value="empty"></option>';
+            }
             for(var index in categoriasJSON) {
                 html += "<option value=" + categoriasJSON[index]['id']  + ">" +categoriasJSON[index]['nombre'] + "</option>"
             }
@@ -122,6 +127,26 @@ function activarPremium() {
     $("#pr").addClass('active');
 }
 
+function procesarTablas(json, total, tableName) {
+    $(tableName)
+        .dynatable({
+            dataset: {
+                records: json
+            }
+
+        });
+    $(tableName).find('tfoot').html('<tr><td colspan=3>Total:</td><td>' + total + '</td></tr>');
+}
+
+function updateTablas(json, total, tableName){
+    var dynatable = $(tableName)
+        .dynatable({}).data('dynatable');
+    dynatable.settings.dataset.originalRecords = json;
+    dynatable.process();
+    $(tableName).find('tfoot').html('<tr><td colspan=3>Total:</td><td>' + total + '</td></tr>');
+}
+
+
 /*******************************************************************************************************************/
 /*******************************************************************************************************************/
 /*******************************************************************************************************************/
@@ -132,45 +157,63 @@ function activarPremium() {
 /*******************************************************************************************************************/
 /*******************************************************************************************************************/
 
+function refreshGastosList(){
+    var e = document.getElementById("search_fecha");
+    var filter = e.options[e.selectedIndex].value;
 
-function gastosCallback(){
+    e = document.getElementById("search_categoria");
+    var filterCategoria = e.options[e.selectedIndex].value;
+
+    getListGastos(filter, filterCategoria, updateTablas, "#table-gastos");
+
+    getCategoriasList("categoria", false);
+    getCategoriasList("search_categoria", true);
+
+}
+
+function getListGastos(filter, filterCategoria, postProcess, tableName) {
+
     $.ajax({
         type: "GET",
         url: "./listGasto",
-        data: { username: username },
-        complete: function(data){
+        data: {username: username, filtro: filter, filtroCategoria: filterCategoria},
+        complete: function (data) {
             console.log(data);
 
             var responseObject = JSON.parse(data['responseText']);
             var gastosJSON = responseObject.gastos;
             gastosJSON = addEditAndDeleteLinksToGastosTable(gastosJSON)
-            $('#table-gastos').dynatable({
-                dataset: {
-                    records: gastosJSON
-                }
-            });
+
+            postProcess(gastosJSON, responseObject.total, tableName)
+
         },
         dataType: "json",
-        contentType : "application/json"
+        contentType: "application/json"
     });
     $.ajax({
         type: "GET",
         url: "./listGastoByCategoria",
-        data: { username: username },
-        complete: function(data){
+        data: {username: username},
+        complete: function (data) {
             console.log(data);
 
             var responseObject = JSON.parse(data['responseText']);
             var gastosJSON = responseObject.gastoByCategoria;
-            $('#table-gastos-categoria').dynatable({
+            postProcess(gastosJSON, responseObject.total, "#table-gastos-categoria")
+
+            /*$('#table-gastos-categoria').dynatable({
                 dataset: {
                     records: gastosJSON
                 }
-            });
+            });*/
         },
         dataType: "json",
-        contentType : "application/json"
+        contentType: "application/json"
     });
+}
+function gastosCallback(){
+
+    getListGastos("","", procesarTablas, "#table-gastos");
     cargarGastos()
 }
 
@@ -185,13 +228,11 @@ function addEditAndDeleteLinksToGastosTable(json){
 }
 
 function deleteGasto(id){
-    deleteRecord(id, "./deleteGasto", "gastos", gastosCallback);
+    deleteRecord(id, "./deleteGasto", refreshGastosList);
 
 }
 
 function editGasto(id){
-    console.log("<<<<<<<<<<<<<lllego>>>>>>>>>>");
-    console.log(id);
     var dynatable = $('#table-gastos').data('dynatable');
     var records = dynatable.settings.dataset.records;
 
@@ -218,15 +259,33 @@ function cargarGastos() {
     document.getElementById("userField").value = username;
     document.getElementById("userFieldCategoria").value = username;
 
-    getCategoriasList("categoria")
+    getCategoriasList("categoria", false);
+    getCategoriasList("search_categoria", true);
 
     $("#addGasto").click(function(){
-        submitForm("#cargaForm", "gastos", gastosCallback, "./addGasto")
+        submitForm("#cargaForm", refreshGastosList, "./addGasto");
+        var today = moment().format('YYYY-MM-DD');
+        document.getElementById("datePicker").value = today;
+        document.getElementById("userField").value = username;
+        document.getElementById("categoria").value = "0";
+        document.getElementById("idField").value = "";
+        document.getElementById("descripcionField").value = "";
+        document.getElementById("montoField").value = "";
+
     });
 
     $("#addCategoria").click(function(){
-        submitForm("#categoriaForm", "gastos", gastosCallback, "./addCategoria")
+        submitForm("#categoriaForm", refreshGastosList, "./addCategoria");
+        document.getElementById("userFieldCategoria").value = username;
+        document.getElementById("descripcionFieldCategoria").value = "";
+        document.getElementById("nombreFieldCategoria").value = "";
+
     });
+
+    $("#filter").click(function(){
+        refreshGastosList();
+    });
+
 
 
 }

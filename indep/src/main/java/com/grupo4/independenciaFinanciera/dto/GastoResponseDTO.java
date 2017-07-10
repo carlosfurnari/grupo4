@@ -12,11 +12,21 @@ import java.util.Map;
 public class GastoResponseDTO {
 
     private List<GastoDTO> gastos;
+    private Float total;
     private String errorMessage;
 
     //se usa cuando queremos devolver un solo gasto
     private Gasto gasto;
     private List<GastoCategorizadoDTO> gastoByCategoria;
+
+
+    public Float getTotal() {
+        return total;
+    }
+
+    public void setTotal(Float total) {
+        this.total = total;
+    }
 
     public List<GastoCategorizadoDTO> getGastoByCategoria() {
         return gastoByCategoria;

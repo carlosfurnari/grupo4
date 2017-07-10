@@ -10,6 +10,7 @@ import com.grupo4.independenciaFinanciera.dto.GastoDTO;
 import com.grupo4.independenciaFinanciera.dto.GastoResponseDTO;
 import com.grupo4.independenciaFinanciera.dto.InversionesResponseDTO;
 import com.grupo4.independenciaFinanciera.model.*;
+import com.grupo4.independenciaFinanciera.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -65,11 +66,18 @@ public class GastoController {
     //lista todos los gastos
     @RequestMapping(value = {"/listGasto"}, method = RequestMethod.GET)
     @ResponseBody
-    public GastoResponseDTO listGasto(@RequestParam String username, HttpServletResponse response){
+    public GastoResponseDTO listGasto(@RequestParam String username, @RequestParam String filtro,
+                                      @RequestParam String filtroCategoria, HttpServletResponse response){
         Map<String, Gasto> gasto = this.gastoDao.getAllGastosForUser(username);
         GastoResponseDTO gastoResponseDTO = new GastoResponseDTO();
         if (gasto != null && !gasto.isEmpty()){
-            gastoResponseDTO.setGastos(this.mapGastoToGastoDTO(gasto));
+            gastoResponseDTO.setGastos(this.mapGastoToGastoDTO(gasto, filtro, filtroCategoria));
+            float total = 0;
+            for (GastoDTO g : gastoResponseDTO.getGastos()){
+                total += Float.parseFloat(g.getMonto());
+            }
+
+            gastoResponseDTO.setTotal(total);
             return gastoResponseDTO;
         }
         response.setStatus(400);
@@ -110,20 +118,49 @@ public class GastoController {
     }
 
 
-    private List<GastoDTO> mapGastoToGastoDTO(Map<String, Gasto> gasto) {
+    private List<GastoDTO> mapGastoToGastoDTO(Map<String, Gasto> gasto, String filtro, String filtroCategoria) {
         SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
         List<GastoDTO> result = new ArrayList<GastoDTO>();
         for (Gasto g : gasto.values()){
-            GastoDTO dto = new GastoDTO();
-            dto.setCategoria(g.getCategoria().getNombre());
-            dto.setCategoriaId(g.getCategoria().getId());
-            dto.setDescripcion(g.getDescripcion());
-            dto.setId(g.getId());
-            dto.setMonto(g.getMonto());
-            dto.setFecha(DATE_FORMAT.format(g.getFecha()));
-            result.add(dto);
+            if (this.filterByFecha(g, filtro) && this.filterByCategoria(g, filtroCategoria)) {
+
+                GastoDTO dto = new GastoDTO();
+                dto.setCategoria(g.getCategoria().getNombre());
+                dto.setCategoriaId(g.getCategoria().getId());
+                dto.setDescripcion(g.getDescripcion());
+                dto.setId(g.getId());
+                dto.setMonto(g.getMonto());
+                dto.setFecha(DATE_FORMAT.format(g.getFecha()));
+                result.add(dto);
+            }
         }
         return result;
+    }
+
+    private boolean filterByCategoria(Gasto g, String filtroCategoria) {
+        if (filtroCategoria.equalsIgnoreCase("empty")  || filtroCategoria.isEmpty()){
+            return true;
+        }
+        return g.getCategoria().getId().equalsIgnoreCase(filtroCategoria);
+
+    }
+
+    private boolean filterByFecha(Gasto g, String filtro) {
+        Date fecha = g.getFecha();
+        switch (filtro) {
+            case "empty":
+                return true;
+            case "today":
+                return DateUtils.isToday(fecha);
+            case "month":
+                return DateUtils.isThisMonth(fecha);
+            case "year":
+                return DateUtils.isThisYear(fecha);
+            case "12months":
+                return DateUtils.isLast12Months(fecha);
+
+        }
+        return true;
     }
 
     private Gasto mapGastoDTOToGasto(GastoDTO gastoDTO) {
@@ -150,7 +187,7 @@ public class GastoController {
     @RequestMapping(value = {"/addGasto"}, method = RequestMethod.POST)
     @ResponseBody
     public GastoResponseDTO addGasto(@RequestBody GastoDTO gastoDTO, HttpServletResponse response){
-        if (gastoDTO.getId() != null){
+        if (gastoDTO.getId() != null && !gastoDTO.getId().isEmpty()){
             Gasto g = this.gastoDao.getGastoByUserAndGastoId(gastoDTO.getUsername(), gastoDTO.getId());
             GastoResponseDTO gastoResponseDTO = new GastoResponseDTO();
 
