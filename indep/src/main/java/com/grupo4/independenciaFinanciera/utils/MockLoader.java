@@ -172,7 +172,7 @@ public class MockLoader {
         Ingreso aguinaldo = new Ingreso();
         aguinaldo.setId("1");
         aguinaldo.setDescripcion("Aguinaldo");
-        aguinaldo.setCategoria(this.getCategoriasDefaultMocks().get("10"));
+        aguinaldo.setCategoria(this.getCategoriasDefaultMocks().get("11"));
         aguinaldo.setMonto("12500");
         aguinaldo.setFecha(new Date());
         aguinaldo.setTipoDeFrec(FrecuenciaDeOperacion.UNICO);
@@ -215,8 +215,8 @@ public class MockLoader {
 
 
             Categoria supermercado = new Categoria();
-            supermercado.setNombre("supermercado");
-            supermercado.setDescription("las compras del supermercado");
+            supermercado.setNombre("Supermercado");
+            supermercado.setDescription("Compras del supermercado");
             supermercado.setId("0");
             this.categoriasDefaultMocks.put(supermercado.getId(), supermercado);
 
@@ -228,58 +228,64 @@ public class MockLoader {
             this.categoriasDefaultMocks.put(auto.getId(), auto);
 
             Categoria servicios = new Categoria();
-            servicios.setNombre("servicios");
-            servicios.setDescription("servicios");
+            servicios.setNombre("Servicios");
+            servicios.setDescription("Servicios");
             servicios.setId("2");
             this.categoriasDefaultMocks.put(servicios.getId(), servicios);
 
             Categoria salidas = new Categoria();
-            salidas.setNombre("salidas");
-            salidas.setDescription("salidas");
+            salidas.setNombre("Salidas");
+            salidas.setDescription("Salidas");
             salidas.setId("3");
             this.categoriasDefaultMocks.put(salidas.getId(), salidas);
 
             Categoria tarjeta = new Categoria();
-            tarjeta.setNombre("tarjeta");
-            tarjeta.setDescription("tarjeta");
+            tarjeta.setNombre("Tarjeta");
+            tarjeta.setDescription("Tarjeta");
             tarjeta.setId("4");
             this.categoriasDefaultMocks.put(tarjeta.getId(), tarjeta);
 
             Categoria plazoFijo = new Categoria();
-            plazoFijo.setNombre("plazoFijo");
-            plazoFijo.setDescription("plazoFijo");
+            plazoFijo.setNombre("Plazo Fijo");
+            plazoFijo.setDescription("Plazo Fijo");
             plazoFijo.setId("5");
             this.categoriasDefaultMocks.put(plazoFijo.getId(), plazoFijo);
 
             Categoria rentaFijaPesos = new Categoria();
-            rentaFijaPesos.setNombre("Renta Fija Pesos");
-            rentaFijaPesos.setDescription("Renta Fija Pesos");
+            rentaFijaPesos.setNombre("Renta Fija en Pesos");
+            rentaFijaPesos.setDescription("Renta Fija en Pesos");
             rentaFijaPesos.setId("6");
             this.categoriasDefaultMocks.put(rentaFijaPesos.getId(), rentaFijaPesos);
 
             Categoria rentaVariablePesos = new Categoria();
-            rentaVariablePesos.setNombre("Renta Variable Pesos");
-            rentaVariablePesos.setDescription("Renta Variable Pesos");
+            rentaVariablePesos.setNombre("Renta Variable en Pesos");
+            rentaVariablePesos.setDescription("Renta Variable en Pesos");
             rentaVariablePesos.setId("7");
             this.categoriasDefaultMocks.put(rentaVariablePesos.getId(), rentaVariablePesos);
 
             Categoria rentaFijaDolares = new Categoria();
-            rentaFijaDolares.setNombre("Renta Fija Dolares");
-            rentaFijaDolares.setDescription("Renta Fija Dolares");
+            rentaFijaDolares.setNombre("Renta Fija en Dolares");
+            rentaFijaDolares.setDescription("Renta Fija en Dolares");
             rentaFijaDolares.setId("8");
             this.categoriasDefaultMocks.put(rentaFijaDolares.getId(), rentaFijaDolares);
 
             Categoria rentaVariableDolares = new Categoria();
-            rentaVariableDolares.setNombre("Renta Variable Dolares");
-            rentaVariableDolares.setDescription("Renta Variable Dolares");
+            rentaVariableDolares.setNombre("Renta Variable en Dolares");
+            rentaVariableDolares.setDescription("Renta Variable en Dolares");
             rentaVariableDolares.setId("9");
             this.categoriasDefaultMocks.put(rentaVariableDolares.getId(), rentaVariableDolares);
 
             Categoria sueldo = new Categoria();
-            sueldo.setNombre("sueldo");
-            sueldo.setDescription("El sueldo");
+            sueldo.setNombre("Sueldo");
+            sueldo.setDescription("Sueldo mensual");
             sueldo.setId("10");
             this.categoriasDefaultMocks.put(sueldo.getId(), sueldo);
+
+            Categoria aguinaldo = new Categoria();
+            aguinaldo.setNombre("Aguinaldo");
+            aguinaldo.setDescription("Aguinaldo");
+            aguinaldo.setId("11");
+            this.categoriasDefaultMocks.put(aguinaldo.getId(), aguinaldo);
 
         }
         return this.categoriasDefaultMocks;

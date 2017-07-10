@@ -1,6 +1,10 @@
 package com.grupo4.independenciaFinanciera.controller;
 
 
+import com.grupo4.independenciaFinanciera.charts.ChartData;
+import com.grupo4.independenciaFinanciera.charts.DonutChart;
+import com.grupo4.independenciaFinanciera.charts.helper.GastoCategoriaDonutData;
+import com.grupo4.independenciaFinanciera.charts.helper.IngresoCategoriaDonutData;
 import com.grupo4.independenciaFinanciera.dao.IngresoDao;
 import com.grupo4.independenciaFinanciera.dto.IngresoCategorizadoDTO;
 import com.grupo4.independenciaFinanciera.dto.IngresoDTO;
@@ -39,7 +43,8 @@ public class IngresoController {
     //muestra el jsp y nada mas
     @RequestMapping(value = {"/ingresosPage"}, method = RequestMethod.GET)
     public String getIngresosPage(@RequestParam String username, ModelMap modelMap){
-
+        ChartData ingresosPorCategoriaDonut = new DonutChart(new IngresoCategoriaDonutData());
+        modelMap.addAttribute("ingresoPorCategoriaDonut", ingresosPorCategoriaDonut.getData());
 
         return "./show-ingresos";
     }
