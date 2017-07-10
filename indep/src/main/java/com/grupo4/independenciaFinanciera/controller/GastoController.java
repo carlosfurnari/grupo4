@@ -8,7 +8,6 @@ import com.grupo4.independenciaFinanciera.dao.GastoDao;
 import com.grupo4.independenciaFinanciera.dto.GastoCategorizadoDTO;
 import com.grupo4.independenciaFinanciera.dto.GastoDTO;
 import com.grupo4.independenciaFinanciera.dto.GastoResponseDTO;
-import com.grupo4.independenciaFinanciera.dto.InversionesResponseDTO;
 import com.grupo4.independenciaFinanciera.model.*;
 import com.grupo4.independenciaFinanciera.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;

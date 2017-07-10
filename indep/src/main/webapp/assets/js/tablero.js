@@ -441,9 +441,134 @@ function cargarIngresos() {
 /*******************************************************************************************************************/
 
 
-function inversionesCallback(){
+function refreshInversionesList(){
+    var e = document.getElementById("search_fecha");
+    var filter = e.options[e.selectedIndex].value;
+
+    e = document.getElementById("search_categoria");
+    var filterCategoria = e.options[e.selectedIndex].value;
+
+    getListinversiones(filter, filterCategoria, updateTablas, "#table-inversiones");
+
+    getCategoriasList("categoria", false);
+    getCategoriasList("search_categoria", true);
 
 }
+
+function getListinversiones(filter, filterCategoria, postProcess, tableName) {
+
+    $.ajax({
+        type: "GET",
+        url: "./listInversion",
+        data: {username: username, filtro: filter, filtroCategoria: filterCategoria},
+        complete: function (data) {
+            console.log(data);
+
+            var responseObject = JSON.parse(data['responseText']);
+            var inversionesJSON = responseObject.inversiones;
+            inversionesJSON = addEditAndDeleteLinksToinversionesTable(inversionesJSON)
+
+            postProcess(inversionesJSON, responseObject.total, tableName)
+
+        },
+        dataType: "json",
+        contentType: "application/json"
+    });
+    $.ajax({
+        type: "GET",
+        url: "./listInversionByCategoria",
+        data: {username: username},
+        complete: function (data) {
+            console.log(data);
+
+            var responseObject = JSON.parse(data['responseText']);
+            var inversionesJSON = responseObject.inversionByCategoria;
+            postProcess(inversionesJSON, responseObject.total, "#table-inversiones-categoria")
+
+        },
+        dataType: "json",
+        contentType: "application/json"
+    });
+}
+function inversionesCallback(){
+
+    getListinversiones("","", procesarTablas, "#table-inversiones");
+    cargarinversiones()
+}
+
+function addEditAndDeleteLinksToinversionesTable(json){
+    for (var index in json) {
+        var idinversion = json[index]['id'];
+        json[index]['borrar'] = '<button type="submit" class="btn btn-info" id='+ idinversion+' onclick=javascript:deleteInversion(id)>Borrar</button>';
+        json[index]['editar'] = '<button type="submit" class="btn btn-info" id='+ idinversion+' onclick=javascript:editInversion(id)>Editar</button>';
+
+    }
+    return json;
+}
+
+function deleteInversion(id){
+    deleteRecord(id, "./deleteInversion", refreshInversionesList);
+
+}
+
+function editInversion(id){
+    var dynatable = $('#table-inversiones').data('dynatable');
+    var records = dynatable.settings.dataset.records;
+
+    for (var index in records){
+        if (records[index]['id'] == id){
+            document.getElementById("userField").value = username;
+            document.getElementById("categoria").value = records[index]['categoriaId'];
+            document.getElementById("idField").value = records[index]['id'];
+            document.getElementById("descripcionField").value = records[index]['descripcion'];
+            document.getElementById("montoField").value = records[index]['monto'];
+            var d = records[index]['fecha'];
+            d = d.split('-').reverse().join('-');
+
+            document.getElementById("datePicker").value = d;
+            break;
+        }
+    }
+}
+
+
+function cargarinversiones() {
+    var today = moment().format('YYYY-MM-DD');
+    document.getElementById("datePicker").value = today;
+    document.getElementById("userField").value = username;
+    document.getElementById("userFieldCategoria").value = username;
+
+    getCategoriasList("categoria", false);
+    getCategoriasList("search_categoria", true);
+
+    $("#addinversion").click(function(){
+        submitForm("#cargaForm", refreshInversionesList, "./addInversion");
+        var today = moment().format('YYYY-MM-DD');
+        document.getElementById("datePicker").value = today;
+        document.getElementById("userField").value = username;
+        document.getElementById("categoria").value = "0";
+        document.getElementById("idField").value = "";
+        document.getElementById("descripcionField").value = "";
+        document.getElementById("montoField").value = "";
+
+    });
+
+    $("#addCategoria").click(function(){
+        submitForm("#categoriaForm", refreshInversionesList, "./addCategoria");
+        document.getElementById("userFieldCategoria").value = username;
+        document.getElementById("descripcionFieldCategoria").value = "";
+        document.getElementById("nombreFieldCategoria").value = "";
+
+    });
+
+    $("#filter").click(function(){
+        refreshInversionesList();
+    });
+
+
+
+}
+
 
 function premiumCallback(){
 
