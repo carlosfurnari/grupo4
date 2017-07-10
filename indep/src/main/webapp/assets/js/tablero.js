@@ -301,11 +301,134 @@ function cargarGastos() {
 /*******************************************************************************************************************/
 /*******************************************************************************************************************/
 
+function refreshIngresosList(){
+    var e = document.getElementById("search_fecha");
+    var filter = e.options[e.selectedIndex].value;
 
+    e = document.getElementById("search_categoria");
+    var filterCategoria = e.options[e.selectedIndex].value;
 
-function ingresosCallback(){
+    getListIngresos(filter, filterCategoria, updateTablas, "#table-ingresos");
+
+    getCategoriasList("categoria", false);
+    getCategoriasList("search_categoria", true);
 
 }
+
+function getListIngresos(filter, filterCategoria, postProcess, tableName) {
+
+    $.ajax({
+        type: "GET",
+        url: "./listIngreso",
+        data: {username: username, filtro: filter, filtroCategoria: filterCategoria},
+        complete: function (data) {
+            console.log(data);
+
+            var responseObject = JSON.parse(data['responseText']);
+            var ingresosJSON = responseObject.ingresos;
+            ingresosJSON = addEditAndDeleteLinksToIngresosTable(ingresosJSON)
+
+            postProcess(ingresosJSON, responseObject.total, tableName)
+
+        },
+        dataType: "json",
+        contentType: "application/json"
+    });
+    $.ajax({
+        type: "GET",
+        url: "./listIngresoByCategoria",
+        data: {username: username},
+        complete: function (data) {
+            console.log(data);
+
+            var responseObject = JSON.parse(data['responseText']);
+            var ingresosJSON = responseObject.ingresoByCategoria;
+            postProcess(ingresosJSON, responseObject.total, "#table-ingresos-categoria")
+
+        },
+        dataType: "json",
+        contentType: "application/json"
+    });
+}
+function ingresosCallback(){
+
+    getListIngresos("","", procesarTablas, "#table-ingresos");
+    cargarIngresos()
+}
+
+function addEditAndDeleteLinksToIngresosTable(json){
+    for (var index in json) {
+        var idIngreso = json[index]['id'];
+        json[index]['borrar'] = '<button type="submit" class="btn btn-info" id='+ idIngreso+' onclick=javascript:deleteIngreso(id)>Borrar</button>';
+        json[index]['editar'] = '<button type="submit" class="btn btn-info" id='+ idIngreso+' onclick=javascript:editIngreso(id)>Editar</button>';
+
+    }
+    return json;
+}
+
+function deleteIngreso(id){
+    deleteRecord(id, "./deleteIngreso", refreshIngresosList);
+
+}
+
+function editIngreso(id){
+    var dynatable = $('#table-ingresos').data('dynatable');
+    var records = dynatable.settings.dataset.records;
+
+    for (var index in records){
+        if (records[index]['id'] == id){
+            document.getElementById("userField").value = username;
+            document.getElementById("categoria").value = records[index]['categoriaId'];
+            document.getElementById("idField").value = records[index]['id'];
+            document.getElementById("descripcionField").value = records[index]['descripcion'];
+            document.getElementById("montoField").value = records[index]['monto'];
+            var d = records[index]['fecha'];
+            d = d.split('-').reverse().join('-');
+
+            document.getElementById("datePicker").value = d;
+            break;
+        }
+    }
+}
+
+
+function cargarIngresos() {
+    var today = moment().format('YYYY-MM-DD');
+    document.getElementById("datePicker").value = today;
+    document.getElementById("userField").value = username;
+    document.getElementById("userFieldCategoria").value = username;
+
+    getCategoriasList("categoria", false);
+    getCategoriasList("search_categoria", true);
+
+    $("#addIngreso").click(function(){
+        submitForm("#cargaForm", refreshIngresosList, "./addIngreso");
+        var today = moment().format('YYYY-MM-DD');
+        document.getElementById("datePicker").value = today;
+        document.getElementById("userField").value = username;
+        document.getElementById("categoria").value = "0";
+        document.getElementById("idField").value = "";
+        document.getElementById("descripcionField").value = "";
+        document.getElementById("montoField").value = "";
+
+    });
+
+    $("#addCategoria").click(function(){
+        submitForm("#categoriaForm", refreshIngresosList, "./addCategoria");
+        document.getElementById("userFieldCategoria").value = username;
+        document.getElementById("descripcionFieldCategoria").value = "";
+        document.getElementById("nombreFieldCategoria").value = "";
+
+    });
+
+    $("#filter").click(function(){
+        refreshIngresosList();
+    });
+
+
+
+}
+
 
 /*******************************************************************************************************************/
 /*******************************************************************************************************************/

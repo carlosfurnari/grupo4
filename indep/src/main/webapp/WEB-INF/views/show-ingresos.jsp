@@ -1,53 +1,146 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<script>
-    activarIngresos();
-</script>
-<div>
-    <a href="./insertGasto" class="btn btn-circle btn-success" data-toggle="modal" data-target="#addGastoModal">+</a>
-    <div id="addGastoModal" class="modal fade text-center">
-        <div class="modal-dialog"> <div class="modal-content"> </div></div>
+
+
+<div id="main-ingreso">
+
+    <div id="ing-ingreso" style="padding: 10px 10px 10px 10px">
+        <form class="form-inline" id="cargaForm">
+            <div class="form-group" style="padding-right: 5px">
+                <label for="categoria">Categoria</label>
+                <select class="form-control" id="categoria" name="categoriaId">
+
+                </select>
+            </div>
+            <div class="form-group" style="padding-right: 5px">
+                <input type="hidden" class="form-control" id="userField" name="username">
+            </div>
+            <div class="form-group" style="padding-right: 5px">
+                <input type="hidden" class="form-control" id="idField" name="id">
+            </div>
+            <div class="form-group" style="padding-right: 5px">
+                <label for="descripcionField">Descripcion</label>
+                <input type="text" class="form-control" id="descripcionField" name="descripcion">
+            </div>
+            <div class="form-group" style="padding-right: 5px">
+                <label for="montoField">Importe</label>
+                <input type="text" class="form-control" id="montoField" placeholder="100.00" name="monto">
+            </div>
+            <div class="form-group" style="padding-right: 5px">
+                <label for="datePicker">Fecha</label>
+                <input class="form-control" type="date" id="datePicker" name="fecha">
+            </div>
+
+        </form>
+        <div>
+            <button type="submit" class="btn btn-success" id="addIngreso">Listo</button>
+        </div>
     </div>
-    <h1>Ingresos</h1>
-    <h1>Filtrar por categoria <small>(<i class="glyphicon glyphicon-filter"></i>)</small></h1>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Categorias de gastos</h3>
-                    <div class="pull-right">
-							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
-								<i class="glyphicon glyphicon-filter"></i>
-							</span>
+
+    <div id="ing-categoria" style="padding: 10px 10px 10px 10px">
+        <form class="form-inline" id="categoriaForm">
+            <div class="form-group" style="padding-right: 5px">
+                <input type="hidden" class="form-control" id="userFieldCategoria" name="username">
+            </div>
+            <div class="form-group" style="padding-right: 5px">
+                <label for="descripcionField">Nombre</label>
+                <input type="text" class="form-control" id="nombreFieldCategoria" name="nombre">
+            </div>
+            <div class="form-group" style="padding-right: 5px">
+                <label for="descripcionField">Descripcion</label>
+                <input type="text" class="form-control" id="descripcionFieldCategoria" name="descripcion">
+            </div>
+
+        </form>
+        <div>
+            <button type="submit" class="btn btn-info" id="addCategoria">Nueva Categoria</button>
+        </div>
+    </div>
+
+    <div style="padding: 10px 10px 10px 10px">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Ingresos</h3>
+                        <div class="pull-right">
+                        </div>
+                    </div>
+                    <div class="ingresos-table">
+                        <div id="fecha-filter" style="float: left;">
+                            Fecha:
+                            <select id="search_fecha" name="Filtros">
+                                <option value="empty" selected></option>
+                                <option value="today">Hoy</option>
+                                <option value="month">Mes Actual</option>
+                                <option value="year">Anio Actual</option>
+                                <option value="12months">Ultimos 12 Meses</option>
+                            </select>
+                        </div>
+                        <div id="categoria-filter" style="float: left;">
+                            Categoria:
+                            <select id="search_categoria" name="Categoria">
+
+                            </select>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-info" id="filter">Filtrar</button>
+                        </div>
+
+                        <table id="table-ingresos" class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th data-dynatable-column="id" class="dynatable-head" style="display:none"><a class="dynatable-sort-header"
+                                                                                                              href="#">ID</a></th>
+                                <th data-dynatable-column="descripcion" class="dynatable-head"><a class="dynatable-sort-header"
+                                                                                                  href="#">Descripcion</a></th>
+                                <th data-dynatable-column="categoria" class="dynatable-head"><a class="dynatable-sort-header"
+                                                                                                href="#">Categoria</a></th>
+                                <th data-dynatable-column="fecha" class="dynatable-head"><a class="dynatable-sort-header"
+                                                                                            href="#">Fecha</a></th>
+                                <th data-dynatable-column="monto" class="dynatable-head"><a class="dynatable-sort-header"
+                                                                                            href="#">Monto ($)</a></th>
+                                <th data-dynatable-column="borrar" class="dynatable-head"><a class="dynatable-sort-header"
+                                                                                             href="#">Borrar</a></th>
+                                <th data-dynatable-column="editar" class="dynatable-head"><a class="dynatable-sort-header"
+                                                                                             href="#">Editar</a></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                            <tfoot></tfoot>
+                        </table>
                     </div>
                 </div>
-                <div class="panel-body">
-                    <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
+            </div>
+        </div>
+    </div>
+    <div style="padding: 10px 10px 10px 10px">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Ingresos por categoria</h3>
+                        <div class="pull-right">
+                        </div>
+                    </div>
+                    <div class="ingresos-categoria-table">
+                        <table id="table-ingresos-categoria" class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th data-dynatable-column="categoria" class="dynatable-head"><a class="dynatable-sort-header"
+                                                                                                href="#">Categoria</a></th>
+                                <th data-dynatable-column="monto" class="dynatable-head"><a class="dynatable-sort-header"
+                                                                                            href="#">Monto ($)</a></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <table class="table table-hover" id="dev-table">
-                    <thead>
-                    <tr>
-                        <th>Categoria</th>
-                        <th>Descripcion</th>
-                        <th>Monto</th>
-                        <th colspan="2">Action</th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-                    <c:forEach items="${gastos}" var="gasto">
-                        <tr>
-                            <td><c:out value="${gasto.categoria }" /></td>
-                            <td><c:out value="${gasto.descripcion }" /></td>
-                            <td><c:out value="${gasto.monto }" /></td>
-                            <td><a
-                                    href="./editGasto?gastoId=<c:out value="${gasto.descripcion }"/>">Update</a></td>
-                            <td><a
-                                    href="./deleteGasto?gastoId=<c:out value="${gasto.descripcion }"/>">Delete</a></td>
-                        </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>
 </div>
+
+

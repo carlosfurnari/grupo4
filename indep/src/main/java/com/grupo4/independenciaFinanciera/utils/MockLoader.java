@@ -16,6 +16,7 @@ public class MockLoader {
     private Map<String, Categoria> categoriasDefaultMocks;
     private Map<String, Map<String, Inversion>> inversionMocks;
     private Map<String, Map<String, Gasto>> gastoMocks;
+    private Map<String, Map<String, Ingreso>> ingresoMocks;
     private Map<String, Map<String, Categoria>> categoriaMocks;
 
     public static MockLoader getInstance(){
@@ -156,6 +157,44 @@ public class MockLoader {
         return gastoMocks;
     }
 
+    public Map<String, Map<String, Ingreso>> getIngresoMocks() {
+        this.ingresoMocks = new HashMap<String, Map<String, Ingreso>>();
+
+        Ingreso sueldo = new Ingreso();
+        sueldo.setId("0");
+        sueldo.setDescripcion("Sueldo Mensual");
+        sueldo.setCategoria(this.getCategoriasDefaultMocks().get("10"));
+        sueldo.setMonto("25000");
+        sueldo.setFecha(new Date());
+        sueldo.setTipoDeFrec(FrecuenciaDeOperacion.UNICO);
+        sueldo.setRecurrente(Boolean.FALSE);
+
+        Ingreso aguinaldo = new Ingreso();
+        aguinaldo.setId("1");
+        aguinaldo.setDescripcion("Aguinaldo");
+        aguinaldo.setCategoria(this.getCategoriasDefaultMocks().get("10"));
+        aguinaldo.setMonto("12500");
+        aguinaldo.setFecha(new Date());
+        aguinaldo.setTipoDeFrec(FrecuenciaDeOperacion.UNICO);
+        aguinaldo.setRecurrente(Boolean.FALSE);
+        
+
+        for (User user : this.getUserMocks().values()){
+            Map<String, Ingreso> innerMap = new HashMap<String, Ingreso>();
+            sueldo.setUser(user);
+            aguinaldo.setUser(user);
+            
+
+            innerMap.put(sueldo.getId(), sueldo);
+            innerMap.put(aguinaldo.getId(), aguinaldo);
+            
+
+            ingresoMocks.put(user.getUsername(), innerMap);
+        }
+
+        return ingresoMocks;
+    }
+
     public Map<String, Map<String, Categoria>> getCategoriaMocks() {
         this.categoriaMocks = new HashMap<String, Map<String, Categoria>>();
 
@@ -235,6 +274,12 @@ public class MockLoader {
             rentaVariableDolares.setDescription("Renta Variable Dolares");
             rentaVariableDolares.setId("9");
             this.categoriasDefaultMocks.put(rentaVariableDolares.getId(), rentaVariableDolares);
+
+            Categoria sueldo = new Categoria();
+            sueldo.setNombre("sueldo");
+            sueldo.setDescription("El sueldo");
+            sueldo.setId("10");
+            this.categoriasDefaultMocks.put(sueldo.getId(), sueldo);
 
         }
         return this.categoriasDefaultMocks;
