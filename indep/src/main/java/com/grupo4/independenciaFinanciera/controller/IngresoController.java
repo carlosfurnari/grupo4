@@ -43,7 +43,7 @@ public class IngresoController {
     //muestra el jsp y nada mas
     @RequestMapping(value = {"/ingresosPage"}, method = RequestMethod.GET)
     public String getIngresosPage(@RequestParam String username, ModelMap modelMap){
-        ChartData ingresosPorCategoriaDonut = new DonutChart(new IngresoCategoriaDonutData());
+        ChartData ingresosPorCategoriaDonut = new DonutChart(new IngresoCategoriaDonutData(username));
         modelMap.addAttribute("ingresoPorCategoriaDonut", ingresosPorCategoriaDonut.getData());
 
         return "./show-ingresos";
