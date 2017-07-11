@@ -2,6 +2,19 @@
 
 
 <div id="main-ingreso">
+    <%
+        String ingresoPorCategoriaDonut = (String)request.getAttribute("ingresoPorCategoriaDonut");
+    %>
+    <script src="assets/js/amcharts/amcharts.js" type="text/javascript"></script>
+    <script src="assets/js/amcharts/pie.js" type="text/javascript"></script>
+    <script>
+        activarIngresos();
+        AmCharts.makeChart("chart", <%=ingresoPorCategoriaDonut%>);
+    </script>
+
+    <div class="container-fluid text-center">
+        <div id="chart" style="width: 100%; height: 350px ;"></div>
+    </div>
 
     <div id="ing-ingreso" style="padding: 10px 10px 10px 10px">
         <form class="form-inline" id="cargaForm">
@@ -143,4 +156,5 @@
     </div>
 </div>
 
+<br/><br/><br/><br/>
 
