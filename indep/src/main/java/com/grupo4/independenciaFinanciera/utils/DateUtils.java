@@ -4,6 +4,8 @@ package com.grupo4.independenciaFinanciera.utils;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -291,6 +293,21 @@ public class DateUtils {
         }
         return false;
 
+    }
+
+    public static Date dateFor(String dateInString) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = null;
+        try {
+
+            date = formatter.parse(dateInString);
+            System.out.println(date);
+            System.out.println(formatter.format(date));
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
     }
 }
 

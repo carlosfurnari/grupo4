@@ -90,66 +90,66 @@ public class MockLoader {
     public Map<String, Map<String, Gasto>> getGastoMocks() {
         this.gastoMocks = new HashMap<String, Map<String, Gasto>>();
 
-        Gasto super1 = new Gasto();
-        super1.setId("0");
-        super1.setDescripcion("gasto de super del martes");
-        super1.setCategoria(this.getCategoriasDefaultMocks().get("0"));
-        super1.setMonto("200");
-        super1.setFecha(new Date());
-        super1.setTipoDeFrec(FrecuenciaDeOperacion.UNICO);
-        super1.setRecurrente(Boolean.FALSE);
+        ArrayList<Gasto> gastos = new ArrayList<>();
 
-        Gasto super2 = new Gasto();
-        super2.setId("1");
-        super2.setDescripcion("gasto de super del jueves");
-        super2.setCategoria(this.getCategoriasDefaultMocks().get("0"));
-        super2.setMonto("500");
-        super2.setFecha(new Date());
-        super2.setTipoDeFrec(FrecuenciaDeOperacion.UNICO);
-        super2.setRecurrente(Boolean.FALSE);
+        //facturas de servicios
+        gastos.add(getGasto("0", "La factura de la luz", this.getCategoriasDefaultMocks().get("2"), "250", DateUtils.dateFor("05-05-2017")));
+        gastos.add(getGasto("1", "La factura de la luz", this.getCategoriasDefaultMocks().get("2"), "532", DateUtils.dateFor("05-06-2017")));
+        gastos.add(getGasto("2", "La factura de la luz", this.getCategoriasDefaultMocks().get("2"), "368", DateUtils.dateFor("06-04-2017")));
+        gastos.add(getGasto("3", "La factura del gas", this.getCategoriasDefaultMocks().get("2"), "504", DateUtils.dateFor("05-06-2017")));
+        gastos.add(getGasto("4", "La factura del gas", this.getCategoriasDefaultMocks().get("2"), "709", DateUtils.dateFor("04-07-2017")));
+        gastos.add(getGasto("5", "La factura del gas", this.getCategoriasDefaultMocks().get("2"), "603", DateUtils.dateFor("04-05-2017")));
 
-        Gasto super3 = new Gasto();
-        super3.setId("2");
-        super3.setDescripcion("gasto de super del sabado");
-        super3.setCategoria(this.getCategoriasDefaultMocks().get("0"));
-        super3.setMonto("300");
-        super3.setFecha(new Date());
-        super3.setTipoDeFrec(FrecuenciaDeOperacion.UNICO);
-        super3.setRecurrente(Boolean.FALSE);
+        //tarjeta
+        gastos.add(getGasto("6", "American express", this.getCategoriasDefaultMocks().get("4"), "1500", DateUtils.dateFor("12-05-2017")));
+        gastos.add(getGasto("7", "American express", this.getCategoriasDefaultMocks().get("4"), "3000", DateUtils.dateFor("11-06-2017")));
+        gastos.add(getGasto("8", "American express", this.getCategoriasDefaultMocks().get("4"), "500", DateUtils.dateFor("13-07-2017")));
+        gastos.add(getGasto("38", "American express", this.getCategoriasDefaultMocks().get("4"), "900", DateUtils.dateFor("15-08-2017")));
+        gastos.add(getGasto("39", "Visa", this.getCategoriasDefaultMocks().get("4"), "2670", DateUtils.dateFor("12-08-2017")));
+        gastos.add(getGasto("9", "Visa", this.getCategoriasDefaultMocks().get("4"), "1570", DateUtils.dateFor("11-05-2017")));
+        gastos.add(getGasto("10", "Visa", this.getCategoriasDefaultMocks().get("4"), "2500", DateUtils.dateFor("10-06-2017")));
+        gastos.add(getGasto("11", "Visa", this.getCategoriasDefaultMocks().get("4"), "500", DateUtils.dateFor("11-07-2017")));
 
-        Gasto luz = new Gasto();
-        luz.setId("3");
-        luz.setDescripcion("La factura de la luz");
-        luz.setCategoria(this.getCategoriasDefaultMocks().get("2"));
-        luz.setMonto("500");
-        luz.setFecha(new Date());
-        luz.setTipoDeFrec(FrecuenciaDeOperacion.UNICO);
-        luz.setRecurrente(Boolean.FALSE);
+        //auto
+        gastos.add(getGasto("12", "Nafta lunes", this.getCategoriasDefaultMocks().get("1"), "300", DateUtils.dateFor("17-05-2017")));
+        gastos.add(getGasto("13", "Lubricante", this.getCategoriasDefaultMocks().get("1"), "150", DateUtils.dateFor("05-06-2017")));
+        gastos.add(getGasto("14", "Llene el tanque el miercoles", this.getCategoriasDefaultMocks().get("1"), "1500", DateUtils.dateFor("14-06-2017")));
+        gastos.add(getGasto("15", "Seguro del auto", this.getCategoriasDefaultMocks().get("1"), "220", DateUtils.dateFor("02-05-2017")));
+        gastos.add(getGasto("16", "Seguro del auto", this.getCategoriasDefaultMocks().get("1"), "220", DateUtils.dateFor("03-06-2017")));
+        gastos.add(getGasto("17", "Seguro del auto", this.getCategoriasDefaultMocks().get("1"), "220", DateUtils.dateFor("01-07-2017")));
+        gastos.add(getGasto("40", "Seguro del auto", this.getCategoriasDefaultMocks().get("1"), "220", DateUtils.dateFor("03-08-2017")));
+        gastos.add(getGasto("26", "Nafta Sabado", this.getCategoriasDefaultMocks().get("1"), "500", DateUtils.dateFor("15-05-2017")));
+        gastos.add(getGasto("27", "Mecanico", this.getCategoriasDefaultMocks().get("1"), "3000", DateUtils.dateFor("17-06-2017")));
+        gastos.add(getGasto("28", "Nafta Miercoles", this.getCategoriasDefaultMocks().get("1"), "500", DateUtils.dateFor("05-07-2017")));
+        gastos.add(getGasto("29", "Nafta Domingo", this.getCategoriasDefaultMocks().get("1"), "1300", DateUtils.dateFor("29-06-2017")));
 
-        Gasto nafta = new Gasto();
-        nafta.setId("4");
-        nafta.setDescripcion("Llene el tanque el miercoles");
-        nafta.setCategoria(this.getCategoriasDefaultMocks().get("3"));
-        nafta.setMonto("1500");
-        nafta.setFecha(new Date());
-        nafta.setTipoDeFrec(FrecuenciaDeOperacion.UNICO);
-        nafta.setRecurrente(Boolean.FALSE);
+        //super
+        gastos.add(getGasto("18", "Gasto de super del finde", this.getCategoriasDefaultMocks().get("0"), "500", DateUtils.dateFor("05-06-2017")));
+        gastos.add(getGasto("19", "Cerveza", this.getCategoriasDefaultMocks().get("0"), "300", DateUtils.dateFor("14-05-2017")));
+        gastos.add(getGasto("20", "Gasto de super del martes", this.getCategoriasDefaultMocks().get("0"), "200", DateUtils.dateFor("13-06-2017")));
+        gastos.add(getGasto("21", "Gasto de super del jueves", this.getCategoriasDefaultMocks().get("0"), "500", DateUtils.dateFor("15-05-2017")));
+        gastos.add(getGasto("22", "Compras del mes", this.getCategoriasDefaultMocks().get("0"), "1800", DateUtils.dateFor("17-05-2017")));
+        gastos.add(getGasto("23", "Compras del mes", this.getCategoriasDefaultMocks().get("0"), "2920", DateUtils.dateFor("05-06-2017")));
+        gastos.add(getGasto("24", "Birra", this.getCategoriasDefaultMocks().get("0"), "200", DateUtils.dateFor("14-06-2017")));
+        gastos.add(getGasto("25", "Pizza", this.getCategoriasDefaultMocks().get("0"), "200", DateUtils.dateFor("12-07-2017")));
 
+        //salidas
+        gastos.add(getGasto("30", "Bar", this.getCategoriasDefaultMocks().get("3"), "253", DateUtils.dateFor("13-06-2017")));
+        gastos.add(getGasto("31", "After office", this.getCategoriasDefaultMocks().get("3"), "500", DateUtils.dateFor("25-06-2017")));
+        gastos.add(getGasto("32", "Asado con los muchachos", this.getCategoriasDefaultMocks().get("3"), "300", DateUtils.dateFor("17-05-2017")));
+        gastos.add(getGasto("33", "Cine", this.getCategoriasDefaultMocks().get("3"), "120", DateUtils.dateFor("05-05-2017")));
+        gastos.add(getGasto("34", "Teatro", this.getCategoriasDefaultMocks().get("3"), "200", DateUtils.dateFor("14-06-2017")));
+        gastos.add(getGasto("35", "Bar Jueves", this.getCategoriasDefaultMocks().get("3"), "200", DateUtils.dateFor("15-06-2017")));
+        gastos.add(getGasto("36", "Cena Restaurant", this.getCategoriasDefaultMocks().get("3"), "500", DateUtils.dateFor("25-05-2017")));
+        gastos.add(getGasto("37", "Parrilla", this.getCategoriasDefaultMocks().get("3"), "300", DateUtils.dateFor("07-07-2017")));
 
 
         for (User user : this.getUserMocks().values()){
             Map<String, Gasto> innerMap = new HashMap<String, Gasto>();
-            super1.setUser(user);
-            super2.setUser(user);
-            super3.setUser(user);
-            luz.setUser(user);
-            nafta.setUser(user);
-
-            innerMap.put(super1.getId(), super1);
-            innerMap.put(super2.getId(), super2);
-            innerMap.put(super3.getId(), super3);
-            innerMap.put(luz.getId(), luz);
-            innerMap.put(nafta.getId(), nafta);
+            for (Gasto g : gastos){
+                g.setUser(user);
+                innerMap.put(g.getId(), g);
+            }
 
             gastoMocks.put(user.getUsername(), innerMap);
         }
@@ -157,42 +157,53 @@ public class MockLoader {
         return gastoMocks;
     }
 
+    private Gasto getGasto(String id, String descripcion, Categoria categoria, String monto, Date fecha) {
+        Gasto super1 = new Gasto();
+        super1.setId(id);
+        super1.setDescripcion(descripcion);
+        super1.setCategoria(categoria);
+        super1.setMonto(monto);
+        super1.setFecha(fecha);
+        super1.setTipoDeFrec(FrecuenciaDeOperacion.UNICO);
+        super1.setRecurrente(Boolean.FALSE);
+        return super1;
+    }
+
     public Map<String, Map<String, Ingreso>> getIngresoMocks() {
         this.ingresoMocks = new HashMap<String, Map<String, Ingreso>>();
-
-        Ingreso sueldo = new Ingreso();
-        sueldo.setId("0");
-        sueldo.setDescripcion("Sueldo Mensual");
-        sueldo.setCategoria(this.getCategoriasDefaultMocks().get("10"));
-        sueldo.setMonto("25000");
-        sueldo.setFecha(new Date());
-        sueldo.setTipoDeFrec(FrecuenciaDeOperacion.UNICO);
-        sueldo.setRecurrente(Boolean.FALSE);
-
-        Ingreso aguinaldo = new Ingreso();
-        aguinaldo.setId("1");
-        aguinaldo.setDescripcion("Aguinaldo");
-        aguinaldo.setCategoria(this.getCategoriasDefaultMocks().get("10"));
-        aguinaldo.setMonto("12500");
-        aguinaldo.setFecha(new Date());
-        aguinaldo.setTipoDeFrec(FrecuenciaDeOperacion.UNICO);
-        aguinaldo.setRecurrente(Boolean.FALSE);
+        ArrayList<Ingreso> ingresos = new ArrayList<>();
+        ingresos.add(getIngreso("0", "Sueldo Mensual", this.getCategoriasDefaultMocks().get("10"), "25000", DateUtils.dateFor("01-07-2017")));
+        ingresos.add(getIngreso("1", "Aguinaldo", this.getCategoriasDefaultMocks().get("10"), "12500", DateUtils.dateFor("07-07-2017")));
+        ingresos.add(getIngreso("2", "Sueldo Mensual", this.getCategoriasDefaultMocks().get("10"), "25000", DateUtils.dateFor("01-05-2017")));
+        ingresos.add(getIngreso("4", "Sueldo Mensual", this.getCategoriasDefaultMocks().get("10"), "25000", DateUtils.dateFor("01-06-2017")));
+        ingresos.add(getIngreso("5", "Venta mercado libre", this.getCategoriasDefaultMocks().get("11"), "300", DateUtils.dateFor("22-06-2017")));
+        ingresos.add(getIngreso("6", "Sueldo Mensual", this.getCategoriasDefaultMocks().get("10"), "25000", DateUtils.dateFor("01-08-2017")));
+        ingresos.add(getIngreso("7", "Gane Apuesta", this.getCategoriasDefaultMocks().get("11"), "50", DateUtils.dateFor("08-07-2017")));
         
 
         for (User user : this.getUserMocks().values()){
             Map<String, Ingreso> innerMap = new HashMap<String, Ingreso>();
-            sueldo.setUser(user);
-            aguinaldo.setUser(user);
-            
-
-            innerMap.put(sueldo.getId(), sueldo);
-            innerMap.put(aguinaldo.getId(), aguinaldo);
-            
+            for (Ingreso g : ingresos){
+                g.setUser(user);
+                innerMap.put(g.getId(), g);
+            }
 
             ingresoMocks.put(user.getUsername(), innerMap);
         }
 
         return ingresoMocks;
+    }
+
+    private Ingreso getIngreso(String id, String descripcion, Categoria categoria, String monto, Date fecha) {
+        Ingreso sueldo = new Ingreso();
+        sueldo.setId(id);
+        sueldo.setDescripcion(descripcion);
+        sueldo.setCategoria(categoria);
+        sueldo.setMonto(monto);
+        sueldo.setFecha(fecha);
+        sueldo.setTipoDeFrec(FrecuenciaDeOperacion.UNICO);
+        sueldo.setRecurrente(Boolean.FALSE);
+        return sueldo;
     }
 
     public Map<String, Map<String, Categoria>> getCategoriaMocks() {
@@ -276,10 +287,16 @@ public class MockLoader {
             this.categoriasDefaultMocks.put(rentaVariableDolares.getId(), rentaVariableDolares);
 
             Categoria sueldo = new Categoria();
-            sueldo.setNombre("sueldo");
+            sueldo.setNombre("Sueldo");
             sueldo.setDescription("El sueldo");
             sueldo.setId("10");
             this.categoriasDefaultMocks.put(sueldo.getId(), sueldo);
+
+            Categoria ingresosVarios = new Categoria();
+            ingresosVarios.setNombre("Ingresos Varios");
+            ingresosVarios.setDescription("Ingresos Varios");
+            ingresosVarios.setId("11");
+            this.categoriasDefaultMocks.put(ingresosVarios.getId(), ingresosVarios);
 
         }
         return this.categoriasDefaultMocks;
