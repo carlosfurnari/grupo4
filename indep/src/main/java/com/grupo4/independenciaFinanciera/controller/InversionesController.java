@@ -3,6 +3,7 @@ package com.grupo4.independenciaFinanciera.controller;
 import com.grupo4.independenciaFinanciera.charts.ChartData;
 import com.grupo4.independenciaFinanciera.charts.DonutChart;
 import com.grupo4.independenciaFinanciera.charts.helper.GastoCategoriaDonutData;
+import com.grupo4.independenciaFinanciera.charts.helper.InversionesCategoriaDonutData;
 import com.grupo4.independenciaFinanciera.dao.CategoriaDao;
 import com.grupo4.independenciaFinanciera.dao.InversionDao;
 import com.grupo4.independenciaFinanciera.dto.*;
@@ -38,8 +39,9 @@ public class InversionesController {
     //muestra el jsp y nada mas
     @RequestMapping(value = {"/inversionesPage"}, method = RequestMethod.GET)
     public String getInversionesPage(@RequestParam String username, ModelMap modelMap){
-//        ChartData inversionesPorCategoriaDonut = new DonutChart(new InversionCategoriaDonutData());
-//        modelMap.addAttribute("inversionesPorCategoriaDonut", inversionesPorCategoriaDonut.getData());
+        ChartData ingresosPorCategoriaDonut = new DonutChart(new InversionesCategoriaDonutData(username));
+        modelMap.addAttribute("inversionPorCategoriaDonut", ingresosPorCategoriaDonut.getData());
+
 
         return "./show-inversiones";
     }

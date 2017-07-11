@@ -222,15 +222,3 @@ public class IngresoController {
 }
 
 
-/*@Controller
-public class IngresoController {
-
-    @RequestMapping(value = {"/ingresosPage"}, method = RequestMethod.GET)
-    public String showIngresos(ModelMap modelMap){
-        ChartData ingresoChart = new DonutChart(new IngresoDonutData());
-
-        modelMap.addAttribute("chartData", ingresoChart.getData());
-
-        return "ingresos";
-    }
-}*/

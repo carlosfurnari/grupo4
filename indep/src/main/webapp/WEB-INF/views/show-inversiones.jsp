@@ -3,6 +3,20 @@
 
 <div id="main-inversion">
 
+    <%
+        String inversionPorCategoriaDonut = (String)request.getAttribute("inversionPorCategoriaDonut");
+    %>
+    <script src="assets/js/amcharts/amcharts.js" type="text/javascript"></script>
+    <script src="assets/js/amcharts/pie.js" type="text/javascript"></script>
+    <script>
+        activarIngresos();
+        AmCharts.makeChart("chart", <%=inversionPorCategoriaDonut%>);
+    </script>
+
+    <div class="container-fluid text-center">
+        <div id="chart" style="width: 100%; height: 550px ;"></div>
+    </div>
+
     <div id="ing-inversion" style="padding: 10px 10px 10px 10px">
         <form class="form-inline" id="cargaForm">
             <div class="form-group" style="padding-right: 5px">
