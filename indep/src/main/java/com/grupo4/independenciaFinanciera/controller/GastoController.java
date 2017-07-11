@@ -37,7 +37,7 @@ public class GastoController {
     //muestra el jsp y nada mas
     @RequestMapping(value = {"/gastosPage"}, method = RequestMethod.GET)
     public String getGastosPage(@RequestParam String username, ModelMap modelMap){
-        ChartData gastosPorCategoriaDonut = new DonutChart(new GastoCategoriaDonutData());
+        ChartData gastosPorCategoriaDonut = new DonutChart(new GastoCategoriaDonutData(username));
         modelMap.addAttribute("gastosPorCategoriaDonut", gastosPorCategoriaDonut.getData());
 
         return "./show-gastos";
