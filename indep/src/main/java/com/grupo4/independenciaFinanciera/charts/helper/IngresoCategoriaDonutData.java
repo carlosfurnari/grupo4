@@ -35,10 +35,10 @@ public class IngresoCategoriaDonutData implements DataAdder {
 
     private void addIncomeColors(JSONObject json) {
         JSONArray colors = new JSONArray();
-        colors.put("#009933");
-        colors.put("#00cc99");
-        colors.put("#00ccff");
         colors.put("#3366ff");
+        colors.put("#00cc99");
+        colors.put("#009933");
+        colors.put("#00ccff");
         colors.put("#66ccff");
         colors.put("#0000cc");
         colors.put("#ccff33");

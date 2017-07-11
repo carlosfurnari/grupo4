@@ -13,7 +13,7 @@
     </script>
 
     <div class="container-fluid text-center">
-        <div id="chart" style="width: 100%; height: 350px ;"></div>
+        <div id="chart" style="width: 100%; height: 550px ;"></div>
     </div>
 
     <div id="ing-ingreso" style="padding: 10px 10px 10px 10px">
