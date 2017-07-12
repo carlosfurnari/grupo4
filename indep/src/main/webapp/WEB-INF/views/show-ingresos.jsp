@@ -16,10 +16,10 @@
         <div id="chart" style="width: 100%; height: 550px ;"></div>
     </div>
 
-    <div id="ing-ingreso" style="padding: 10px 10px 10px 10px">
-        <form class="form-inline" id="cargaForm">
+    <div id="ing-ingreso" style="padding: 20px 5px 20px 20px; border: 3px ridge green; border-radius: 4px; background-color: #81F781">
+        <form class="form-inline" id="cargaForm" style="padding-left: 30px; font-family: Georgia">
             <div class="form-group" style="padding-right: 5px">
-                <label for="categoria">Categoria</label>
+                <label for="categoria" style="padding-right: 10px">Categoria</label>
                 <select class="form-control" id="categoria" name="categoriaId">
 
                 </select>
@@ -30,77 +30,80 @@
             <div class="form-group" style="padding-right: 5px">
                 <input type="hidden" class="form-control" id="idField" name="id">
             </div>
-            <div class="form-group" style="padding-right: 5px">
-                <label for="descripcionField">Descripcion</label>
+            <div class="form-group" style="padding-right: 20px">
+                <label for="descripcionField" style="padding-right: 5px">Descripcion</label>
                 <input type="text" class="form-control" id="descripcionField" name="descripcion">
             </div>
-            <div class="form-group" style="padding-right: 5px">
-                <label for="montoField">Importe</label>
-                <input type="text" class="form-control" id="montoField" placeholder="100.00" name="monto">
+            <div class="form-group" style="padding-right: 20px">
+                <label for="montoField" style="padding-right: 5px">Importe</label>
+                <input type="text" class="form-control" id="montoField" placeholder="8000.00" name="monto">
             </div>
-            <div class="form-group" style="padding-right: 5px">
-                <label for="datePicker">Fecha</label>
+            <div class="form-group" style="padding-right: 20px">
+                <label for="datePicker" style="padding-right: 5px">Fecha</label>
                 <input class="form-control" type="date" id="datePicker" name="fecha">
             </div>
-
+            <div class="form-group">
+                <button type="submit" class="btn btn-default" id="addIngreso">Listo</button>
+            </div>
         </form>
-        <div>
-            <button type="submit" class="btn btn-success" id="addIngreso">Listo</button>
-        </div>
     </div>
-
-    <div id="ing-categoria" style="padding: 10px 10px 10px 10px">
-        <form class="form-inline" id="categoriaForm">
-            <div class="form-group" style="padding-right: 5px">
+    <br>
+    <div id="ing-categoria" style="padding: 20px 0px 20px 20px; border: 3px outset blue; border-radius: 4px; background-color: #CEECF5; width: 64%">
+        <form class="form-inline" id="categoriaForm" style="padding-left: 30px; font-family: Georgia">
+            <div class="form-group" style="padding-right: 0px">
                 <input type="hidden" class="form-control" id="userFieldCategoria" name="username">
             </div>
-            <div class="form-group" style="padding-right: 5px">
-                <label for="descripcionField">Nombre</label>
+            <div class="form-group" style="padding-right: 20px">
+                <label for="descripcionField" style="padding-right: 5px">Nombre</label>
                 <input type="text" class="form-control" id="nombreFieldCategoria" name="nombre">
             </div>
-            <div class="form-group" style="padding-right: 5px">
-                <label for="descripcionField">Descripcion</label>
+            <div class="form-group" style="padding-right: 20px">
+                <label for="descripcionField" style="padding-right: 5px">Descripcion</label>
                 <input type="text" class="form-control" id="descripcionFieldCategoria" name="descripcion">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success" id="addCategoria">Nueva Categoria</button>
             </div>
 
         </form>
-        <div>
-            <button type="submit" class="btn btn-info" id="addCategoria">Nueva Categoria</button>
-        </div>
+
     </div>
 
-    <div style="padding: 10px 10px 10px 10px">
+    <div class="container" style="padding-top: 30px">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Ingresos</h3>
+                    <div class="panel-heading" style="background-color: #81F781">
+                        <h3 class="panel-title" style="color: black;">Ingresos</h3>
                         <div class="pull-right">
                         </div>
                     </div>
-                    <div class="ingresos-table">
-                        <div id="fecha-filter" style="float: left;">
-                            Fecha:
-                            <select id="search_fecha" name="Filtros">
-                                <option value="empty" selected></option>
-                                <option value="today">Hoy</option>
-                                <option value="month">Mes Actual</option>
-                                <option value="lastmonth">Mes Anterior</option>
-                                <option value="year">Anio Actual</option>
-                                <option value="12months">Ultimos 12 Meses</option>
-                                <option value="nextmonth">Proximo Mes</option>
-                                <option value="next12months">Proximos 12 Meses</option>
-                            </select>
-                        </div>
-                        <div id="categoria-filter" style="float: left;">
-                            Categoria:
-                            <select id="search_categoria" name="Categoria">
+                    <div>
+                        <div class=" form-inline ingresos-table" style="padding-top: 5px; padding-left: 20px; padding-bottom: 5px">
+                            <div class="form-group" id="fecha-filter" style="padding-right: 20px">
+                                Fecha:
+                                <select id="search_fecha" name="Filtros">
+                                    <option value="empty" selected></option>
+                                    <option value="today">Hoy</option>
+                                    <option value="month">Mes Actual</option>
+                                    <option value="lastmonth">Mes Anterior</option>
+                                    <option value="year">Anio Actual</option>
+                                    <option value="12months">Ultimos 12 Meses</option>
+                                    <option value="nextmonth">Proximo Mes</option>
+                                    <option value="next12months">Proximos 12 Meses</option>
+                                </select>
+                            </div>
+                            <div class="form-group" id="categoria-filter" style="padding-right: 20px">
+                                Categoria:
+                                <select id="search_categoria" name="Categoria">
 
-                            </select>
-                        </div>
-                        <div>
-                            <button type="submit" class="btn btn-info" id="filter">Filtrar</button>
-                        </div>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-info" id="filter" style="background-color: #81F781">Filtrar</button>
+                            </div>
+                    </div>
+
 
                         <table id="table-ingresos" class="table table-bordered">
                             <thead>
@@ -130,12 +133,12 @@
             </div>
         </div>
     </div>
-    <div style="padding: 10px 10px 10px 10px">
+    <div class="container" style="padding-top: 30px">
         <div class="row">
             <div class="col-md-6">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Ingresos por categoria</h3>
+                    <div class="panel-heading" style="background-color: #81F781">
+                        <h3 class="panel-title" style="color: black;">Ingresos por categoria</h3>
                         <div class="pull-right">
                         </div>
                     </div>
