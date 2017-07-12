@@ -91,11 +91,12 @@ public class IngresoController {
 
     @RequestMapping(value = {"/listIngresoByCategoria"}, method = RequestMethod.GET)
     @ResponseBody
-    public IngresoResponseDTO listIngresoByCategoria(@RequestParam String username, HttpServletResponse response){
+    public IngresoResponseDTO listIngresoByCategoria(@RequestParam String username, @RequestParam String filtro,
+                                                     @RequestParam String filtroCategoria, HttpServletResponse response){
         Map<String, Ingreso> ingreso = this.ingresoDao.getAllIngresosForUser(username);
         IngresoResponseDTO ingresoResponseDTO = new IngresoResponseDTO();
         if (ingreso != null && !ingreso.isEmpty()){
-            ingresoResponseDTO.setIngresoByCategoria(this.getIngresoByCategoria(ingreso));
+            ingresoResponseDTO.setIngresoByCategoria(this.getIngresoByCategoria(ingreso, filtro, filtroCategoria));
             return ingresoResponseDTO;
         }
         response.setStatus(400);
@@ -103,17 +104,20 @@ public class IngresoController {
         return ingresoResponseDTO;
     }
 
-    private List<IngresoCategorizadoDTO> getIngresoByCategoria(Map<String, Ingreso> ingreso) {
+    private List<IngresoCategorizadoDTO> getIngresoByCategoria(Map<String, Ingreso> ingreso, String filtro, String filtroCategoria) {
         Map<String, IngresoCategorizadoDTO> map = new HashMap<>();
         for (Ingreso g : ingreso.values()){
-            IngresoCategorizadoDTO dto = map.get(g.getCategoria().getNombre());
-            if (dto == null){
-                dto = new IngresoCategorizadoDTO();
-                dto.setCategoria(g.getCategoria().getNombre());
-                dto.setMonto(0);
-                map.put(dto.getCategoria(), dto);
+
+            if (this.filterByFecha(g, filtro) && this.filterByCategoria(g, filtroCategoria)) {
+                IngresoCategorizadoDTO dto = map.get(g.getCategoria().getNombre());
+                if (dto == null) {
+                    dto = new IngresoCategorizadoDTO();
+                    dto.setCategoria(g.getCategoria().getNombre());
+                    dto.setMonto(0);
+                    map.put(dto.getCategoria(), dto);
+                }
+                dto.setMonto(dto.getMonto() + Integer.parseInt(g.getMonto()));
             }
-            dto.setMonto(dto.getMonto() + Integer.parseInt(g.getMonto()));
 
         }
         List<IngresoCategorizadoDTO> result = new ArrayList<IngresoCategorizadoDTO>(map.values());
@@ -166,6 +170,8 @@ public class IngresoController {
                 return DateUtils.isNextMonths(fecha);
             case "next12months":
                 return DateUtils.isNext12Months(fecha);
+            case "lastmonth":
+                return DateUtils.isLastMonth(fecha);
         }
         return true;
     }

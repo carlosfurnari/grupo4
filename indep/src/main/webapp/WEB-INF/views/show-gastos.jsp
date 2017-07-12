@@ -93,6 +93,7 @@
                                 <option value="empty" selected></option>
                                 <option value="today">Hoy</option>
                                 <option value="month">Mes Actual</option>
+                                <option value="lastmonth">Mes Anterior</option>
                                 <option value="year">Anio Actual</option>
                                 <option value="12months">Ultimos 12 Meses</option>
                                 <option value="nextmonth">Proximo Mes</option>

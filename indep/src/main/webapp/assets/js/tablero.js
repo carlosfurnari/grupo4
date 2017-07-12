@@ -193,7 +193,7 @@ function getListGastos(filter, filterCategoria, postProcess, tableName) {
     $.ajax({
         type: "GET",
         url: "./listGastoByCategoria",
-        data: {username: username},
+        data: {username: username, filtro: filter, filtroCategoria: filterCategoria},
         complete: function (data) {
             console.log(data);
 
@@ -337,7 +337,7 @@ function getListIngresos(filter, filterCategoria, postProcess, tableName) {
     $.ajax({
         type: "GET",
         url: "./listIngresoByCategoria",
-        data: {username: username},
+        data: {username: username, filtro: filter, filtroCategoria: filterCategoria},
         complete: function (data) {
             console.log(data);
 
@@ -477,7 +477,7 @@ function getListinversiones(filter, filterCategoria, postProcess, tableName) {
     $.ajax({
         type: "GET",
         url: "./listInversionByCategoria",
-        data: {username: username},
+        data: {username: username, filtro: filter, filtroCategoria: filterCategoria},
         complete: function (data) {
             console.log(data);
 

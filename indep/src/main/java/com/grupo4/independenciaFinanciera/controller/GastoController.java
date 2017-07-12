@@ -86,11 +86,12 @@ public class GastoController {
 
     @RequestMapping(value = {"/listGastoByCategoria"}, method = RequestMethod.GET)
     @ResponseBody
-    public GastoResponseDTO listGastoByCategoria(@RequestParam String username, HttpServletResponse response){
+    public GastoResponseDTO listGastoByCategoria(@RequestParam String username, @RequestParam String filtro,
+                                                 @RequestParam String filtroCategoria, HttpServletResponse response){
         Map<String, Gasto> gasto = this.gastoDao.getAllGastosForUser(username);
         GastoResponseDTO gastoResponseDTO = new GastoResponseDTO();
         if (gasto != null && !gasto.isEmpty()){
-            gastoResponseDTO.setGastoByCategoria(this.getGastoByCategoria(gasto));
+            gastoResponseDTO.setGastoByCategoria(this.getGastoByCategoria(gasto, filtro, filtroCategoria));
             return gastoResponseDTO;
         }
         response.setStatus(400);
@@ -98,17 +99,20 @@ public class GastoController {
         return gastoResponseDTO;
     }
 
-    private List<GastoCategorizadoDTO> getGastoByCategoria(Map<String, Gasto> gasto) {
+    private List<GastoCategorizadoDTO> getGastoByCategoria(Map<String, Gasto> gasto, String filtro, String filtroCategoria) {
         Map<String, GastoCategorizadoDTO> map = new HashMap<>();
         for (Gasto g : gasto.values()){
-            GastoCategorizadoDTO dto = map.get(g.getCategoria().getNombre());
-            if (dto == null){
-                dto = new GastoCategorizadoDTO();
-                dto.setCategoria(g.getCategoria().getNombre());
-                dto.setMonto(0);
-                map.put(dto.getCategoria(), dto);
+            if (this.filterByFecha(g, filtro) && this.filterByCategoria(g, filtroCategoria)) {
+
+                GastoCategorizadoDTO dto = map.get(g.getCategoria().getNombre());
+                if (dto == null) {
+                    dto = new GastoCategorizadoDTO();
+                    dto.setCategoria(g.getCategoria().getNombre());
+                    dto.setMonto(0);
+                    map.put(dto.getCategoria(), dto);
+                }
+                dto.setMonto(dto.getMonto() + Integer.parseInt(g.getMonto()));
             }
-            dto.setMonto(dto.getMonto() + Integer.parseInt(g.getMonto()));
 
         }
         List<GastoCategorizadoDTO> result = new ArrayList<GastoCategorizadoDTO>(map.values());
@@ -161,6 +165,9 @@ public class GastoController {
                 return DateUtils.isNextMonths(fecha);
             case "next12months":
                 return DateUtils.isNext12Months(fecha);
+            case "lastmonth":
+                return DateUtils.isLastMonth(fecha);
+
         }
         return true;
     }

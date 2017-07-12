@@ -335,5 +335,17 @@ public class DateUtils {
         return false;
 
     }
+
+    public static boolean isLastMonth(Date fecha) {
+        DateTimeZone zone = DateTimeZone.forID( "America/Montreal" );
+        DateTime dateTime = new DateTime( fecha, zone );  // Convert java.util.Date to Joda-Time, and assign time zone to adjust.
+        DateTime now = DateTime.now( zone );
+        // Now see if the month and year match.
+        if ( ( dateTime.getMonthOfYear() == now.getMonthOfYear() - 1 ) && ( dateTime.getYear() == now.getYear() ) ) {
+            return true;
+        }
+        return false;
+
+    }
 }
 

@@ -89,11 +89,12 @@ public class InversionesController {
 
     @RequestMapping(value = {"/listInversionByCategoria"}, method = RequestMethod.GET)
     @ResponseBody
-    public InversionResponseDTO listInversionByCategoria(@RequestParam String username, HttpServletResponse response){
+    public InversionResponseDTO listInversionByCategoria(@RequestParam String username, @RequestParam String filtro,
+                                                         @RequestParam String filtroCategoria, HttpServletResponse response){
         Map<String, Inversion> inversion = this.inversionDao.getAllInversionesForUser(username);
         InversionResponseDTO inversionResponseDTO = new InversionResponseDTO();
         if (inversion != null && !inversion.isEmpty()){
-            inversionResponseDTO.setInversionByCategoria(this.getInversionByCategoria(inversion));
+            inversionResponseDTO.setInversionByCategoria(this.getInversionByCategoria(inversion, filtro, filtroCategoria));
             return inversionResponseDTO;
         }
         response.setStatus(400);
@@ -101,18 +102,19 @@ public class InversionesController {
         return inversionResponseDTO;
     }
 
-    private List<InversionCategorizadoDTO> getInversionByCategoria(Map<String, Inversion> inversion) {
+    private List<InversionCategorizadoDTO> getInversionByCategoria(Map<String, Inversion> inversion, String filtro, String filtroCategoria) {
         Map<String, InversionCategorizadoDTO> map = new HashMap<>();
         for (Inversion g : inversion.values()){
-            InversionCategorizadoDTO dto = map.get(g.getCategoria().getNombre());
-            if (dto == null){
-                dto = new InversionCategorizadoDTO();
-                dto.setCategoria(g.getCategoria().getNombre());
-                dto.setMonto(0);
-                map.put(dto.getCategoria(), dto);
+            if (this.filterByFecha(g, filtro) && this.filterByCategoria(g, filtroCategoria)) {
+                InversionCategorizadoDTO dto = map.get(g.getCategoria().getNombre());
+                if (dto == null) {
+                    dto = new InversionCategorizadoDTO();
+                    dto.setCategoria(g.getCategoria().getNombre());
+                    dto.setMonto(0);
+                    map.put(dto.getCategoria(), dto);
+                }
+                dto.setMonto(dto.getMonto() + Integer.parseInt(g.getMonto()));
             }
-            dto.setMonto(dto.getMonto() + Integer.parseInt(g.getMonto()));
-
         }
         List<InversionCategorizadoDTO> result = new ArrayList<InversionCategorizadoDTO>(map.values());
         return result;
@@ -164,6 +166,8 @@ public class InversionesController {
                 return DateUtils.isNextMonths(fecha);
             case "next12months":
                 return DateUtils.isNext12Months(fecha);
+            case "lastmonth":
+                return DateUtils.isLastMonth(fecha);
         }
         return true;
     }
