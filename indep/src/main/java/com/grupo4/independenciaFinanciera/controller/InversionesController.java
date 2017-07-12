@@ -160,7 +160,10 @@ public class InversionesController {
                 return DateUtils.isThisYear(fecha);
             case "12months":
                 return DateUtils.isLast12Months(fecha);
-
+            case "nextmonth":
+                return DateUtils.isNextMonths(fecha);
+            case "next12months":
+                return DateUtils.isNext12Months(fecha);
         }
         return true;
     }

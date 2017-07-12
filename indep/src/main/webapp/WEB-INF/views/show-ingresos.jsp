@@ -87,6 +87,8 @@
                                 <option value="month">Mes Actual</option>
                                 <option value="year">Anio Actual</option>
                                 <option value="12months">Ultimos 12 Meses</option>
+                                <option value="nextmonth">Proximo Mes</option>
+                                <option value="next12months">Proximos 12 Meses</option>
                             </select>
                         </div>
                         <div id="categoria-filter" style="float: left;">

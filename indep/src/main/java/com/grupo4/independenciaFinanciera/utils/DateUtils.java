@@ -309,5 +309,31 @@ public class DateUtils {
         }
         return date;
     }
+
+    public static boolean isNextMonths(Date fecha) {
+        DateTimeZone zone = DateTimeZone.forID( "America/Montreal" );
+        DateTime dateTime = new DateTime( fecha, zone );  // Convert java.util.Date to Joda-Time, and assign time zone to adjust.
+        DateTime now = DateTime.now( zone );
+        // Now see if the month and year match.
+        if (  dateTime.getMonthOfYear() == now.getMonthOfYear() + 1 ) {
+
+            return true;
+        }
+        return false;
+
+    }
+
+    public static boolean isNext12Months(Date fecha) {
+        DateTimeZone zone = DateTimeZone.forID( "America/Montreal" );
+        DateTime dateTime = new DateTime( fecha, zone );  // Convert java.util.Date to Joda-Time, and assign time zone to adjust.
+        DateTime now = DateTime.now( zone );
+        // Now see if the month and year match.
+        if ((dateTime.getYear() == now.getYear() && dateTime.getMonthOfYear() >= now.getMonthOfYear())
+                || (dateTime.getYear() == (now.getYear() +1))){
+            return true;
+        }
+        return false;
+
+    }
 }
 
