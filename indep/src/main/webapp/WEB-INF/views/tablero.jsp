@@ -156,7 +156,7 @@
   <br />
 </div>
 
-<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" style="border-top: 1px solid black">
   <div class="container crop">
     <img src="images/banner2.jpg" class="img-responsive">
   </div>
