@@ -12,7 +12,10 @@ window.onload=function() {
     $("#showPremium").click(function(){switchInnerPage("premium", premiumCallback)});
 
 
+
 }
+
+
 
 function switchInnerPage(page, callback){
     var innerPage = './'+ page + 'Page';
@@ -569,6 +572,27 @@ function cargarinversiones() {
 
 }
 
+function tableroCallback() {
+    $.ajax({
+        type: "GET",
+        url: "./tableroData",
+        data: {username: username},
+        complete: function (data) {
+            console.log(data);
+
+            var responseObject = JSON.parse(data['responseText']);
+            var tableroDataJSON = responseObject.inversiones;
+            $('.inversionesSquare').html("<h2>" + tableroDataJSON['inversion'] + "</h2>");
+            $('.gastosSquare').html("<h2>" + tableroDataJSON['gastos']  + "</h2>");
+            $('.ingresosSquare').html("<h2>" + tableroDataJSON['ingresos']  + "</h2>");
+            $('.balanceSquare').html("<h2>" + tableroDataJSON['balance']  + "</h2>");
+
+
+        },
+        dataType: "json",
+        contentType: "application/json"
+    });
+}
 
 function premiumCallback(){
 

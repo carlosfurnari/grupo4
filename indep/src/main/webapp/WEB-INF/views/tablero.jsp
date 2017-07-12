@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <meta charset="ISO-8859-1">
   <title>Control Financiero</title>
   <meta charset="utf-8">
@@ -66,6 +67,10 @@
   <%
     String serverContent = (String)request.getAttribute("chartData");
     String monthlyChart = (String)request.getAttribute("monthlyChart");
+    String inversiones = (String)request.getAttribute("inversiones");
+    String gastos = (String)request.getAttribute("gastos");
+    String ingresos = (String)request.getAttribute("ingresos");
+    String balance = (String)request.getAttribute("balance");
   %>
 
   <script>
@@ -97,42 +102,42 @@
     <div class="w3-row-padding w3-margin-bottom">
       <div class="w3-quarter">
         <div class="w3-container w3-teal w3-padding-16">
-          <div class="w3-left">
-            <h2>$40000</h2>
+          <div class="w3-left" id="inversionesSquare">
+            <h2><%= inversiones %></h2>
           </div>
           <div class="w3-right"><i class="fa fa-dollar w3-xxxlarge"></i></div>
           <div class="w3-clear"></div>
-          <h4>Presupuesto Mensual</h4>
+          <h4>Inversiones</h4>
         </div>
       </div>
       <div class="w3-quarter">
         <div class="w3-container w3-red w3-padding-16">
           <div class="w3-right"><i class="fa fa-pie-chart w3-xxxlarge"></i></div>
-          <div class="w3-left">
-            <h2>$8000</h2>
-          </div>
-          <div class="w3-clear"></div>
-          <h4>Gastos Mensuales Fijos</h4>
-        </div>
-      </div>
-      <div class="w3-quarter">
-        <div class="w3-container w3-orange w3-text-white w3-padding-16">
-          <div class="w3-right"><i class="fa fa fa-money w3-xxxlarge"></i></div>
-          <div class="w3-left">
-            <h2>$0</h2>
+          <div class="w3-left" id="gastosSquare">
+            <h2><%= gastos %></h2>
           </div>
           <div class="w3-clear"></div>
           <h4>Gastos del Mes</h4>
         </div>
       </div>
       <div class="w3-quarter">
-        <div class="w3-container w3-blue w3-padding-16">
-          <div class="w3-right"><i class="fa fa-suitcase w3-xxxlarge"></i></div>
-          <div class="w3-left">
-            <h2>$0</h2>
+        <div class="w3-container w3-green w3-text-white w3-padding-16">
+          <div class="w3-right"><i class="fa fa fa-money w3-xxxlarge"></i></div>
+          <div class="w3-left" id="ingresosSquare">
+            <h2><%= ingresos %></h2>
           </div>
           <div class="w3-clear"></div>
-          <h4>Ingresos Extraordinarios</h4>
+          <h4>Ingresos Del Mes</h4>
+        </div>
+      </div>
+      <div class="w3-quarter">
+        <div class="w3-container w3-blue w3-padding-16">
+          <div class="w3-right"><i class="fa fa-suitcase w3-xxxlarge"></i></div>
+          <div class="w3-left" id="balanceSquare">
+            <h2><%= balance %></h2>
+          </div>
+          <div class="w3-clear"></div>
+          <h4>Balance del Mes</h4>
         </div>
       </div>
     </div>
