@@ -43,13 +43,13 @@
                 <label for="datePicker" style="padding-right: 5px">Fecha</label>
                 <input class="form-control" type="date" id="datePicker" name="fecha">
             </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-success" id="addinversion">Listo</button>
-            </div>
         </form>
+        <div class="form-group" align="center" style="padding-top: 8px">
+            <button type="submit" class="btn btn-success" id="addinversion" style="width: 300px">Listo</button>
+        </div>
     </div>
     <br>
-    <div id="ing-categoria" style="padding: 20px 0px 20px 20px; border: 3px outset blue; border-radius: 4px; background-color: #CEECF5; width: 64%">
+    <div id="ing-categoria" style="padding: 20px 0px 20px 20px; border: 3px outset blue; border-radius: 4px; background-color: #CEECF5; width: 100%">
         <form class="form-inline" id="categoriaForm" style="padding-left: 30px; font-family: Georgia">
             <div class="form-group" style="padding-right: 0px">
                 <input type="hidden" class="form-control" id="userFieldCategoria" name="username">
@@ -62,11 +62,11 @@
                 <label for="descripcionField" style="padding-right: 5px">Descripcion</label>
                 <input type="text" class="form-control" id="descripcionFieldCategoria" name="descripcion">
             </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-success" id="addCategoria">Nueva Categoria</button>
-            </div>
 
         </form>
+        <div class="form-group"  align="center" style="padding-top: 8px">
+            <button type="submit" class="btn btn-success" id="addCategoria" style="width: 300px">Nueva Categoria</button>
+        </div>
 
     </div>
 
